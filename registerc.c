@@ -2,8 +2,9 @@
 #include <string.h>
 
 void ViewUser(char userName[]);
+int Loginuser();
 
-int main(void)
+int CreateUser(void)
 {
     // creating a FILE variable
     /// FILE *inputf;
@@ -17,6 +18,8 @@ int main(void)
     char PassWord[255];
     char PassWordC[255];
     char NameOfUser[255];
+
+    char AccountCreateOption = 'N';
 
     // Get username from user and create a new file name as user's username
     printf("Welcome to TRS-Application...!!");
@@ -32,9 +35,19 @@ int main(void)
     }
     else
     {
-        printf("Failed to create the file.\n");
-        // exit status for OS that an error occured
-        return -1;
+        printf("There are no exicting user...\n");
+        printf("do you want to create an account..?\n Y/N");
+        scanf("%c", &AccountCreateOption);
+
+        if (AccountCreateOption == 'Y')
+        {
+            CreateUser();
+        }
+        else
+        {
+            // exit status for OS that an error occured
+            return -1;
+        }
     }
 
     char id[255] = "TRS_UR_001";
@@ -111,4 +124,82 @@ void ViewUser(char userName[])
 
     // close connection
     fclose(inputf);
+}
+
+int main()
+{
+    // creating a FILE variable
+    /// FILE *inputf;
+    FILE *inputf;
+
+    char l_username[255];
+    char l_name[255];
+    char l_userID[255];
+    char l_Password[255];
+
+    char PassWordFromUser[255];
+
+    char AccountCreateOption[2];
+
+    int value;
+
+    printf("Enter your username: ");
+    scanf("%s", &l_username);
+
+    inputf = fopen(l_username, "r");
+
+    if (inputf != NULL)
+    {
+        // display detail
+        printf("\nCustomer Details:\n");
+        fscanf(inputf, "%s %s %s %[^\n]s", l_userID, &l_username, &l_name, &l_Password);
+        // printf("\tUserID: %s\n", r_userID);
+        // printf("\tUsername: %s\n", r_username);
+        printf("\t Hello %s\n", l_name);
+        // printf("\tPassword: %s\n", l_Password);
+
+        printf("Enter your password: ");
+        scanf("%s", &PassWordFromUser);
+
+        value = strcmp(l_Password, PassWordFromUser);
+        if (value == 0)
+        {
+            printf("You have successfully loggedin");
+        }
+        else
+        {
+            printf("your password is wrong...\n");
+            printf("try again...\n");
+
+            printf("Enter your password: ");
+            scanf("%s", &PassWordFromUser);
+
+            value = strcmp(l_Password, PassWordFromUser);
+            if (value == 0)
+            {
+                printf("You have successfully loggedin");
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    }
+    else
+    {
+        printf("There are no exicting user...\n");
+        printf("do you want to create an account..? [ Y / N ] : ");
+        scanf("%s", &AccountCreateOption);
+
+        if (AccountCreateOption == 'Y')
+        {
+            CreateUser();
+        }
+        else
+        {
+            // exit status for OS that an error occured
+            printf("Terminating....\n");
+            return -1;
+        }
+    }
 }
