@@ -6,6 +6,9 @@ void ViewUser(char userName[]);
 int LoginUser();
 int CreateUser(void);
 int MainView();
+void Features_Services();
+void ViewReservation();
+void support();
 
 void ViewUser(char userName[])
 {
@@ -58,7 +61,7 @@ int MainView()
         {
         case 1:
             /* LoginFunction */
-            ViewUser("Kirupan10");
+            // ViewUser("Kirupan10");
             break;
 
         case 2:
@@ -160,12 +163,6 @@ int CreateUser(void)
     return 0;
 }
 
-int main()
-{
-    LoginUser();
-    return 0;
-}
-
 int LoginUser()
 {
     // creating a FILE variable
@@ -241,5 +238,177 @@ int LoginUser()
             printf("Terminating....\n");
             return -1;
         }
+    }
+}
+int main()
+{
+    // LoginUser();
+    Features_Services();
+    return 0;
+}
+void Features_Services()
+{
+    // integer decleearage
+    int FeatureOption;
+
+    printf("\n");
+    printf("\t\t\t-------------------- Welcome Back [ USERNAME ] -----------------\n\n");
+    printf("\t\t\t-------------------[ 1 ] Trains List & Prices  -----------------\n");
+    printf("\t\t\t-------------------[ 2 ] Train Seat Reservation ----------------\n");
+    printf("\t\t\t-------------------[ 3 ] Parcel Services -----------------------\n");
+    printf("\t\t\t-------------------[ 4 ] View My History -----------------------\n");
+    printf("\t\t\t-------------------[ 5 ] Profile -------------------------------\n");
+    printf("\t\t\t-------------------[ 6 ] Supports and News ---------------------\n");
+    printf("\t\t\t-------------------[ 7 ] Exit ----------------------------------\n\n");
+
+    printf("\t\t\tFeature Option: ");
+    scanf("%d", &FeatureOption);
+
+    switch (FeatureOption)
+    {
+    case 1:
+        // TrainList();
+        break;
+    case 2:
+        /* TrainReservation();
+         */
+        break;
+    case 3:
+        /* code */
+        break;
+    case 4:
+        /* ReservationHistory();
+         */
+        break;
+    case 5:
+        /* Profile(); */
+        break;
+    case 6:
+        /* support();
+         */
+        break;
+    case 7:
+        /* code */
+        break;
+
+    default:
+        break;
+    }
+}
+
+void Profile()
+{
+
+    int ProfileOption;
+
+    printf("\n");
+    printf("\t\t\t----------------------[ # ] Profile  ---------------------------n");
+    printf("\t\t\t-------------------- Welcome Back [ USERNAME ] -----------------\n\n");
+    printf("\t\t\t-------------------[ 1 ] Edit personal details  -----------------\n");
+    printf("\t\t\t-------------------[ 2 ] View history ---------------------------\n");
+    printf("\t\t\t-------------------[ 3 ] Logs -----------------------------------\n");
+    printf("\t\t\t-------------------[ 4 ] Main menu ------------------------------\n");
+    printf("\t\t\t-------------------[ 5 ] Exit -----------------------------------\n\n");
+
+    printf("\t\t\tFeature Option: ");
+    scanf("%d", &ProfileOption);
+
+    switch (ProfileOption)
+    {
+    case 1:
+        // TrainList();
+        break;
+    case 2:
+        /* TrainReservation();
+         */
+        break;
+    case 3:
+        /* code */
+        break;
+    case 4:
+        /* ReservationHistory();
+         */
+        break;
+    case 5:
+        /* Profile(); */
+        break;
+
+    default:
+        break;
+    }
+}
+
+void ViewReservation()
+{
+
+    int ProfileOption;
+
+    printf("\n");
+    printf("\t\t\t----------------------[ # ] View Reservation  ---------------------------n");
+    printf("\t\t\t-------------------- Welcome Back [ USERNAME ] -----------------\n\n");
+    printf("\t\t\t-------------------[ 1 ] View history ---------------------------\n");
+    printf("\t\t\t-------------------[ 2 ] Logs -----------------------------------\n");
+    printf("\t\t\t-------------------[ 3 ] Main menu ------------------------------\n");
+    printf("\t\t\t-------------------[ 4 ] Exit -----------------------------------\n\n");
+
+    printf("\t\t\tFeature Option: ");
+    scanf("%d", &ProfileOption);
+
+    switch (ProfileOption)
+    {
+    case 1:
+        // TrainList();
+        break;
+    case 2:
+        /* TrainReservation();
+         */
+        break;
+    case 3:
+        /* code */
+        break;
+    case 4:
+        /* ReservationHistory();
+         */
+        break;
+
+    default:
+        break;
+    }
+}
+
+void support()
+{
+    int ProfileOption;
+
+    printf("\n");
+    printf("\t\t\t----------------------[ # ] support  ---------------------------n");
+    printf("\t\t\t-------------------- Welcome Back [ USERNAME ] -----------------\n\n");
+    printf("\t\t\t-------------------[ 1 ] Create New Mail Support ---------------------------\n");
+    printf("\t\t\t-------------------[ 2 ] View my support mails-----------------------------------\n");
+    printf("\t\t\t-------------------[ 3 ] Main menu ------------------------------\n");
+    printf("\t\t\t-------------------[ 4 ] Exit -----------------------------------\n\n");
+
+    printf("\t\t\tFeature Option: ");
+    scanf("%d", &ProfileOption);
+
+    switch (ProfileOption)
+    {
+    case 1:
+        // TrainList();
+        break;
+    case 2:
+        /* TrainReservation();
+         */
+        break;
+    case 3:
+        /* code */
+        break;
+    case 4:
+        /* ReservationHistory();
+         */
+        break;
+
+    default:
+        break;
     }
 }
