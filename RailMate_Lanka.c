@@ -6,9 +6,12 @@ void ViewUser(char userName[]);
 int LoginUser();
 int CreateUser(void);
 int MainView();
-void Features_Services();
+void Features_Services(char T_username);
 void ViewReservation();
 void support();
+
+void Profile(char T_username[]);
+char EditPersonalDetails(char T_username[]);
 
 void ViewUser(char userName[])
 {
@@ -92,7 +95,7 @@ int CreateUser(void)
     int value;
 
     // character variable
-    char userName[255];
+    char T_username[255];
     char PassWord[255];
     char PassWordC[255];
     char NameOfUser[255];
@@ -100,10 +103,10 @@ int CreateUser(void)
     // Get username from user and create a new file name as user's username
     printf("Welcome to TRS-Application...!!");
     printf("\tUsername: ");
-    scanf("%s", userName);
+    scanf("%s", T_username);
 
     // open the file in write mode
-    inputf = fopen(userName, "w");
+    inputf = fopen(T_username, "w");
 
     if (inputf != NULL)
     {
@@ -131,7 +134,7 @@ int CreateUser(void)
     value = strcmp(PassWord, PassWordC);
     if (value == 0)
     {
-        fprintf(inputf, "%s %s %s %s\n", id, userName, NameOfUser, PassWord);
+        fprintf(inputf, "%s %s %s %s\n", id, T_username, NameOfUser, PassWord);
     }
 
     else
@@ -146,7 +149,7 @@ int CreateUser(void)
         value = strcmp(PassWord, PassWordC);
         if (value == 0)
         {
-            fprintf(inputf, "%s %s %s %s\n", id, userName, NameOfUser, PassWord);
+            fprintf(inputf, "%s %s %s %s\n", id, T_username, NameOfUser, PassWord);
         }
         else
         {
@@ -159,7 +162,7 @@ int CreateUser(void)
     // close connection
     fclose(inputf);
 
-    ViewUser(userName);
+    Features_Services(T_username);
     return 0;
 }
 
@@ -169,7 +172,7 @@ int LoginUser()
     /// FILE *inputf;
     FILE *inputf;
 
-    char l_username[255];
+    char T_username[255];
     char l_name[255];
     char l_userID[255];
     char l_Password[255];
@@ -181,15 +184,15 @@ int LoginUser()
     int value;
 
     printf("Enter your username: ");
-    scanf("%s", &l_username);
+    scanf("%s", &T_username);
 
-    inputf = fopen(l_username, "r");
+    inputf = fopen(T_username, "r");
 
     if (inputf != NULL)
     {
         // display detail
         printf("\nCustomer Details:\n");
-        fscanf(inputf, "%s %s %s %[^\n]s", l_userID, &l_username, &l_name, &l_Password);
+        fscanf(inputf, "%s %s %s %[^\n]s", l_userID, &T_username, &l_name, &l_Password);
         // printf("\tUserID: %s\n", r_userID);
         // printf("\tUsername: %s\n", r_username);
         printf("\t Hello %s\n", l_name);
@@ -239,14 +242,10 @@ int LoginUser()
             return -1;
         }
     }
+    Features_Services(T_username);
 }
-int main()
-{
-    // LoginUser();
-    Features_Services();
-    return 0;
-}
-void Features_Services()
+
+void Features_Services(char T_username)
 {
     // integer decleearage
     int FeatureOption;
@@ -281,7 +280,7 @@ void Features_Services()
          */
         break;
     case 5:
-        /* Profile(); */
+        Profile(T_username);
         break;
     case 6:
         /* support();
@@ -296,7 +295,7 @@ void Features_Services()
     }
 }
 
-void Profile()
+void Profile(char T_username[])
 {
 
     int ProfileOption;
@@ -316,7 +315,7 @@ void Profile()
     switch (ProfileOption)
     {
     case 1:
-        // TrainList();
+        EditPersonalDetails(T_username);
         break;
     case 2:
         /* TrainReservation();
@@ -336,6 +335,98 @@ void Profile()
     default:
         break;
     }
+}
+
+// -------- EditPersonalDetails --------//
+int main()
+{
+    char T_username[] = "kirupan10";
+    EditPersonalDetails(T_username);
+
+    return 0;
+}
+char EditPersonalDetails(char T_username[])
+{
+
+    // creating a FILE variable
+    /// FILE *inputf;
+    FILE *file;
+
+    // integer variable
+    int value;
+
+    // character variable
+    // char EP_username[255];
+    char EP_password[255];
+    char EP_password_r[255];
+    char EP_name[255];
+
+    // Get username from user and create a new file name as user's username
+    printf("Welcome to TRS-Application...!!");
+
+    // open the file in read mode
+    file = fopen(T_username, "r");
+
+    if (file != NULL)
+    {
+        file = fopen(T_username, "w");
+        char id[255] = "TRS_UR_001";
+
+        // get customer detail
+        printf("\tEnter name: ");
+        scanf("%s", &EP_name);
+
+        printf("\tEnter your password: ");
+        scanf("%s", &EP_password);
+
+        printf("\tAgain Password: ");
+        scanf("%s", &EP_password_r);
+
+        value = strcmp(EP_password, EP_password_r);
+        if (value == 0)
+        {
+            fprintf(file, "%s %s %s %s\n", id, T_username, EP_name, EP_password);
+        }
+
+        else
+        {
+            printf("\tPasswords doesn't match...\n");
+
+            printf("\tEnter your password: ");
+            scanf("%s", &EP_password);
+
+            printf("\tAgain Password: ");
+            scanf("%s", &EP_password_r);
+            value = strcmp(EP_password, EP_password_r);
+            if (value == 0)
+            {
+                fprintf(file, "%s %s %s %s\n", id, T_username, EP_name, EP_password);
+            }
+            else
+            {
+                printf("Passwords doesn't match...\n");
+                printf("Try again later...\n");
+                return -1;
+            }
+        }
+
+        // close connection
+        fclose(file);
+    }
+    else
+    {
+        printf("issue on system.\n");
+        // exit status for OS that an error occured
+        return -1;
+    }
+}
+
+void ViewHistory()
+{
+}
+
+void ViewLogs()
+{
 }
 
 void ViewReservation()
