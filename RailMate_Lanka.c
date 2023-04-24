@@ -1,8 +1,9 @@
 /* Libraries */
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 
-void ViewUser(char userName[]);
+void ViewUser(char T_username[]);
 int LoginUser();
 int CreateUser(void);
 int MainView();
@@ -13,7 +14,7 @@ void support();
 void Profile(char T_username[]);
 char EditPersonalDetails(char T_username[]);
 
-void ViewUser(char userName[])
+void ViewUser(char T_username[])
 {
     // creating a FILE variable
     /// FILE *inputf;
@@ -26,7 +27,7 @@ void ViewUser(char userName[])
     char r_userID[255];
 
     // open file for reading
-    inputf = fopen(userName, "r");
+    inputf = fopen(T_username, "r");
 
     // display detail
     printf("\nCustomer Details:\n");
