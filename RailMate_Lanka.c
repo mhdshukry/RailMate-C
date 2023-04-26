@@ -4,18 +4,16 @@
 #include <time.h>
 #include <stdlib.h>
 
+/* Functions */
 void ViewUser(char T_username[]);
 int LoginUser();
 int CreateUser(void);
 void Features_Services();
 void ViewReservation();
 void support();
-
 void TrainReservation();
-
 void Profile(char T_username[]);
 char EditPersonalDetails(char T_username[]);
-
 void TrainList();
 int PriceCalculation(int S_Station, int E_Station, int S_Class, int Person);
 
@@ -135,12 +133,15 @@ void ViewUser(char T_username[])
     // display detail
     printf("\nCustomer Details:\n");
     fscanf(inputf, "%s %s %s %[^\n]s", r_userID, &r_username, &r_Name, &r_Password);
-    printf("\tUserID: %s\n", r_userID);
-    printf("\tUsername: %s\n", r_username);
-    printf("\tName: %s\n", r_Name);
-    printf("\tPassword: %s\n", r_Password);
-
-    printf("\nEnd of file.\n");
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\tUserID: %s\n", r_userID);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\tUsername: %s\n", r_username);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\tName: %s\n", r_Name);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\tPassword: %s\n", r_Password);
+    printf("\t\t\t---------------------------------------------------------------\n");
 
     // close connection
     fclose(inputf);
@@ -207,8 +208,7 @@ int CreateUser(void)
         {
 
             fprintf(C_file, "%s %s %s %s\n", id, T_username, NameOfUser, PassWord);
-            RegisterStatus = 1;
-            return RegisterStatus;
+            return T_username;
         }
 
         else
@@ -225,14 +225,13 @@ int CreateUser(void)
             {
                 fprintf(C_file, "%s %s %s %s\n", id, T_username, NameOfUser, PassWord);
                 RegisterStatus = 1;
-                return RegisterStatus;
+                return T_username;
             }
             else
             {
                 printf("Passwords doesn't match...\n");
                 printf("Try again later...\n");
-                RegisterStatus = 0;
-                return RegisterStatus;
+                return "null";
             }
         }
 
@@ -335,7 +334,7 @@ void Features_Services()
 {
     // integer decleearage
     int FeatureOption;
-    //printf("\n%s", T_username);
+    // printf("\n%s", T_username);
 
     printf("\n");
     printf("\t\t\t-------------------- Welcome Back [ %s ] -----------------\n\n", T_username);
@@ -388,7 +387,7 @@ void Profile(char T_username[])
     int ProfileOption;
 
     printf("\n");
-    printf("\t\t\t----------------------[ # ] Profile  ---------------------------n");
+    printf("\t\t\t----------------------[ # ] Profile  ---------------------------\n");
     printf("\t\t\t-------------------- Welcome Back [ %s ] -----------------\n\n", T_username);
     printf("\t\t\t-------------------[ 1 ] View Details ---------------------------\n");
     printf("\t\t\t-------------------[ 2 ] Edit personal details  -----------------\n");
@@ -450,19 +449,20 @@ int main()
         switch (op)
         {
         case 1:
-            if (LoginUser() != "")
+            if (LoginUser() != "null")
             {
-                //printf("\n%s", T_username);
-                
+                // printf("\n%s", T_username);
+
                 Features_Services();
             }
 
             break; // break the function
 
         case 2:
-            RegisterStatus = CreateUser();
-            if (RegisterStatus == 1)
+            if (CreateUser() != "null")
             {
+                // printf("\n%s", T_username);
+
                 Features_Services();
             }
             break; // break the function
