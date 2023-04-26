@@ -75,10 +75,10 @@ void TrainList()
     printf("\n");
 
     printf("\t\t Starting station: ");
-    scanf("%s", &S_Station);
+    scanf("%s", S_Station);
 
     printf("\t\t Ending station: ");
-    scanf("%s", &E_Station);
+    scanf("%s", E_Station);
 
     printf("\n");
     printf("\n");
@@ -187,20 +187,20 @@ int CreateUser(void)
         {
             printf("Failed to create the file.\n");
             // exit status for OS that an error occured
-            return -1;
+            exit(0);
         }
 
         char id[255] = "TRS_UR_001";
 
         // get customer detail
         printf("\tEnter name: ");
-        scanf("%s", &NameOfUser);
+        scanf("%s", NameOfUser);
 
         printf("\tEnter your password: ");
-        scanf("%s", &PassWord);
+        scanf("%s", PassWord);
 
         printf("\tAgain Password: ");
-        scanf("%s", &PassWordC);
+        scanf("%s", PassWordC);
 
         value = strcmp(PassWord, PassWordC);
         if (value == 0)
@@ -216,10 +216,10 @@ int CreateUser(void)
             printf("\tPasswords doesn't match...\n");
 
             printf("\tEnter your password: ");
-            scanf("%s", &PassWord);
+            scanf("%s", PassWord);
 
             printf("\tAgain Password: ");
-            scanf("%s", &PassWordC);
+            scanf("%s", PassWordC);
             value = strcmp(PassWord, PassWordC);
             if (value == 0)
             {
@@ -263,7 +263,7 @@ int LoginUser()
     int value;
 
     printf("\n\n\t\t\tEnter your username: ");
-    scanf("%s", &T_username);
+    scanf("%s", T_username);
 
     P_username = T_username;
 
@@ -279,7 +279,7 @@ int LoginUser()
         // printf("\tPassword: %s\n", l_Password);
 
         printf("\t\tEnter your password: ");
-        scanf("%s", &PassWordFromUser);
+        scanf("%s", PassWordFromUser);
 
         value = strcmp(l_Password, PassWordFromUser);
         if (value == 0)
@@ -294,7 +294,7 @@ int LoginUser()
             printf("\t\ttry again...\n");
 
             printf("\t\tEnter your password: ");
-            scanf("%s", &PassWordFromUser);
+            scanf("%s", PassWordFromUser);
 
             value = strcmp(l_Password, PassWordFromUser);
             if (value == 0)
@@ -313,7 +313,7 @@ int LoginUser()
     {
         printf("There are no exicting user...\n");
         printf("do you want to create an account..? [ Y / N ] : ");
-        scanf("%s", &AccountCreateOption);
+        scanf("%s", AccountCreateOption);
 
         if (AccountCreateOption == 'Y')
         {
@@ -411,7 +411,7 @@ void Profile(char T_username[])
         /* code */
         break;
     case 4:
-        Features_Services(T_username);
+        Features_Services();
         break;
     case 5:
         exit(0);
@@ -463,7 +463,7 @@ int main()
             RegisterStatus = CreateUser();
             if (RegisterStatus == 1)
             {
-                Features_Services(T_username);
+                Features_Services();
             }
             break; // break the function
 
@@ -509,13 +509,13 @@ char EditPersonalDetails(char T_username[])
 
         // get customer detail
         printf("\tEnter name: ");
-        scanf("%s", &EP_name);
+        scanf("%s", EP_name);
 
         printf("\tEnter your password: ");
-        scanf("%s", &EP_password);
+        scanf("%s", EP_password);
 
         printf("\tAgain Password: ");
-        scanf("%s", &EP_password_r);
+        scanf("%s", EP_password_r);
 
         value = strcmp(EP_password, EP_password_r);
         if (value == 0)
@@ -528,10 +528,10 @@ char EditPersonalDetails(char T_username[])
             printf("\tPasswords doesn't match...\n");
 
             printf("\tEnter your password: ");
-            scanf("%s", &EP_password);
+            scanf("%s", EP_password);
 
             printf("\tAgain Password: ");
-            scanf("%s", &EP_password_r);
+            scanf("%s", EP_password_r);
             value = strcmp(EP_password, EP_password_r);
             if (value == 0)
             {
@@ -541,7 +541,7 @@ char EditPersonalDetails(char T_username[])
             {
                 printf("Passwords doesn't match...\n");
                 printf("Try again later...\n");
-                return -1;
+                Features_Services();
             }
         }
 
@@ -552,7 +552,7 @@ char EditPersonalDetails(char T_username[])
     {
         printf("issue on system.\n");
         // exit status for OS that an error occured
-        return 0;
+        exit(0);
     }
 }
 
