@@ -11,8 +11,22 @@ void Features_Services(char T_username);
 void ViewReservation();
 void support();
 
+void TrainReservation();
+
 void Profile(char T_username[]);
 char EditPersonalDetails(char T_username[]);
+
+void TrainReservation()
+{
+    printf("\n");
+    printf("\t\t\t----------------------[ # ] Train Reservation  ---------------------------n");
+    printf("\t\t\t-------------------- Hello [ USERNAME ] ------------------\n\n");
+    printf("\t\t\t-------------------[ 1 ] Train list and prices   -----------------\n");
+    printf("\t\t\t-------------------[ 2 ] Train Reservation------------------------\n");
+    printf("\t\t\t-------------------[ 3 ] View Reservations -----------------------\n");
+    printf("\t\t\t-------------------[ 4 ] Main menu -------------------------------\n");
+    printf("\t\t\t-------------------[ 5 ] Exit ------------------------------------\n\n");
+}
 
 void ViewUser(char T_username[])
 {
