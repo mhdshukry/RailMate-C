@@ -7,7 +7,7 @@
 void ViewUser(char T_username[]);
 int LoginUser();
 int CreateUser(void);
-void Features_Services(char T_username);
+void Features_Services();
 void ViewReservation();
 void support();
 
@@ -20,8 +20,8 @@ void TrainList();
 int PriceCalculation(int S_Station, int E_Station, int S_Class, int Person);
 
 // Global variables
-char T_username[255] = "USER";
-int LoginStatus;
+char T_username[255];
+char LoginStatus[255];
 int RegisterStatus;
 
 int PriceCalculation(int S_Station, int E_Station, int S_Class, int Person)
@@ -101,6 +101,8 @@ void TrainList()
 
     Ticket = PriceCalculation(S_Station, E_Station, S_Class, Person);
     printf("\n Ticket: %0.2lf ", Ticket);
+
+    Features_Services();
 }
 
 void TrainReservation()
@@ -142,6 +144,7 @@ void ViewUser(char T_username[])
 
     // close connection
     fclose(inputf);
+    Features_Services();
 }
 
 int CreateUser(void)
@@ -161,82 +164,84 @@ int CreateUser(void)
     char NameOfUser[255];
 
     // Get username from user and create a new file name as user's username
-    //printf("Welcome to TRS-Application...!!");
+    // printf("Welcome to TRS-Application...!!");
     printf("\n\n\t\tUnique username, please: ");
     scanf("%s", T_username);
 
     R_file = fopen(T_username, "r");
-    if(R_file != NULL){
+    if (R_file != NULL)
+    {
         printf("\n\t\tUsername already exicts...\n\t\tPlease,Choose another one.");
-       CreateUser();
+        CreateUser();
     }
     if (R_file == NULL)
     {
-       // open the file in write mode
-       C_file = fopen(T_username, "w");
+        // open the file in write mode
+        C_file = fopen(T_username, "w");
 
-       if (C_file != NULL)
-       {
-           // printf("File created successfully!\n");
-       }
-       else
-       {
-           printf("Failed to create the file.\n");
-           // exit status for OS that an error occured
-           return -1;
-       }
+        if (C_file != NULL)
+        {
+            // printf("File created successfully!\n");
+        }
+        else
+        {
+            printf("Failed to create the file.\n");
+            // exit status for OS that an error occured
+            return -1;
+        }
 
-       char id[255] = "TRS_UR_001";
+        char id[255] = "TRS_UR_001";
 
-       // get customer detail
-       printf("\tEnter name: ");
-       scanf("%s", &NameOfUser);
+        // get customer detail
+        printf("\tEnter name: ");
+        scanf("%s", &NameOfUser);
 
-       printf("\tEnter your password: ");
-       scanf("%s", &PassWord);
+        printf("\tEnter your password: ");
+        scanf("%s", &PassWord);
 
-       printf("\tAgain Password: ");
-       scanf("%s", &PassWordC);
+        printf("\tAgain Password: ");
+        scanf("%s", &PassWordC);
 
-       value = strcmp(PassWord, PassWordC);
-       if (value == 0)
-       {
+        value = strcmp(PassWord, PassWordC);
+        if (value == 0)
+        {
 
-           fprintf(C_file, "%s %s %s %s\n", id, T_username, NameOfUser, PassWord);
-           RegisterStatus = 1;
-           return RegisterStatus;
-       }
+            fprintf(C_file, "%s %s %s %s\n", id, T_username, NameOfUser, PassWord);
+            RegisterStatus = 1;
+            return RegisterStatus;
+        }
 
-       else
-       {
-           printf("\tPasswords doesn't match...\n");
+        else
+        {
+            printf("\tPasswords doesn't match...\n");
 
-           printf("\tEnter your password: ");
-           scanf("%s", &PassWord);
+            printf("\tEnter your password: ");
+            scanf("%s", &PassWord);
 
-           printf("\tAgain Password: ");
-           scanf("%s", &PassWordC);
-           value = strcmp(PassWord, PassWordC);
-           if (value == 0)
-           {
-               fprintf(C_file, "%s %s %s %s\n", id, T_username, NameOfUser, PassWord);
-               RegisterStatus = 1;
-               return RegisterStatus;
-           }
-           else
-           {
-               printf("Passwords doesn't match...\n");
-               printf("Try again later...\n");
-               RegisterStatus = 0;
-               return RegisterStatus;
-           }
-       }
+            printf("\tAgain Password: ");
+            scanf("%s", &PassWordC);
+            value = strcmp(PassWord, PassWordC);
+            if (value == 0)
+            {
+                fprintf(C_file, "%s %s %s %s\n", id, T_username, NameOfUser, PassWord);
+                RegisterStatus = 1;
+                return RegisterStatus;
+            }
+            else
+            {
+                printf("Passwords doesn't match...\n");
+                printf("Try again later...\n");
+                RegisterStatus = 0;
+                return RegisterStatus;
+            }
+        }
 
-       // close connection
-       fclose(C_file);
-       fclose(R_file);
-       return 0;
-    }}
+        // close connection
+        fclose(C_file);
+        fclose(R_file);
+        return 0;
+    }
+}
 
 int LoginUser()
 {
@@ -244,7 +249,9 @@ int LoginUser()
     /// FILE *inputf;
     FILE *F_login;
 
-    char T_username[255];
+    char *P_username;
+
+    // char T_username[255];
     char l_name[255];
     char l_userID[255];
     char l_Password[255];
@@ -257,6 +264,8 @@ int LoginUser()
 
     printf("\n\n\t\t\tEnter your username: ");
     scanf("%s", &T_username);
+
+    P_username = T_username;
 
     F_login = fopen(T_username, "r");
 
@@ -276,7 +285,8 @@ int LoginUser()
         if (value == 0)
         {
             printf("\t\tYou have successfully loggedin");
-            LoginStatus = 1;
+
+            return T_username;
         }
         else
         {
@@ -290,11 +300,12 @@ int LoginUser()
             if (value == 0)
             {
                 printf("\t\tYou have successfully loggedin");
-                LoginStatus = 1;
+
+                return T_username;
             }
             else
             {
-                LoginStatus = 0;
+                return "null";
             }
         }
     }
@@ -316,14 +327,15 @@ int LoginUser()
         }
     }
     fclose(F_login);
-    return LoginStatus;
+
     // Features_Services(T_username);
 }
 
-void Features_Services(char T_username)
+void Features_Services()
 {
     // integer decleearage
     int FeatureOption;
+    //printf("\n%s", T_username);
 
     printf("\n");
     printf("\t\t\t-------------------- Welcome Back [ %s ] -----------------\n\n", T_username);
@@ -377,10 +389,10 @@ void Profile(char T_username[])
 
     printf("\n");
     printf("\t\t\t----------------------[ # ] Profile  ---------------------------n");
-    printf("\t\t\t-------------------- Welcome Back [ USERNAME ] -----------------\n\n");
-    printf("\t\t\t-------------------[ 1 ] Edit personal details  -----------------\n");
-    printf("\t\t\t-------------------[ 2 ] View history ---------------------------\n");
-    printf("\t\t\t-------------------[ 3 ] Logs -----------------------------------\n");
+    printf("\t\t\t-------------------- Welcome Back [ %s ] -----------------\n\n", T_username);
+    printf("\t\t\t-------------------[ 1 ] View Details ---------------------------\n");
+    printf("\t\t\t-------------------[ 2 ] Edit personal details  -----------------\n");
+    printf("\t\t\t-------------------[ 3 ] View Reservation history ---------------\n");
     printf("\t\t\t-------------------[ 4 ] Main menu ------------------------------\n");
     printf("\t\t\t-------------------[ 5 ] Exit -----------------------------------\n\n");
 
@@ -390,21 +402,19 @@ void Profile(char T_username[])
     switch (ProfileOption)
     {
     case 1:
-        EditPersonalDetails(T_username);
+        ViewUser(T_username);
         break;
     case 2:
-        /* TrainReservation();
-         */
+        EditPersonalDetails(T_username);
         break;
     case 3:
         /* code */
         break;
     case 4:
-        /* ReservationHistory();
-         */
+        Features_Services(T_username);
         break;
     case 5:
-        /* Profile(); */
+        exit(0);
         break;
 
     default:
@@ -417,6 +427,7 @@ int main()
 {
     // declaration of local variable op;
     int op;
+    char loginstatus[255];
 
     do
     {
@@ -439,10 +450,11 @@ int main()
         switch (op)
         {
         case 1:
-            LoginStatus = LoginUser();
-            if (LoginStatus == 1)
+            if (LoginUser() != "")
             {
-                Features_Services(T_username);
+                //printf("\n%s", T_username);
+                
+                Features_Services();
             }
 
             break; // break the function
