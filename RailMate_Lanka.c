@@ -71,25 +71,20 @@ void TrainList()
 
     char TrainList[] = {
         "Jaffna",
-        "Vavuniya",
-        "Mannar",
-        "Kandy",
         "Colombo",
-        "Vavuniya",
-        "Vavuniya",
+        "Vavuniya - Colombo",
+        "Mannar - Colombo",
+        "Kandy - Colombo",
+        "Colombo - Hatton",
+        "Vavuniya - Trincomallee",
+        "Vavuniya - Batticalo",
     };
-
-    printf("\n");
-    printf("\n");
-    printf("\t\t [1] Jaffna \t [2] Vavuniya \t [3] Mannar \t [4] Kandy \t [5] Colombo \n");
-    printf("\n");
-    printf("\t\t [6] Jaffna \t [5] Vavuniya \t [8] Mannar \t [9] Kandy \t [10] Colombo \n");
-    printf("\n");
-    printf("\t\t [11] Jaffna \t [12] Vavuniya \t [13] Mannar \t [14] Kandy \t [15] Colombo \n");
-    printf("\n");
-    printf("\t\t [16] Jaffna \t [17] Vavuniya \t [18] Mannar \t [19] Kandy \t [20] Colombo \n");
-    printf("\n");
-    printf("\n");
+    int length;
+    length = sizeof(TrainList) / sizeof(int);
+    for (int i = 0; i < length; i++)
+    {
+        printf("%s", TrainList[i]);
+    }
 
     printf("\t\t Starting station: ");
     scanf("%s", S_Station);
@@ -363,7 +358,8 @@ void Features_Services()
     printf("\t\t\t-------------------[ 4 ] View My History -----------------------\n");
     printf("\t\t\t-------------------[ 5 ] Profile -------------------------------\n");
     printf("\t\t\t-------------------[ 6 ] Supports and News ---------------------\n");
-    printf("\t\t\t-------------------[ 7 ] Exit ----------------------------------\n\n");
+    printf("\t\t\t-------------------[ 7 ] Report a Bug ---------------------\n");
+    printf("\t\t\t-------------------[ 8 ] Exit ----------------------------------\n\n");
 
     printf("\t\t\tFeature Option: ");
     scanf("%d", &FeatureOption);
@@ -390,7 +386,11 @@ void Features_Services()
     case 6:
         support();
         break;
+
     case 7:
+        Bugs();
+        break;
+    case 8:
         exit(0);
         break;
 
