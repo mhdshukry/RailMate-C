@@ -1,44 +1,45 @@
+/* Libraries */
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <time.h>
-void support();
+#include <stdlib.h>
 
-void NewMail();
-void ViewSupport(void);
+char T_username[255];
+void Bugs();
+void NewBugs();
+void BugsView();
 
-char T_username[255] = "Kirupan";
 int main()
 {
-    support();
+    Bugs();
     return 0;
 }
 
-void support()
+void Bugs()
 {
-    int support_option;
+    int BugsOption;
 
     printf("\n");
-    printf("\t\t\t----------------------[ # ] support  ---------------------------\n");
-    printf("\t\t\t-------------------- Support [ %s ] -----------------\n\n", T_username);
-    printf("\t\t\t-------------------[ 1 ] Create New Mail Support ---------------------------\n");
-    printf("\t\t\t-------------------[ 2 ] View my support mails-----------------------------------\n");
+    printf("\t\t\t----------------------[ # ] Bugs reports  ---------------------------\n");
+    printf("\t\t\t-------------------- Hello [ %s ] -----------------\n\n", T_username);
+    printf("\t\t\t-------------------[ 1 ] Report Bugs ---------------------------\n");
+    printf("\t\t\t-------------------[ 2 ] View Bugs-----------------------------------\n");
     printf("\t\t\t-------------------[ 3 ] Main menu ------------------------------\n");
     printf("\t\t\t-------------------[ 4 ] Exit -----------------------------------\n\n");
 
     printf("\t\t\tFeature Option: ");
-    scanf("%d", &support_option);
+    scanf("%d", &BugsOption);
 
-    switch (support_option)
+    switch (BugsOption)
     {
     case 1:
-        NewMail();
+        NewBugs();
         break;
     case 2:
-        ViewSupport();
+        BugsView();
         break;
     case 3:
-        //
+        // Features_Services();
         break;
     case 4:
         exit(0);
@@ -49,9 +50,8 @@ void support()
     }
 }
 
-void NewMail()
+void NewBugs()
 {
-    FILE *MailFile;
     char content[3000], c;
     int index = 0;
 
@@ -71,11 +71,12 @@ void NewMail()
     timeinfo = localtime(&rawtime);
     // printf("Current local time and date: %s", asctime(timeinfo));
 
-    MailFile = fopen("supports.txt", "a");
+    char *filename = "bugs.txt";
+    FILE *BugsFile = fopen(filename, "a");
 
-    if (MailFile == NULL)
+    if (BugsFile == NULL)
     {
-        printf("System files missing...\n");
+        printf("Error: could not open file %s", filename);
         exit(0);
     }
     else
@@ -101,10 +102,10 @@ void NewMail()
         }
         content[index] = '\0';
 
-        fprintf(MailFile, "Mail support no. %d \n\tRequesting person name: %s \nMail address: %s \nHeading: %s \nContent: %s \n\tTime: %s", no, T_username, mailaddress, heading, content, asctime(timeinfo));
-        fprintf(MailFile, "---------------------------------------------------------------\n\n\n");
+        fprintf(BugsFile, "Mail support no. %d \n\tRequesting person name: %s \nMail address: %s \nHeading: %s \nContent: %s \n\tTime: %s", no, T_username, mailaddress, heading, content, asctime(timeinfo));
+        fprintf(BugsFile, "---------------------------------------------------------------\n\n\n");
 
-        fclose(MailFile);
+        fclose(BugsFile);
 
         char yesorno[20];
         printf("Do you want to continue...? [Type 'yes' or 'no']");
@@ -114,7 +115,7 @@ void NewMail()
         value1 = strcmp(yesorno, "no");
         if (value == 0)
         {
-            Features_Services();
+            // Features_Services();
         }
         else if (value1 == 0)
         {
@@ -124,17 +125,17 @@ void NewMail()
         else
         {
             printf("Wrong input...\n System goes to mainmenu page...\n");
-            Features_Services();
+            // Features_Services();
         }
     }
 }
 
-void ViewSupport()
+void BugsView()
 {
-    char *filename = "supports.txt";
-    FILE *ViewFile = fopen(filename, "r");
+    char *filename = "bugs.txt";
+    FILE *ViewBugFile = fopen(filename, "r");
 
-    if (ViewFile == NULL)
+    if (ViewBugFile == NULL)
     {
         printf("Error: could not open file %s", filename);
         exit(0);
@@ -143,7 +144,7 @@ void ViewSupport()
     // read one character at a time and
     // display it to the output
     char ch;
-    while ((ch = fgetc(ViewFile)) != EOF)
+    while ((ch = fgetc(ViewBugFile)) != EOF)
         putchar(ch);
 
     char *x[] = {"ab", "bc", "cd"};
@@ -159,7 +160,7 @@ void ViewSupport()
         }
     }
     // close the file
-    fclose(ViewFile);
+    fclose(ViewBugFile);
 
     char yesorno[20];
     printf("Do you want to continue...? [Type 'yes' or 'no']");
@@ -169,7 +170,8 @@ void ViewSupport()
     value1 = strcmp(yesorno, "no");
     if (value == 0)
     {
-        Features_Services();
+        printf("Wrong input...\n System goes to mainmenu page...\n");
+        // Features_Services();
     }
     else if (value1 == 0)
     {
@@ -179,6 +181,6 @@ void ViewSupport()
     else
     {
         printf("Wrong input...\n System goes to mainmenu page...\n");
-        Features_Services();
+        // Features_Services();
     }
 }
