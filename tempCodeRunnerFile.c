@@ -1,43 +1,45 @@
-/*c program to compare two arrays*/
-
 #include <stdio.h>
-#include<string.h>  
+void support();
 
-//function to compare array elements
-char compareArray(char a[],char b[],int size)	{
-	int i;
-	for(i=0;i<size;i++){
-		if(a[i]!=b[i])
-			return 1;
-	}
-	return 0;
+char T_username[255];
+int main(){
+    support();
+    return 0;
 }
 
-int main(){
-	char a[255];
-	char b[255];
-	int value;
+void support()
+{
+    int support_option;
 
-	
+    printf("\n");
+    printf("\t\t\t----------------------[ # ] support  ---------------------------\n");
+    printf("\t\t\t-------------------- Support [ %s ] -----------------\n\n",T_username);
+    printf("\t\t\t-------------------[ 1 ] Create New Mail Support ---------------------------\n");
+    printf("\t\t\t-------------------[ 2 ] View my support mails-----------------------------------\n");
+    printf("\t\t\t-------------------[ 3 ] Main menu ------------------------------\n");
+    printf("\t\t\t-------------------[ 4 ] Exit -----------------------------------\n\n");
 
-	printf("Enter your password: ");
-    scanf("%s", &a);
+    printf("\t\t\tFeature Option: ");
+    scanf("%d", &support_option);
 
-    printf("Again Password: ");
-    scanf("%s", &b);
-	
-	if (compareArray(a, b, 255) == 0){
-		printf("Arrays have same elements.\n");
-	}
-	else{
-		printf("Arrays have different elements.\n");
-	}
+    switch (support_option)
+    {
+    case 1:
+        // TrainList();
+        break;
+    case 2:
+        /* TrainReservation();
+         */
+        break;
+    case 3:
+        /* code */
+        break;
+    case 4:
+        /* ReservationHistory();
+         */
+        break;
 
-	value=strcmp(a,b);  
-   if(value==0)  
-   printf("strings are same");  
-   else  
-   printf("strings are not same");  
-		
-	return 0;
+    default:
+        break;
+    }
 }

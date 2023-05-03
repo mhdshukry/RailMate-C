@@ -10,12 +10,16 @@ int LoginUser();
 int CreateUser(void);
 void Features_Services();
 void ViewReservation();
-void support();
 void TrainReservation();
 void Profile(char T_username[]);
 char EditPersonalDetails(char T_username[]);
 void TrainList();
 int PriceCalculation(int S_Station, int E_Station, int S_Class, int Person);
+
+//03.05.2023.2.19.49
+void support();
+void NewMail();
+void ViewSupport(void);
 
 // Global variables
 char T_username[255];
@@ -59,6 +63,16 @@ void TrainList()
     // Integer
     int S_Station, E_Station, S_Class, Person;
     float Ticket;
+
+    char TrainList[] = {
+        "Jaffna",
+        "Vavuniya",
+        "Mannar",
+        "Kandy",
+        "Colombo",
+        "Vavuniya",
+        "Vavuniya",
+    };
 
     printf("\n");
     printf("\n");
@@ -131,7 +145,7 @@ void ViewUser(char T_username[])
     inputf = fopen(T_username, "r");
 
     // display detail
-    printf("\nCustomer Details:\n");
+    printf("\t\t\t Details:\n");
     fscanf(inputf, "%s %s %s %[^\n]s", r_userID, &r_username, &r_Name, &r_Password);
     printf("\t\t\t---------------------------------------------------------------\n");
     printf("\t\t\tUserID: %s\n", r_userID);
@@ -604,20 +618,20 @@ void ViewReservation()
 
 void support()
 {
-    int ProfileOption;
+    int support_option;
 
     printf("\n");
     printf("\t\t\t----------------------[ # ] support  ---------------------------n");
-    printf("\t\t\t-------------------- Welcome Back [ USERNAME ] -----------------\n\n");
+    printf("\t\t\t-------------------- Profile [ %s ] -----------------\n\n",T_username);
     printf("\t\t\t-------------------[ 1 ] Create New Mail Support ---------------------------\n");
     printf("\t\t\t-------------------[ 2 ] View my support mails-----------------------------------\n");
     printf("\t\t\t-------------------[ 3 ] Main menu ------------------------------\n");
     printf("\t\t\t-------------------[ 4 ] Exit -----------------------------------\n\n");
 
     printf("\t\t\tFeature Option: ");
-    scanf("%d", &ProfileOption);
+    scanf("%d", &support_option);
 
-    switch (ProfileOption)
+    switch (support_option)
     {
     case 1:
         // TrainList();
