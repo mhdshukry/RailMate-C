@@ -987,52 +987,52 @@ void Features_Services()
     int FeatureOption;
     // printf("\n%s", T_username);
 
-    printf("\n");
-    printf("\t\t\t-------------------- Welcome Back [ %s ] -----------------\n\n", T_username);
-    printf("\t\t\t-------------------[ 1 ] Trains List & Prices  -----------------\n");
-    printf("\t\t\t-------------------[ 2 ] Train Seat Reservation ----------------\n");
-    printf("\t\t\t-------------------[ 3 ] Parcel Services -----------------------\n");
-    printf("\t\t\t-------------------[ 4 ] View My History -----------------------\n");
-    printf("\t\t\t-------------------[ 5 ] Profile -------------------------------\n");
-    printf("\t\t\t-------------------[ 6 ] Supports and News ---------------------\n");
-    printf("\t\t\t-------------------[ 7 ] Report a Bug ---------------------\n");
-    printf("\t\t\t-------------------[ 8 ] Exit ----------------------------------\n\n");
-
-    printf("\t\t\tFeature Option: ");
-    scanf("%d", &FeatureOption);
-
-    switch (FeatureOption)
+    do
     {
-    case 1:
-        TrainPriceCalculation();
-        break;
-    case 2:
-        TrainReservation();
-        break;
-    case 3:
-        /* code */
-        break;
-    case 4:
-        /* ReservationHistory();
-         */
-        break;
-    case 5:
-        Profile(T_username);
-        break;
-    case 6:
-        support();
-        break;
 
-    case 7:
-        Bugs();
-        break;
-    case 8:
-        exit(0);
-        break;
+        printf("\n");
+        printf("\t\t\t-------------------- Welcome Back [ %s ] -----------------\n\n", T_username);
+        printf("\t\t\t-------------------[ 1 ] Trains List & Prices  -----------------\n");
+        printf("\t\t\t-------------------[ 2 ] Train Seat Reservation ----------------\n");
+        printf("\t\t\t-------------------[ 3 ] View My History -----------------------\n");
+        printf("\t\t\t-------------------[ 4 ] Profile -------------------------------\n");
+        printf("\t\t\t-------------------[ 5 ] Supports and News ---------------------\n");
+        printf("\t\t\t-------------------[ 6 ] Report a Bug ---------------------\n");
+        printf("\t\t\t-------------------[ 7 ] Exit ----------------------------------\n\n");
 
-    default:
-        break;
-    }
+        printf("\t\t\tFeature Option: ");
+        scanf("%d", &FeatureOption);
+
+        switch (FeatureOption)
+        {
+        case 1:
+            TrainPriceCalculation();
+            break;
+        case 2:
+            TrainReservation();
+            break;
+        case 3:
+            /* code */
+            break;
+        case 4:
+            Profile(T_username);
+            break;
+        case 5:
+            support();
+            break;
+        case 6:
+            Bugs();
+            break;
+
+        case 7:
+            exit(0);
+            break;
+
+        default:
+            printf("wrong input...");
+            break;
+        }
+    } while (FeatureOption != 7);
 }
 
 void Profile(char T_username[])
@@ -1040,39 +1040,44 @@ void Profile(char T_username[])
 
     int ProfileOption;
 
-    printf("\n");
-    printf("\t\t\t----------------------[ # ] Profile  ---------------------------\n");
-    printf("\t\t\t-------------------- Welcome Back [ %s ] -----------------\n\n", T_username);
-    printf("\t\t\t-------------------[ 1 ] View Details ---------------------------\n");
-    printf("\t\t\t-------------------[ 2 ] Edit personal details  -----------------\n");
-    printf("\t\t\t-------------------[ 3 ] View Reservation history ---------------\n");
-    printf("\t\t\t-------------------[ 4 ] Main menu ------------------------------\n");
-    printf("\t\t\t-------------------[ 5 ] Exit -----------------------------------\n\n");
-
-    printf("\t\t\tFeature Option: ");
-    scanf("%d", &ProfileOption);
-
-    switch (ProfileOption)
+    do
     {
-    case 1:
-        ViewUser(T_username);
-        break;
-    case 2:
-        EditPersonalDetails(T_username);
-        break;
-    case 3:
-        /* code */
-        break;
-    case 4:
-        Features_Services();
-        break;
-    case 5:
-        exit(0);
-        break;
 
-    default:
-        break;
-    }
+        printf("\n");
+        printf("\t\t\t----------------------[ # ] Profile  ---------------------------\n");
+        printf("\t\t\t-------------------- Welcome Back [ %s ] -----------------\n\n", T_username);
+        printf("\t\t\t-------------------[ 1 ] View Details ---------------------------\n");
+        printf("\t\t\t-------------------[ 2 ] Edit personal details  -----------------\n");
+        printf("\t\t\t-------------------[ 3 ] View Reservation history ---------------\n");
+        printf("\t\t\t-------------------[ 4 ] Main menu ------------------------------\n");
+        printf("\t\t\t-------------------[ 5 ] Exit -----------------------------------\n\n");
+
+        printf("\t\t\tFeature Option: ");
+        scanf("%d", &ProfileOption);
+
+        switch (ProfileOption)
+        {
+        case 1:
+            ViewUser(T_username);
+            break;
+        case 2:
+            EditPersonalDetails(T_username);
+            break;
+        case 3:
+            /* code */
+            break;
+        case 4:
+            Features_Services();
+            break;
+        case 5:
+            exit(0);
+            break;
+
+        default:
+            printf("wrong input...\n");
+            break;
+        }
+    } while (ProfileOption != 5);
 }
 
 // -------- EditPersonalDetails --------//
