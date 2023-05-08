@@ -6,16 +6,6 @@
 #include <stdbool.h>
 
 // files and functions
-#include "TrainReservation.c"
-#include "TrainPriceCalculation.c"
-#include "TrainList.c"
-#include "Reservation.c"
-#include "ViewUser.c"
-#include "CreateUser.c"
-#include "LoginUser.c"
-#include "Features_Services.c"
-#include "support.c"
-#include "Bugs.c"
 
 // constants for size of char arrays to store filename, the line from the file
 #define FILENAME_SIZE 1024
@@ -52,4 +42,3 @@ void TrainReservation();
 char T_username[255];
 char LoginStatus[255];
 int RegisterStatus;
-

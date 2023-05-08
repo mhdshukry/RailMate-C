@@ -1,19 +1,45 @@
+
 /* Libraries */
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-char T_username[255];
+// constants for size of char arrays to store filename, the line from the file
+#define FILENAME_SIZE 1024
+#define MAX_LINE 2048
+
+/* Functions */
+void ViewUser(char T_username[]);
+int LoginUser();
+int CreateUser(void);
+void Features_Services();
+void ViewReservation();
+void Reservation();
+void Profile(char T_username[]);
+char EditPersonalDetails(char T_username[]);
+void TrainList();
+
+// 03.05.2023.2.19.49
+void support();
+void NewMail();
+void ViewSupport(void);
+
+// 03.05.2023.2.20.29
 void Bugs();
 void NewBugs();
 void BugsView();
 
-int main()
-{
-    Bugs();
-    return 0;
-}
+// 08.05.2023.2.16.35
+void TrainList();
+int TrainPriceCalculation();
+void TrainReservation();
+
+// Global variables
+char T_username[255];
+char LoginStatus[255];
+int RegisterStatus;
 
 void Bugs()
 {
@@ -36,16 +62,16 @@ void Bugs()
         NewBugs();
         break;
     case 2:
-        BugsView();
-        break;
-    case 3:
-        // Features_Services();
-        break;
-    case 4:
-        exit(0);
-        break;
+break;
 
-    default:
+// 08.05.2023.2.16.35
+void TrainList();
+int TrainPriceCalculation();
+void TrainReservation();
+
+default:
+break;
+}
         break;
     }
 }
@@ -115,7 +141,7 @@ void NewBugs()
         value1 = strcmp(yesorno, "no");
         if (value == 0)
         {
-            // Features_Services();
+            Features_Services();
         }
         else if (value1 == 0)
         {
@@ -125,7 +151,7 @@ void NewBugs()
         else
         {
             printf("Wrong input...\n System goes to mainmenu page...\n");
-            // Features_Services();
+            Features_Services();
         }
     }
 }
@@ -171,7 +197,7 @@ void BugsView()
     if (value == 0)
     {
         printf("Wrong input...\n System goes to mainmenu page...\n");
-        // Features_Services();
+        Features_Services();
     }
     else if (value1 == 0)
     {
@@ -181,6 +207,6 @@ void BugsView()
     else
     {
         printf("Wrong input...\n System goes to mainmenu page...\n");
-        // Features_Services();
+        Features_Services();
     }
 }

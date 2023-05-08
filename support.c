@@ -1,18 +1,19 @@
+/* Libraries */
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <time.h>
-void support();
+#include <stdlib.h>
+#include <stdbool.h>
 
-void NewMail();
-void ViewSupport(void);
+// 03.05.2023.2.20.29
+void Bugs();
+void NewBugs();
+void BugsView();
 
-char T_username[255] = "Kirupan";
-int main()
-{
-    support();
-    return 0;
-}
+// Global variables
+char T_username[255];
+char LoginStatus[255];
+int RegisterStatus;
 
 void support()
 {
@@ -38,7 +39,7 @@ void support()
         ViewSupport();
         break;
     case 3:
-        //
+        Features_Services();
         break;
     case 4:
         exit(0);

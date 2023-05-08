@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 void TrainList();
 void PriceCalculation();
@@ -108,7 +109,7 @@ void PriceCalculation()
     case 1:
         for (int i = 0; i < 14; i++)
         {
-            printf("\t\t [%d.] %s\n", i+1, MainLine[i]);
+            printf("\t\t [%d.] %s\n", i + 1, MainLine[i]);
         }
         break;
 
@@ -158,6 +159,22 @@ void PriceCalculation()
 
         break;
     }
+
+    int startingstation, endingstation, tickets, class;
+    float ticketcost;
+
+    printf("Enter the starting point: ");
+    scanf("%d", &startingstation);
+
+    printf("Enter the starting point: ");
+    scanf("%d", &endingstation);
+
+    printf("Enter the Tickets: ");
+    scanf("%d", &tickets);
+
+    printf("[1] - First/Luxary\n[2] - Second/Economy\n[3] - Third/Budget\n\n");
+    scanf("%d", &class);
+    
 }
 
 void TrainList()

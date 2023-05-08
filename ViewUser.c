@@ -6,9 +6,6 @@
 #include <stdbool.h>
 
 // files and functions
-#include "TrainReservation.c"
-#include "TrainPriceCalculation.c"
-#include "TrainList.c"
 #include "Reservation.c"
 #include "ViewUser.c"
 #include "CreateUser.c"
@@ -31,7 +28,6 @@ void Reservation();
 void Profile(char T_username[]);
 char EditPersonalDetails(char T_username[]);
 void TrainList();
-int PriceCalculation(int S_Station, int E_Station, int S_Class, int Person);
 
 // 03.05.2023.2.19.49
 void support();
