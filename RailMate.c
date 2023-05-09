@@ -12,16 +12,17 @@
 #define MAX_LINE 2048
 
 /* Functions */
-void ViewUser(char T_username[]);
 int LoginUser();
 int CreateUser(void);
+
 void Features_Services();
+
 void ViewReservation();
 void Reservation();
+
 void Profile(char T_username[]);
 char EditPersonalDetails(char T_username[]);
-void TrainList();
-int PriceCalculation(int S_Station, int E_Station, int S_Class, int Person);
+void ViewUser(char T_username[]);
 
 // 03.05.2023.2.19.49
 void support();
@@ -40,8 +41,6 @@ void TrainReservation();
 
 // Global variables
 char T_username[255];
-char LoginStatus[255];
-int RegisterStatus;
 
 void TrainReservation()
 {
@@ -273,6 +272,7 @@ void TrainReservation()
     fclose(file);
 
     fprintf(TempFile, "%s", buffer);
+
     fclose(TempFile);
 
     // notably at this point in the code, buffer will contain the line of the
@@ -342,7 +342,7 @@ void TrainReservation()
 
     char PhoneNumber[3000], c;
     int index = 0;
-    printf("Enter Mail Address( press ';' to end input)\n");
+    printf("Enter Phone Number( press ';' to end input)\n");
     while ((c = getchar()) != ';')
     {
         PhoneNumber[index++] = c;
@@ -353,7 +353,7 @@ void TrainReservation()
 
     char FullName[3000], c1;
     int index1 = 0;
-    printf("Enter Mail Address( press ';' to end input)\n");
+    printf("Enter Full Name( press ';' to end input)\n");
     while ((c1 = getchar()) != ';')
     {
         FullName[index1++] = c1;
@@ -375,7 +375,7 @@ void TrainReservation()
 
     char Address[3000], c3;
     int index3 = 0;
-    printf("Enter Mail Address( press ';' to end input)\n");
+    printf("Enter Your Address( press ';' to end input)\n");
     while ((c3 = getchar()) != ';')
     {
         Address[index3++] = c3;
@@ -400,6 +400,11 @@ void TrainReservation()
     fprintf(DP_TrainReservation, "\t\t\t---------------------------------------------------------------\n");
 
     fclose(DP_TrainReservation);
+
+    if (remove("TempSysFile.txt") == 0)
+        printf("Temp file Deleted successfully");
+    else
+        printf("Unable to delete the file");
 
     Features_Services();
 }
@@ -722,38 +727,6 @@ void TrainList()
     fclose(ViewBugFile);
 }
 
-int PriceCalculation(int S_Station, int E_Station, int S_Class, int Person)
-{
-    float FirstClassTicket = 3200;
-    float SecondClassTicket = 1800;
-    float ThirdClassTicket = 600;
-
-    float Ticket, ClassCost;
-
-    switch (S_Class)
-    {
-    case 1:
-        ClassCost = FirstClassTicket;
-        break;
-
-    case 2:
-        ClassCost = SecondClassTicket;
-        break;
-
-    case 3:
-        ClassCost = ThirdClassTicket;
-        break;
-
-    default:
-        break;
-    }
-
-    // if (S_Station == 1 && E_Station == 2){
-    Ticket = Person * ClassCost;
-    //}
-    return Ticket;
-}
-
 void Reservation()
 {
     printf("\n");
@@ -810,17 +783,19 @@ int CreateUser(void)
     int value;
 
     // character variable
-    char T_username[255];
+    char username[255];
     char PassWord[255];
     char PassWordC[255];
     char NameOfUser[255];
 
+    const char returnValue[255];
+
     // Get username from user and create a new file name as user's username
     // printf("Welcome to TRS-Application...!!");
     printf("\n\n\t\tUnique username, please: ");
-    scanf("%s", T_username);
+    scanf("%s", username);
 
-    R_file = fopen(T_username, "r");
+    R_file = fopen(username, "r");
     if (R_file != NULL)
     {
         printf("\n\t\tUsername already exicts...\n\t\tPlease,Choose another one.");
@@ -829,7 +804,7 @@ int CreateUser(void)
     if (R_file == NULL)
     {
         // open the file in write mode
-        C_file = fopen(T_username, "w");
+        C_file = fopen(username, "w");
 
         if (C_file != NULL)
         {
@@ -858,8 +833,10 @@ int CreateUser(void)
         if (value == 0)
         {
 
-            fprintf(C_file, "%s %s %s %s\n", id, T_username, NameOfUser, PassWord);
-            return T_username;
+            fprintf(C_file, "%s %s %s %s\n", id, username, NameOfUser, PassWord);
+            fclose(C_file);
+            strcat(returnValue, username);
+            strcpy(T_username, username);
         }
 
         else
@@ -875,22 +852,26 @@ int CreateUser(void)
             if (value == 0)
             {
                 fprintf(C_file, "%s %s %s %s\n", id, T_username, NameOfUser, PassWord);
-                RegisterStatus = 1;
-                return T_username;
+                fclose(C_file);
+                strcat(returnValue, T_username);
+                strcpy(T_username, username);
             }
             else
             {
                 printf("Passwords doesn't match...\n");
                 printf("Try again later...\n");
-                return "null";
+                strcat(returnValue, "null");
+                strcpy(T_username, username);
             }
         }
 
         // close connection
         fclose(C_file);
         fclose(R_file);
-        return 0;
     }
+    Features_Services();
+    strcpy(T_username, username);
+    return returnValue;
 }
 
 int LoginUser()
@@ -965,7 +946,9 @@ int LoginUser()
         printf("do you want to create an account..? [ Y / N ] : ");
         scanf("%s", AccountCreateOption);
 
-        if (AccountCreateOption == 'Y')
+        int vallue;
+        value = strcmp(AccountCreateOption, 'Y');
+        if (value == 0)
         {
             CreateUser();
         }
