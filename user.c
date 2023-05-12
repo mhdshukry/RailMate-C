@@ -155,7 +155,7 @@ int LoginUser()
     if (F_login != NULL)
     {
         // display detail
-        fscanf(F_login, "%s %s %s %[^\n]s", l_userID, &T_username, &l_name, &l_Password);
+        fscanf(F_login, "%s %s %s %[^\n]s", l_userID, T_username, l_name, l_Password);
         // printf("\tUserID: %s\n", r_userID);
         // printf("\tUsername: %s\n", r_username);
         printf("\t\t\t Hello %s\n", l_name);

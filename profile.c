@@ -39,7 +39,7 @@ void ViewUser(char T_username[])
 
     // display detail
     printf("\t\t\t Details:\n");
-    fscanf(inputf, "%s %s %s %[^\n]s", r_userID, &r_username, &r_Name, &r_Password);
+    fscanf(inputf, "%s %s %s %[^\n]s", r_userID, r_username, r_Name, r_Password);
     printf("\t\t\t---------------------------------------------------------------\n");
     printf("\t\t\tUserID: %s\n", r_userID);
     printf("\t\t\t---------------------------------------------------------------\n");
