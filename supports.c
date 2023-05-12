@@ -13,32 +13,13 @@
 #define NUM_STRINGS 20
 
 /* Functions */
-int LoginUser();
-int CreateUser(void);
-
-void Features_Services();
-
-void ViewReservation();
-void Reservation();
-
-void Profile(char T_username[]);
-char EditPersonalDetails(char T_username[]);
-void ViewUser(char T_username[]);
-
 // 03.05.2023.2.19.49
 void support();
 void NewMail();
 void ViewSupport(void);
 
-// 03.05.2023.2.20.29
-void Bugs();
-void NewBugs();
-void BugsView();
 
-// 08.05.2023.2.16.35
-void TrainList();
-int TrainPriceCalculation();
-void TrainReservation();
+void Write_Logs(char T_username[255], char action[20]);
 
 // Global variables
 char T_username[255]; // constants for size of char arrays to store filename, the line from the file

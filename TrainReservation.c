@@ -20,6 +20,7 @@ void TrainList();
 int TrainPriceCalculation();
 void TrainReservation();
 void Features_Services();
+void Write_Logs(char T_username[255], char action[20]);
 
 // Global variables
 char T_username[255];
@@ -108,9 +109,9 @@ void TrainReservation()
 
     // exit(EXIT_SUCCESS);
 
-    printf("Train Lane: \n");
+    printf("\n\t\t\tTrain Lane: \n");
 
-    printf(" [1] Nothern Lane\n [2] Matale Lane\n [3] BatticoloaLine\n [4] TrincomaleeLine\n [5] TalaimannarLine\n [6] CoastLine\n\n\n\n ");
+    printf("\t\t\t [1] Nothern Lane\n [2] Matale Lane\n [3] BatticoloaLine\n [4] TrincomaleeLine\n [5] TalaimannarLine\n [6] CoastLine\n\n\n\n ");
 
     int selectlane;
 
@@ -122,7 +123,7 @@ void TrainReservation()
     case 1:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("\t\t\t[%d]%s, \n", i + 1, NothernLine[i]);
+            printf("\t\t\t[%d] %s, \n", i + 1, NothernLine[i]);
         }
         printf("\n");
 
@@ -130,7 +131,7 @@ void TrainReservation()
     case 2:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("%s, \n", MainLine[i]);
+            printf("\t\t\t[%d] %s, \n", i + 1,MainLine [i]);
         }
         printf("\n");
         break;
@@ -138,7 +139,7 @@ void TrainReservation()
     case 3:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("%s, \n", BatticoloaLine[i]);
+            printf("\t\t\t[%d] %s, \n", i + 1, BatticoloaLine[i]);
         }
         printf("\n");
         break;
@@ -146,7 +147,7 @@ void TrainReservation()
     case 4:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("%s, \n", TrincomaleeLine[i]);
+            printf("\t\t\t[%d] %s, \n", i + 1, TrincomaleeLine[i]);
         }
         printf("\n");
         break;
@@ -154,7 +155,7 @@ void TrainReservation()
     case 5:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("%s, \n", TalaimannarLine[i]);
+            printf("\t\t\t[%d] %s, \n", i + 1, TalaimannarLine[i]);
         }
         printf("\n");
         break;
@@ -162,7 +163,7 @@ void TrainReservation()
     case 6:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("%s, \n", CoastLine[i]);
+            printf("\t\t\t[%d] %s, \n", i + 1, CoastLine[i]);
         }
         printf("\n");
         break;
@@ -174,16 +175,16 @@ void TrainReservation()
     int startingstation, endingstation, tickets, class;
     float ticketcost;
 
-    printf("Enter the starting point: ");
+    printf("\t\t\tEnter the starting point: ");
     scanf("%d", &startingstation);
 
-    printf("Enter the starting point: ");
+    printf("\t\t\tEnter the starting point: ");
     scanf("%d", &endingstation);
 
-    printf("Enter the Tickets: ");
+    printf("\t\t\tEnter the Tickets: ");
     scanf("%d", &tickets);
 
-    printf("[1] - First/Luxary\n[2] - Second/Economy\n[3] - Third/Budget\n\n");
+    printf("\t\t\t[1] - First/Luxary\n\t\t\t[2] - Second/Economy\n\t\t\t[3] - Third/Budget\n\n");
     scanf("%d", &class);
 
     // file pointer will be used to open/read the file
@@ -212,7 +213,7 @@ void TrainReservation()
     // if the file failed to open, exit with an error message and status
     if (file == NULL)
     {
-        printf("Error opening file.\n");
+        printf("\t\t\tError opening file.\n");
         exit(0);
     }
 
@@ -232,14 +233,14 @@ void TrainReservation()
             // the file as well as the line number they were trying to read as the
             // file is not large enough
             keep_reading = false;
-            printf("File %d lines.\n", current_line - 1);
-            printf("Couldn't find line %d.\n", read_line);
+            printf("F\t\t\tile %d lines.\n", current_line - 1);
+            printf("\t\t\tCouldn't find line %d.\n", read_line);
         }
         // if we've found the line the user is looking for, print it out
         else if (current_line == read_line)
         {
             keep_reading = false;
-            printf("Line:\n%s", buffer);
+            printf("\t\t\tLine:\n%s", buffer);
         }
 
         // continue to keep track of the current line we are reading
@@ -317,11 +318,11 @@ void TrainReservation()
 
     // char PhoneNumber[255], FullName[255], EmailAddress[255], Address[255];
 
-    printf("Train seat reservation.");
+    printf("\n\n\n\t\t\tTrain seat reservation.\n");
 
     char PhoneNumber[3000], c;
     int index = 0;
-    printf("Enter Phone Number( press ';' to end input)\n");
+    printf("\t\t\tEnter Phone Number( press ';' to end input)\n");
     while ((c = getchar()) != ';')
     {
         PhoneNumber[index++] = c;
@@ -332,7 +333,7 @@ void TrainReservation()
 
     char FullName[3000], c1;
     int index1 = 0;
-    printf("Enter Full Name( press ';' to end input)\n");
+    printf("\n\n\t\t\tEnter Full Name( press ';' to end input)\n");
     while ((c1 = getchar()) != ';')
     {
         FullName[index1++] = c1;
@@ -343,7 +344,7 @@ void TrainReservation()
 
     char EmailAddress[3000], c2;
     int index2 = 0;
-    printf("Enter Mail Address( press ';' to end input)\n");
+    printf("\n\n\t\t\tEnter Mail Address( press ';' to end input)\n");
     while ((c2 = getchar()) != ';')
     {
         EmailAddress[index2++] = c2;
@@ -354,7 +355,7 @@ void TrainReservation()
 
     char Address[3000], c3;
     int index3 = 0;
-    printf("Enter Your Address( press ';' to end input)\n");
+    printf("\n\n\t\t\tEnter Your Address( press ';' to end input)\n");
     while ((c3 = getchar()) != ';')
     {
         Address[index3++] = c3;
@@ -383,23 +384,11 @@ void TrainReservation()
     fclose(DP_TrainReservation);
 
     if (remove("TempSysFile.txt") == 0)
-        printf("Temp file Deleted successfully");
+        printf("\n\n\t\t\tTemp file Deleted successfully");
     else
-        printf("Unable to delete the file");
+        printf("\n\n\t\t\tUnable to delete the file");
 
     Features_Services();
-}
-
-void Reservation()
-{
-    printf("\n");
-    printf("\t\t\t----------------------[ # ] Train Reservation  ---------------------------n");
-    printf("\t\t\t-------------------- Hello [ USERNAME ] ------------------\n\n");
-    printf("\t\t\t-------------------[ 1 ] Train list and prices   -----------------\n");
-    printf("\t\t\t-------------------[ 2 ] Train Reservation------------------------\n");
-    printf("\t\t\t-------------------[ 3 ] View Reservations -----------------------\n");
-    printf("\t\t\t-------------------[ 4 ] Main menu -------------------------------\n");
-    printf("\t\t\t-------------------[ 5 ] Exit ------------------------------------\n\n");
 }
 
 int TrainPriceCalculation()
@@ -409,16 +398,16 @@ int TrainPriceCalculation()
     int startingstation, endingstation, tickets, class;
     float ticketcost;
 
-    printf("Enter the starting point: ");
+    printf("\n\t\t\tEnter the starting point: ");
     scanf("%d", &startingstation);
 
-    printf("Enter the starting point: ");
+    printf("\n\t\t\tEnter the starting point: ");
     scanf("%d", &endingstation);
 
-    printf("Enter the Tickets: ");
+    printf("\n\t\t\tEnter the Tickets: ");
     scanf("%d", &tickets);
 
-    printf("[1] - First/Luxary\n[2] - Second/Economy\n[3] - Third/Budget\n\n");
+    printf("\t\t\t[1] - First/Luxary\n\t\t\t[2] - Second/Economy\n\t\t\t[3] - Third/Budget\n\n");
     scanf("%d", &class);
 
     // file pointer will be used to open/read the file
@@ -447,7 +436,7 @@ int TrainPriceCalculation()
     // if the file failed to open, exit with an error message and status
     if (file == NULL)
     {
-        printf("Error opening file.\n");
+        printf("\t\t\tError opening file.\n");
         return 1;
     }
 
@@ -467,14 +456,14 @@ int TrainPriceCalculation()
             // the file as well as the line number they were trying to read as the
             // file is not large enough
             keep_reading = false;
-            printf("File %d lines.\n", current_line - 1);
-            printf("Couldn't find line %d.\n", read_line);
+            printf("\t\t\tFile %d lines.\n", current_line - 1);
+            printf("\t\t\tCouldn't find line %d.\n", read_line);
         }
         // if we've found the line the user is looking for, print it out
         else if (current_line == read_line)
         {
             keep_reading = false;
-            printf("Line:\n%s", buffer);
+            printf("\t\t\tLine:\n%s", buffer);
         }
 
         // continue to keep track of the current line we are reading
@@ -559,7 +548,7 @@ void TrainList()
 
     if (ViewBugFile == NULL)
     {
-        printf("Error: could not open file %s", filename);
+        printf("\n\t\t\tError: could not open file %s", filename);
         exit(0);
     }
 

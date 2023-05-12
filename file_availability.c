@@ -2,8 +2,6 @@
 #include <time.h>
 void File_Availability(char filename[30])
 {
-
-    // char *filename = "bugs.txt";
     FILE *file_availability = fopen(filename, "r");
     if (file_availability == NULL)
     {
@@ -11,7 +9,7 @@ void File_Availability(char filename[30])
     }
     else
     {
-        printf("SELF TEST : File Availability : %s - [OK] \n", filename);
+        printf("\t\t\tSELF TEST : File Availability : %s - [OK] \n", filename);
     }
 }
 

@@ -17,6 +17,7 @@ void Features_Services();
 void Profile(char T_username[]);
 char EditPersonalDetails(char T_username[]);
 void ViewUser(char T_username[]);
+void Write_Logs(char T_username[255], char action[20]);
 
 // Global variables
 char T_username[255];

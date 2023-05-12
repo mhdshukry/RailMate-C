@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void Features_Services();
+void Write_Logs(char T_username[255], char action[20]);
 
 // Global variables
 char T_username[255];
@@ -40,7 +41,7 @@ void Parcel()
             break;
 
         default:
-            printf("wrong input...\n");
+            printf("\n\t\t\twrong input...\n\n");
             break;
         }
     } while (parceloption != 5);

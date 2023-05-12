@@ -13,6 +13,7 @@
 #define NUM_STRINGS 20
 
 void Features_Services();
+void Write_Logs(char T_username[255], char action[20]);
 
 // Global variables
 char T_username[255];
@@ -63,13 +64,13 @@ void Features_Services()
             Bugs();
             break;
 
-        case 7:
+        case 0:
             exit(0);
             break;
 
         default:
-            printf("wrong input...");
+            printf("\n\t\t\twrong input...\n\n");
             break;
         }
-    } while (FeatureOption != 7);
+    } while (FeatureOption != 0);
 }

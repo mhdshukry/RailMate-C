@@ -42,13 +42,13 @@ int CreateUser(void)
 
     // Get username from user and create a new file name as user's username
     // printf("Welcome to TRS-Application...!!");
-    printf("\n\n\t\tUnique username, please: ");
+    printf("\n\n\t\\ttUnique username, please: ");
     scanf("%s", username);
 
     R_file = fopen(username, "r");
     if (R_file != NULL)
     {
-        printf("\n\t\tUsername already exicts...\n\t\tPlease,Choose another one.");
+        printf("\n\t\t\tUsername already exicts...\n\t\tPlease,Choose another one.");
         CreateUser();
     }
     if (R_file == NULL)
@@ -62,7 +62,7 @@ int CreateUser(void)
         }
         else
         {
-            printf("Failed to create the file.\n");
+            printf("\t\t\tFailed to create the file.\n");
             // exit status for OS that an error occured
             exit(0);
         }
@@ -70,13 +70,13 @@ int CreateUser(void)
         char id[255] = "1";
 
         // get customer detail
-        printf("\tEnter name: ");
+        printf("\t\t\tEnter name: ");
         scanf("%s", NameOfUser);
 
-        printf("\tEnter your password: ");
+        printf("\t\t\tEnter your password: ");
         scanf("%s", PassWord);
 
-        printf("\tAgain Password: ");
+        printf("\t\t\tAgain Password: ");
         scanf("%s", PassWordC);
 
         value = strcmp(PassWord, PassWordC);
@@ -92,12 +92,12 @@ int CreateUser(void)
 
         else
         {
-            printf("\tPasswords doesn't match...\n");
+            printf("\t\t\tPasswords doesn't match...\n");
 
-            printf("\tEnter your password: ");
+            printf("\t\t\tEnter your password: ");
             scanf("%s", PassWord);
 
-            printf("\tAgain Password: ");
+            printf("\t\t\tAgain Password: ");
             scanf("%s", PassWordC);
             value = strcmp(PassWord, PassWordC);
             if (value == 0)
@@ -110,8 +110,8 @@ int CreateUser(void)
             }
             else
             {
-                printf("Passwords doesn't match...\n");
-                printf("Try again later...\n");
+                printf("\t\t\tPasswords doesn't match...\n");
+                printf("\t\t\tTry again later...\n");
                 strcat(returnValue, "null");
                 strcpy(T_username, username);
             }
@@ -158,26 +158,26 @@ int LoginUser()
         fscanf(F_login, "%s %s %s %[^\n]s", l_userID, &T_username, &l_name, &l_Password);
         // printf("\tUserID: %s\n", r_userID);
         // printf("\tUsername: %s\n", r_username);
-        printf("\t\t Hello %s\n", l_name);
+        printf("\t\t\t Hello %s\n", l_name);
         // printf("\tPassword: %s\n", l_Password);
 
-        printf("\t\tEnter your password: ");
+        printf("\t\t\tEnter your password: ");
         scanf("%s", PassWordFromUser);
 
         value = strcmp(l_Password, PassWordFromUser);
         if (value == 0)
         {
-            printf("\t\tYou have successfully loggedin");
+            printf("\t\t\tYou have successfully loggedin");
             Write_Logs(T_username, "user - login");
 
             return T_username;
         }
         else
         {
-            printf("\t\tyour password is wrong...\n");
+            printf("\t\\ttyour password is wrong...\n");
             printf("\t\ttry again...\n");
 
-            printf("\t\tEnter your password: ");
+            printf("\t\t\tEnter your password: ");
             scanf("%s", PassWordFromUser);
 
             value = strcmp(l_Password, PassWordFromUser);
@@ -195,8 +195,8 @@ int LoginUser()
     }
     else
     {
-        printf("There are no exicting user...\n");
-        printf("do you want to create an account..? [ Y / N ] : ");
+        printf("\n\n\t\t\tThere are no exicting user...\n");
+        printf("\n\t\t\tdo you want to create an account..? [ Y / N ] : ");
         scanf("%s", AccountCreateOption);
 
         int vallue;
@@ -208,7 +208,7 @@ int LoginUser()
         else
         {
             // exit status for OS that an error occured
-            printf("Existing Services....\n");
+            printf("\\n\n\t\t\tExisting Services....\n");
             exit(0);
         }
     }

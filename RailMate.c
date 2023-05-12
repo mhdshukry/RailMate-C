@@ -89,7 +89,7 @@ int main()
     do
     {
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-        printf("\n\t\t\t        =         [ 1 ]   USER - LOGIN              =");
+        printf("\n\t\t\t        =         [ 1 ]   LOGIN                     =");
         printf("\n\t\t\t        =         [ 2 ]   REGISTER                  =");
         printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
@@ -116,15 +116,14 @@ int main()
             }
             break;
         case 0:
-            printf(" You chose: Exit");
+            printf("\n\n\t\t\tYou chose: Exit");
             exit(0);
             break;
 
         default:
-            printf(" Something is wrong!! ");
+            printf("\n\n\t\t\tSomething is wrong!! ");
             break;
         }
-        printf(" \n \n ---------------------------- \n \n");
-    } while (op != 7);
+    } while (op != 0);
     return 0;
 }
