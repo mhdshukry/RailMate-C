@@ -25,18 +25,21 @@ void Features_Services()
 
     do
     {
+        printf("\n\n\n");
+        printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+        printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        printf("\n\t\t\t        =         [ 1 ]   TRAIN LIST & PRICE        =");
+        printf("\n\t\t\t        =         [ 2 ]   TRAIN SEAT RESERVATION    =");
+        printf("\n\t\t\t        =         [ 3 ]   VIEW MY HISTORY           =");
+        printf("\n\t\t\t        =         [ 4 ]   PROFILE                   =");
+        printf("\n\t\t\t        =         [ 5 ]   SUPPORTS & NEWS           =");
+        printf("\n\t\t\t        =         [ 6 ]   REPORT A BUG              =");
+        printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
+        printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+        printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 
-        printf("\n");
-        printf("\t\t\t-------------------- Welcome Back [ %s ] -----------------\n\n", T_username);
-        printf("\t\t\t-------------------[ 1 ] Trains List & Prices  -----------------\n");
-        printf("\t\t\t-------------------[ 2 ] Train Seat Reservation ----------------\n");
-        printf("\t\t\t-------------------[ 3 ] View My History -----------------------\n");
-        printf("\t\t\t-------------------[ 4 ] Profile -------------------------------\n");
-        printf("\t\t\t-------------------[ 5 ] Supports and News ---------------------\n");
-        printf("\t\t\t-------------------[ 6 ] Report a Bug ---------------------\n");
-        printf("\t\t\t-------------------[ 7 ] Exit ----------------------------------\n\n");
+        printf("\n\n\t\t\t Please, Make a choice : ");
 
-        printf("\t\t\tFeature Option: ");
         scanf("%d", &FeatureOption);
 
         switch (FeatureOption)

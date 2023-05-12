@@ -6,13 +6,15 @@
 #include <stdbool.h>
 
 // files and functions
+#include "file_availability.c"
 #include "TrainReservation.c"
 #include "supports.c"
 #include "bugs.c"
 #include "user.c"
 #include "profile.c"
 #include "services.c"
-#include "file_availability.c"
+#include "parcelservices.c"
+#include "write_logs.c"
 
 // constants for size of char arrays to store filename, the line from the file
 #define FILENAME_SIZE 1024
@@ -49,9 +51,25 @@ void TrainList();
 int TrainPriceCalculation();
 void TrainReservation();
 
+// 12.05.2023.2.23.19
+void Parcel();
+void Write_Logs(char T_username[255], char action[20]);
+
 // Global variables
 char T_username[255];
 
+void welcomeMessage()
+{
+    printf("\n\n\n\n\n");
+    printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+    printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+    printf("\n\t\t\t        =                 WELCOME                   =");
+    printf("\n\t\t\t        =                   TO                      =");
+    printf("\n\t\t\t        =                RAILMATE                   =");
+    printf("\n\t\t\t        =          TICKET - RESERVATION             =");
+    printf("\n\t\t\t        =                 SYSTEM                    =");
+    printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+}
 int main()
 {
     printf("\n\n");
@@ -59,6 +77,10 @@ int main()
     File_Availability("dp_pricelist.txt");
     File_Availability("bugs.txt");
     File_Availability("supports.txt");
+    File_Availability("dp_parcel.txt");
+    File_Availability("dp_logs.txt");
+
+    welcomeMessage();
 
     // declaration of local variable op;
     int op;
@@ -66,18 +88,14 @@ int main()
 
     do
     {
-        // welcome message
-        printf("\n\n\n");
-        printf("\t-------------------------------------------------------------------------------------\n");
-        printf("\t\t---------------------- Welcome To - RailMate Lanka ------------------\n");
-        printf("\t\t------------------- Advanved online reservation system --------------\n");
-        printf("\t-------------------------------------------------------------------------------------\n\n\n");
+        printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        printf("\n\t\t\t        =         [ 1 ]   USER - LOGIN              =");
+        printf("\n\t\t\t        =         [ 2 ]   REGISTER                  =");
+        printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
+        printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+        printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 
-        printf("\t\t\t-------------------[ 1 ] Login -------------------\n");
-        printf("\t\t\t-------------------[ 2 ] Register ----------------\n");
-        printf("\t\t\t-------------------[ 0 ] Exit --------------------\n\n");
-
-        printf("\n\n\t\t Please, Make a choice : ");
+        printf("\n\n\t\t\t Please, Make a choice : ");
         scanf("%d", &op); // accepts a numeric input to choose the operation
 
         // use switch statement to call an operation

@@ -15,8 +15,9 @@
 /* Functions */
 int LoginUser();
 int CreateUser(void);
-
 void Features_Services();
+
+void Write_Logs(char T_username[255], char action[20]);
 
 // Global variables
 char T_username[255];
@@ -86,6 +87,7 @@ int CreateUser(void)
             fclose(C_file);
             strcat(returnValue, username);
             strcpy(T_username, username);
+            Write_Logs(T_username, "user - register");
         }
 
         else
@@ -104,6 +106,7 @@ int CreateUser(void)
                 fclose(C_file);
                 strcat(returnValue, T_username);
                 strcpy(T_username, username);
+                Write_Logs(T_username, "user - register");
             }
             else
             {
@@ -165,6 +168,7 @@ int LoginUser()
         if (value == 0)
         {
             printf("\t\tYou have successfully loggedin");
+            Write_Logs(T_username, "user - login");
 
             return T_username;
         }
@@ -180,7 +184,7 @@ int LoginUser()
             if (value == 0)
             {
                 printf("\t\tYou have successfully loggedin");
-
+                Write_Logs(T_username, "user - login");
                 return T_username;
             }
             else

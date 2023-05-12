@@ -378,6 +378,8 @@ void TrainReservation()
     fprintf(DP_TrainReservation, "User details:\nName: %s\nPhone Number: %s\nEmail Address: %s\nAddress %s\n", FullName, PhoneNumber, EmailAddress, Address);
     fprintf(DP_TrainReservation, "\t\t\t---------------------------------------------------------------\n");
 
+    Write_Logs(T_username, "Train - Seat - Reservation");
+
     fclose(DP_TrainReservation);
 
     if (remove("TempSysFile.txt") == 0)
@@ -546,6 +548,7 @@ int TrainPriceCalculation()
     }
 
     printf("%.2lf\n\n\n", TotalCost);
+    Write_Logs(T_username, "Price - Calculation");
     Features_Services();
 }
 
@@ -570,6 +573,7 @@ void TrainList()
 
     // close the file
     fclose(ViewBugFile);
+    Write_Logs(T_username, "Train-List");
 }
 
 void ViewReservation()

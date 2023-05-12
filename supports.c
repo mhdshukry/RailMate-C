@@ -66,16 +66,17 @@ char T_username[255];
 void support()
 {
     int support_option;
+    printf("\n\n\n");
+    printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+    printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+    printf("\n\t\t\t        =         [ 1 ]   CREATE NEW SUPPORT        =");
+    printf("\n\t\t\t        =         [ 2 ]   VIEW SUPPORT MAILS        =");
+    printf("\n\t\t\t        =         [ 3 ]   MAIN MENU                 =");
+    printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
+    printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+    printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 
-    printf("\n");
-    printf("\t\t\t----------------------[ # ] support  ---------------------------\n");
-    printf("\t\t\t-------------------- Support [ %s ] -----------------\n\n", T_username);
-    printf("\t\t\t-------------------[ 1 ] Create New Mail Support ---------------------------\n");
-    printf("\t\t\t-------------------[ 2 ] View my support mails-----------------------------------\n");
-    printf("\t\t\t-------------------[ 3 ] Main menu ------------------------------\n");
-    printf("\t\t\t-------------------[ 4 ] Exit -----------------------------------\n\n");
-
-    printf("\t\t\tFeature Option: ");
+    printf("\n\n\t\t\t Please, Make a choice : ");
     scanf("%d", &support_option);
 
     switch (support_option)
@@ -151,6 +152,7 @@ void NewMail()
 
         fprintf(MailFile, "Mail support no. %d \n\tRequesting person name: %s \nMail address: %s \nHeading: %s \nContent: %s \n\tTime: %s", no, T_username, mailaddress, heading, content, asctime(timeinfo));
         fprintf(MailFile, "---------------------------------------------------------------\n\n\n");
+        Write_Logs(T_username, "New - Support - Mail");
 
         fclose(MailFile);
 
@@ -206,6 +208,7 @@ void ViewSupport()
             // Do your stuff
         }
     }
+    Write_Logs(T_username, "View - Support - Mail");
     // close the file
     fclose(ViewFile);
 

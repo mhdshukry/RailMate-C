@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-
 // constants for size of char arrays to store filename, the line from the file
 #define FILENAME_SIZE 1024
 #define MAX_LINE 2048
@@ -14,10 +13,7 @@
 #define NUM_STRINGS 20
 
 /* Functions */
-
-
 void Features_Services();
-
 void Profile(char T_username[]);
 char EditPersonalDetails(char T_username[]);
 void ViewUser(char T_username[]);
@@ -52,7 +48,7 @@ void ViewUser(char T_username[])
     printf("\t\t\t---------------------------------------------------------------\n");
     printf("\t\t\tPassword: %s\n", r_Password);
     printf("\t\t\t---------------------------------------------------------------\n");
-
+    Write_Logs(T_username, "View - User");
     // close connection
     fclose(inputf);
     Features_Services();
@@ -60,22 +56,23 @@ void ViewUser(char T_username[])
 
 void Profile(char T_username[])
 {
-
     int ProfileOption;
 
     do
     {
+        printf("\n\n\n");
+        printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+        printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        printf("\n\t\t\t        =         [ 1 ]   VIEW DETAILS              =");
+        printf("\n\t\t\t        =         [ 2 ]   EDIT PROFILE              =");
+        printf("\n\t\t\t        =         [ 3 ]   VIEW RESERVATION HISTORY  =");
+        printf("\n\t\t\t        =         [ 4 ]   MAIN MENU                 =");
+        printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
+        printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+        printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 
-        printf("\n");
-        printf("\t\t\t----------------------[ # ] Profile  ---------------------------\n");
-        printf("\t\t\t-------------------- Welcome Back [ %s ] -----------------\n\n", T_username);
-        printf("\t\t\t-------------------[ 1 ] View Details ---------------------------\n");
-        printf("\t\t\t-------------------[ 2 ] Edit personal details  -----------------\n");
-        printf("\t\t\t-------------------[ 3 ] View Reservation history ---------------\n");
-        printf("\t\t\t-------------------[ 4 ] Main menu ------------------------------\n");
-        printf("\t\t\t-------------------[ 5 ] Exit -----------------------------------\n\n");
+        printf("\n\n\t\t\t Please, Make a choice : ");
 
-        printf("\t\t\tFeature Option: ");
         scanf("%d", &ProfileOption);
 
         switch (ProfileOption)
@@ -92,7 +89,7 @@ void Profile(char T_username[])
         case 4:
             Features_Services();
             break;
-        case 5:
+        case 0:
             exit(0);
             break;
 
@@ -144,6 +141,7 @@ char EditPersonalDetails(char T_username[])
         if (value == 0)
         {
             fprintf(file, "%s %s %s %s\n", id, T_username, EP_name, EP_password);
+            Write_Logs(T_username, "Edit - Profile");
         }
 
         else

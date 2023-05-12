@@ -1,4 +1,3 @@
-
 /* Libraries */
 #include <stdio.h>
 #include <string.h>
@@ -13,6 +12,7 @@
 #define MAX_LENGTH 255
 #define NUM_STRINGS 20
 
+// functions
 void Features_Services();
 
 // 03.05.2023.2.20.29
@@ -27,15 +27,19 @@ void Bugs()
 {
     int BugsOption;
 
-    printf("\n");
-    printf("\t\t\t----------------------[ # ] Bugs reports  ---------------------------\n");
-    printf("\t\t\t-------------------- Hello [ %s ] -----------------\n\n", T_username);
-    printf("\t\t\t-------------------[ 1 ] Report Bugs ---------------------------\n");
-    printf("\t\t\t-------------------[ 2 ] View Bugs-----------------------------------\n");
-    printf("\t\t\t-------------------[ 3 ] Main menu ------------------------------\n");
-    printf("\t\t\t-------------------[ 4 ] Exit -----------------------------------\n\n");
+    printf("\n\n\n");
+    printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+    printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+    printf("\n\t\t\t        =         [ 1 ]   REPORT A BUG              =");
+    printf("\n\t\t\t        =         [ 2 ]   VIEW BUGS REPORT          =");
+    printf("\n\t\t\t        =         [ 3 ]   MAIN MENU                 =");
+    printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
+    printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+    printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 
-    printf("\t\t\tFeature Option: ");
+    printf("\n\n\t\t\t Please, Make a choice : ");
+
+
     scanf("%d", &BugsOption);
 
     switch (BugsOption)
@@ -47,9 +51,9 @@ void Bugs()
         BugsView();
         break;
     case 3:
-        // Features_Services();
+        Features_Services();
         break;
-    case 4:
+    case 0:
         exit(0);
         break;
 
@@ -112,7 +116,7 @@ void NewBugs()
 
         fprintf(BugsFile, "Mail support no. %d \n\tRequesting person name: %s \nMail address: %s \nHeading: %s \nContent: %s \n\tTime: %s", no, T_username, mailaddress, heading, content, asctime(timeinfo));
         fprintf(BugsFile, "---------------------------------------------------------------\n\n\n");
-
+        Write_Logs(T_username, "New Bug");
         fclose(BugsFile);
 
         char yesorno[20];
@@ -168,6 +172,7 @@ void BugsView()
         }
     }
     // close the file
+    Write_Logs(T_username, "Bugs - View");
     fclose(ViewBugFile);
 
     char yesorno[20];
