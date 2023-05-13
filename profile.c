@@ -128,17 +128,17 @@ char EditPersonalDetails(char T_username[])
 
         printf("\n\t\t\t  ---------------------------------------------------------\n");
         printf("\t\t\t                     NAME: ");
-        scanf("%S", EP_name);
+        scanf("%s", EP_name);
         printf("\t\t\t  ---------------------------------------------------------\n");
 
         printf("\n\t\t\t  ---------------------------------------------------------\n");
         printf("\t\t\t                     PASSWORD: ");
-        scanf("%S", EP_password);
+        scanf("%s", EP_password);
         printf("\t\t\t  ---------------------------------------------------------\n");
 
         printf("\n\t\t\t  ---------------------------------------------------------\n");
         printf("\t\t\t                     AGAIN PASSWORD: ");
-        scanf("%S", EP_password_r);
+        scanf("%s", EP_password_r);
         printf("\t\t\t  ---------------------------------------------------------\n");
 
         value = strcmp(EP_password, EP_password_r);
@@ -156,12 +156,12 @@ char EditPersonalDetails(char T_username[])
 
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             printf("\t\t\t                     PASSWORD: ");
-            scanf("%S", EP_password);
+            scanf("%s", EP_password);
             printf("\t\t\t  ---------------------------------------------------------\n");
 
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             printf("\t\t\t                     AGAIN PASSWORD: ");
-            scanf("%S", EP_password_r);
+            scanf("%s", EP_password_r);
             printf("\t\t\t  ---------------------------------------------------------\n");
 
             value = strcmp(EP_password, EP_password_r);

@@ -155,14 +155,14 @@ void NewMail()
 
         fclose(MailFile);
 
-        char yesorno[20];
+        char yesorno[2];
         printf("\n\t\t\t  ---------------------------------------------------------\n");
         printf("\t\t\t          DO YOU WANT TOO CONTINUE [TYPE 'YES' OR 'NO']        ");
-        scanf("%S", yesorno);
+        scanf("%s", yesorno);
         printf("\t\t\t  ---------------------------------------------------------\n");
         int value, value1;
-        value = strcmp(yesorno, "yes");
-        value1 = strcmp(yesorno, "no");
+        value = strcmp(yesorno, "Y");
+        value1 = strcmp(yesorno, "N");
         if (value == 0)
         {
             Features_Services();
@@ -211,11 +211,11 @@ void ViewSupport()
     char yesorno[20];
     printf("\n\t\t\t  ---------------------------------------------------------\n");
     printf("\t\t\t          DO YOU WANT TOO CONTINUE [TYPE 'YES' OR 'NO'] ");
-    scanf("%S", yesorno);
+    scanf("%s", yesorno);
     printf("\t\t\t  ---------------------------------------------------------\n");
     int value, value1;
-    value = strcmp(yesorno, "yes");
-    value1 = strcmp(yesorno, "no");
+    value = strcmp(yesorno, "Y");
+    value1 = strcmp(yesorno, "N");
     if (value == 0)
     {
         Features_Services();

@@ -21,6 +21,7 @@ void Write_Logs(char T_username[255], char action[20]);
 
 // Global variables
 char T_username[255];
+int l_r_status;
 
 int CreateUser(void)
 {
@@ -80,7 +81,7 @@ int CreateUser(void)
 
             fprintf(create_user, "%s %s %s %s\n", id, T_username, nameofuser, create_password);
             fclose(create_user);
-            strcat(returnValue, T_username);
+            l_r_status = 1;
             Write_Logs(T_username, "user - register");
         }
 
@@ -98,14 +99,14 @@ int CreateUser(void)
             {
                 fprintf(create_user, "%s %s %s %s\n", id, T_username, nameofuser, create_password);
                 fclose(create_user);
-                strcat(returnValue, T_username);
+                l_r_status = 1;
                 Write_Logs(T_username, "user - register");
             }
             else
             {
                 printf("\t\t\tPasswords doesn't match...\n");
                 printf("\t\t\tTry again later...\n");
-                strcat(returnValue, "null");
+                l_r_status = 0;
             }
         }
 
@@ -114,7 +115,7 @@ int CreateUser(void)
         fclose(read_file);
     }
     Features_Services();
-    return returnValue;
+    return l_r_status;
 }
 
 int LoginUser()
@@ -156,8 +157,7 @@ int LoginUser()
             printf("\t\t\t                YOU HAVE SUCCESSFULLY LOGGED-IN               ");
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             Write_Logs(T_username, "user - login");
-
-            return T_username;
+            l_r_status = 1;
         }
         else
         {
@@ -179,11 +179,11 @@ int LoginUser()
                 printf("\t\t\t                YOU HAVE SUCCESSFULLY LOGGED-IN               ");
                 printf("\n\t\t\t  ---------------------------------------------------------\n");
                 Write_Logs(T_username, "user - login");
-                return T_username;
+                l_r_status = 1;
             }
             else
             {
-                return "null";
+                l_r_status = 0;
             }
         }
     }
@@ -191,7 +191,7 @@ int LoginUser()
     {
         printf("\n\n\t\t\tThere are no exicting user...\n");
         printf("\n\t\t\tdo you want to create an account..? [ Y / N ] : ");
-        scanf("%s", AccountCreateOption);
+        scanf("%c", AccountCreateOption);
 
         printf("\n\t\t\t  ---------------------------------------------------------\n");
         printf("\t\t\t                   THERE'RE NO EXITING USERS                  ");
@@ -199,11 +199,11 @@ int LoginUser()
 
         printf("\n\t\t\t  ---------------------------------------------------------\n");
         printf("\t\t\t                DO YOU WANT TO CREATE AN ACCOUNT:            ");
-        scanf("%ds", AccountCreateOption);
+        scanf("%c", AccountCreateOption);
         printf("\t\t\t  ---------------------------------------------------------\n");
 
         int vallue;
-        value = strcmp(AccountCreateOption, 'Y');
+        value = strcmp(AccountCreateOption, "Y");
         if (value == 0)
         {
             CreateUser();
@@ -218,6 +218,8 @@ int LoginUser()
         }
     }
     fclose(login_file);
+
+    return l_r_status;
 
     // Features_Services(T_username);
 }

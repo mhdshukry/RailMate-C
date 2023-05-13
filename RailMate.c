@@ -57,6 +57,7 @@ void Write_Logs(char T_username[255], char action[20]);
 
 // Global variables
 char T_username[255];
+int l_r_status;
 
 void welcomeMessage()
 {
@@ -106,15 +107,22 @@ int main()
         switch (op)
         {
         case 1:
-            if (LoginUser() != "null")
+            if (LoginUser() == 0)
             {
+                LoginUser();
+                
+            }else{
                 Features_Services();
             }
 
             break; // break the function
 
         case 2:
-            if (CreateUser() != "null")
+            if (l_r_status == 0)
+            {
+                CreateUser();
+            }
+            else
             {
                 Features_Services();
             }
