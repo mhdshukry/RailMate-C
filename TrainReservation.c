@@ -274,7 +274,7 @@ void TrainReservation()
         else if (current_line == read_line)
         {
             keep_reading = false;
-            //printf("\t\t\tLine:\n%s", buffer);
+            // printf("\t\t\tLine:\n%s", buffer);
         }
 
         // continue to keep track of the current line we are reading
@@ -307,7 +307,7 @@ void TrainReservation()
     // open file for reading
     inputf = fopen("TempSysFile.txt", "r");
 
-    fscanf(inputf,"%d %s %s %s %s",&r_userID,starting_station,ending_station,TrainName,train_price);
+    fscanf(inputf, "%d %s %s %s %s", &r_userID, starting_station, ending_station, TrainName, train_price);
 
     // close connection
     fclose(inputf);
@@ -418,20 +418,18 @@ void TrainReservation()
 
     fclose(DP_TrainReservation);
 
-  
     if (remove("TempSysFile.txt") == 0)
-        {
-            printf("\n\t\t\t  ---------------------------------------------------------\n");
-            printf("\t\t\t                          TEMPRORARY FILE DELETED                    ");
-            printf("\n\t\t\t  ---------------------------------------------------------\n");
-        }
-        else
-        {
-            printf("\n\t\t\t  ---------------------------------------------------------\n");
-            printf("\t\t\t                     UNABLE DELETE THE FILE                    ");
-            printf("\n\t\t\t  ---------------------------------------------------------\n");
-        }
-
+    {
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                          TEMPRORARY FILE DELETED                    ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+    }
+    else
+    {
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     UNABLE DELETE THE FILE                    ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+    }
 
     // display detail
     printf("\n\t\t\t---------------------------------------------------------------\n");
@@ -470,7 +468,171 @@ void TrainReservation()
 
 int TrainPriceCalculation()
 {
-    TrainList();
+    // TrainList();
+
+    char *BatticoloaLine[NUM_STRINGS] = {
+        "Moragollagama",
+        "kekirawa",
+        "Higurakgoda",
+        "Polonnaruwa",
+        "Manampitiya",
+        "Welikanda",
+        "Punani",
+        "Valachchenai",
+        "Eravur",
+        "Batticaloa"};
+
+    char *TrincomaleeLine[NUM_STRINGS] = {
+        "Kantale",
+        "Tambalagamuwa",
+        "ChinaBay",
+        "Trincomalee"};
+
+    char *TalaimannarLine[NUM_STRINGS] = {
+        "Cheddikulam",
+        "MaduRoad",
+        "Murunkan",
+        "Mannar",
+        "Pesalai",
+        "Talaimannar",
+        "TalaimannarPier"};
+
+    char *CoastLine[NUM_STRINGS] = {
+        "Fort",
+        "Kompnnavidiya",
+        "Kollupitiya",
+        "Bambalapitiya",
+        "Dehiwala",
+        "MountLaviniya",
+        "Beruwala",
+        "Aluthgama",
+        "Bentota",
+        "Induruwa",
+        "MhaInduruwa",
+        "kosgoda",
+        "Balapitiya",
+        "Ambalangoda",
+        "Hikkaduwa",
+        "Boossa",
+        "Katugoda",
+        "Habaraduwa",
+        "Kumbalgama",
+        "Matara"};
+
+    char *MainLine[NUM_STRINGS] = {
+        "Maradana",
+        "Kelaniya",
+        "Ragama",
+        "Gampaha",
+        "Nawalapitiya",
+        "Hatton",
+        "Talawakele",
+        "Ohiya",
+        "Haputale",
+        "Idalgasinna",
+        "Elle",
+        "Demodara",
+        "Badulla"};
+
+    char *NothernLine[NUM_STRINGS] = {
+        "Kurunegala",
+        "Anuradhapura",
+        "Medawachchiya",
+        "Vavuniya",
+        "Medawachchiya",
+        "Vavuniya",
+        "Omantai",
+        "Kilinochchi",
+        "Kodikamam",
+        "Paranthan",
+        "Jaffna",
+        "Kankesanthurei"};
+
+    // exit(EXIT_SUCCESS);
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\n\t\t\tTrain Lane: \n");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+    printf("\t\t\t [1] Nothern Lane\n");
+
+    //[2] Matale Lane\n [3] BatticoloaLine\n [4] TrincomaleeLine\n [5] TalaimannarLine\n [6] CoastLine\n\n\n\n ");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 [1]: NOTHERN LANE                             \n");
+    printf("\t\t\t                 [2]: MATALE LANE                              \n");
+    printf("\t\t\t                 [3]: BACTICALO LANE                           \n");
+    printf("\t\t\t                 [4]: TRINCOMALEE LANE                         \n");
+    printf("\t\t\t                 [5]: TALAIMANNAR LANE                         \n");
+    printf("\t\t\t                 [6]: COAST LANE                               ");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+    int selectlane;
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 SELECT LANE :  ");
+    scanf("%d", &selectlane);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\n\n");
+
+    switch (selectlane)
+    {
+    case 1:
+        for (int i = 0; i < NUM_STRINGS; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, NothernLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+        break;
+    case 2:
+        for (int i = 0; i < NUM_STRINGS; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, MainLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        break;
+
+    case 3:
+        for (int i = 0; i < NUM_STRINGS; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, BatticoloaLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        break;
+
+    case 4:
+        for (int i = 0; i < NUM_STRINGS; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, TrincomaleeLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        break;
+
+    case 5:
+        for (int i = 0; i < NUM_STRINGS; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, TalaimannarLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        break;
+
+    case 6:
+        for (int i = 0; i < NUM_STRINGS; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, CoastLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        break;
+
+    default:
+        break;
+    }
 
     int startingstation, endingstation, tickets, class;
     float ticketcost;
@@ -546,7 +708,7 @@ int TrainPriceCalculation()
         else if (current_line == read_line)
         {
             keep_reading = false;
-            printf("\t\t\tLine:\n%s", buffer);
+            // printf("\t\t\tLine:\n%s", buffer);
         }
 
         // continue to keep track of the current line we are reading
