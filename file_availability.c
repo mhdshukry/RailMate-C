@@ -5,11 +5,13 @@ void File_Availability(char filename[30])
     FILE *file_availability = fopen(filename, "r");
     if (file_availability == NULL)
     {
-        printf("file %s is missing\n", filename);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t              SELF TEST : %s : FILE MISSING                   ", filename);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
     }
     else
     {
-        printf("\t\t\tSELF TEST : File Availability : %s - [OK] \n", filename);
+        printf("\t\t\t              SELF TEST : %s : FILE [OK]                   \n", filename);
     }
 }
 

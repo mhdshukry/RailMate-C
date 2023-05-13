@@ -57,8 +57,10 @@ void support()
     printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
     printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 
-    printf("\n\n\t\t\t Please, Make a choice : ");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                PLEASE, MAKE A CHOISE : ");
     scanf("%d", &support_option);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
 
     switch (support_option)
     {
@@ -72,10 +74,17 @@ void support()
         Features_Services();
         break;
     case 4:
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                         EXITING SERVICES                    ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         exit(0);
         break;
 
     default:
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                         WRONG INPUT                    ");
+        printf("\t\t\t                         TRY AGAIN                    ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         break;
     }
 }
@@ -103,33 +112,42 @@ void NewMail()
 
     if (MailFile == NULL)
     {
-        printf("System files missing...\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                         FILE MISSING                          ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         exit(0);
     }
     else
     {
         char mailaddress[3000], c2;
         int index2 = 0;
-        printf("Enter Mail Address( press ';' to end input)\n");
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t          MAIL ADDRESS: ( press ';' to end input)                   ");
         while ((c2 = getchar()) != ';')
         {
             mailaddress[index2++] = c2;
         }
         mailaddress[index2] = '\0';
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
 
-        printf("Enter the heading( press ';' to end input)\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t          HEADING: ( press ';' to end input)                   ");
         while ((c1 = getchar()) != ';')
         {
             heading[index1++] = c1;
         }
         heading[index1] = '\0';
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
 
-        printf("Enter the content( press ';' to end input)\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t          CONTENT: ( press ';' to end input)                   ");
         while ((c = getchar()) != ';')
         {
             content[index++] = c;
         }
         content[index] = '\0';
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
 
         fprintf(MailFile, "Mail support no. %d \n\tRequesting person name: %s \nMail address: %s \nHeading: %s \nContent: %s \n\tTime: %s", no, T_username, mailaddress, heading, content, asctime(timeinfo));
         fprintf(MailFile, "---------------------------------------------------------------\n\n\n");
@@ -138,8 +156,10 @@ void NewMail()
         fclose(MailFile);
 
         char yesorno[20];
-        printf("Do you want to continue...? [Type 'yes' or 'no']");
-        scanf("%s", yesorno);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t          DO YOU WANT TOO CONTINUE [TYPE 'YES' OR 'NO']        ");
+        scanf("%S", yesorno);
+        printf("\t\t\t  ---------------------------------------------------------\n");
         int value, value1;
         value = strcmp(yesorno, "yes");
         value1 = strcmp(yesorno, "no");
@@ -149,12 +169,17 @@ void NewMail()
         }
         else if (value1 == 0)
         {
-            printf("System exits\n");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                                SYSTEM EXIT                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
             exit(0);
         }
         else
         {
-            printf("Wrong input...\n System goes to mainmenu page...\n");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                         WRONG INPUT                           ");
+            printf("\t\t\t                      REDIRECT MAIN MENU                       ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
             Features_Services();
         }
     }
@@ -167,7 +192,9 @@ void ViewSupport()
 
     if (ViewFile == NULL)
     {
-        printf("Error: could not open file %s", filename);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                 ERROR: CLOUD NOT OPEN FILE                    ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         exit(0);
     }
 
@@ -177,25 +204,15 @@ void ViewSupport()
     while ((ch = fgetc(ViewFile)) != EOF)
         putchar(ch);
 
-    char *x[] = {"ab", "bc", "cd"};
-    char *s = "kirupan";
-    int len = sizeof(x) / sizeof(x[0]);
-    int i;
-
-    for (i = 0; i < len; ++i)
-    {
-        if (!strcmp(x[i], s))
-        {
-            // Do your stuff
-        }
-    }
     Write_Logs(T_username, "View - Support - Mail");
     // close the file
     fclose(ViewFile);
 
     char yesorno[20];
-    printf("Do you want to continue...? [Type 'yes' or 'no']");
-    scanf("%s", yesorno);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t          DO YOU WANT TOO CONTINUE [TYPE 'YES' OR 'NO'] ");
+    scanf("%S", yesorno);
+    printf("\t\t\t  ---------------------------------------------------------\n");
     int value, value1;
     value = strcmp(yesorno, "yes");
     value1 = strcmp(yesorno, "no");
@@ -205,12 +222,17 @@ void ViewSupport()
     }
     else if (value1 == 0)
     {
-        printf("System exits\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                         EXITING SERVICES                    ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         exit(0);
     }
     else
     {
-        printf("Wrong input...\n System goes to mainmenu page...\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                         WRONG INPUT                           ");
+        printf("\t\t\t                      REDIRECT MAIN MENU                       ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         Features_Services();
     }
 }

@@ -22,26 +22,34 @@ void Parcel()
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
         printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 
-        printf("\n\n\t\t\t Please, Make a choice : ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                PLEASE, MAKE A CHOISE : ");
         scanf("%d", &parceloption);
+        printf("\t\t\t  ---------------------------------------------------------\n");
 
         switch (parceloption)
         {
         case 1:
-            
+
             break;
         case 2:
-            
+
             break;
         case 3:
             Features_Services();
             break;
         case 4:
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                         EXITING SERVICES                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
             exit(0);
             break;
 
         default:
-            printf("\n\t\t\twrong input...\n\n");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                         WRONG INPUT                    ");
+            printf("\t\t\t                         TRY AGAIN                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
             break;
         }
     } while (parceloption != 5);

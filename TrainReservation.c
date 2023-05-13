@@ -5,6 +5,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdbool.h>
+// #include <dos.h>
 
 // files and functions
 
@@ -109,13 +110,28 @@ void TrainReservation()
 
     // exit(EXIT_SUCCESS);
 
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
     printf("\n\t\t\tTrain Lane: \n");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
 
-    printf("\t\t\t [1] Nothern Lane\n [2] Matale Lane\n [3] BatticoloaLine\n [4] TrincomaleeLine\n [5] TalaimannarLine\n [6] CoastLine\n\n\n\n ");
+    printf("\t\t\t [1] Nothern Lane\n");
+
+    //[2] Matale Lane\n [3] BatticoloaLine\n [4] TrincomaleeLine\n [5] TalaimannarLine\n [6] CoastLine\n\n\n\n ");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 [1]: NOTHERN LANE                             \n");
+    printf("\t\t\t                 [2]: MATALE LANE                              \n");
+    printf("\t\t\t                 [3]: BACTICALO LANE                           \n");
+    printf("\t\t\t                 [4]: TRINCOMALEE LANE                         \n");
+    printf("\t\t\t                 [5]: TALAIMANNAR LANE                         \n");
+    printf("\t\t\t                 [6]: COAST LANE                               ");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
 
     int selectlane;
-
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 SELECT LANE :  ");
     scanf("%d", &selectlane);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
     printf("\n\n");
 
     switch (selectlane)
@@ -123,49 +139,55 @@ void TrainReservation()
     case 1:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("\t\t\t[%d] %s, \n", i + 1, NothernLine[i]);
+            printf("\t\t\t\t[%d] %s, \n", i + 1, NothernLine[i]);
         }
         printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
 
         break;
     case 2:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("\t\t\t[%d] %s, \n", i + 1,MainLine [i]);
+            printf("\t\t\t\t[%d] %s, \n", i + 1, MainLine[i]);
         }
         printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         break;
 
     case 3:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("\t\t\t[%d] %s, \n", i + 1, BatticoloaLine[i]);
+            printf("\t\t\t\t[%d] %s, \n", i + 1, BatticoloaLine[i]);
         }
         printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         break;
 
     case 4:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("\t\t\t[%d] %s, \n", i + 1, TrincomaleeLine[i]);
+            printf("\t\t\t\t[%d] %s, \n", i + 1, TrincomaleeLine[i]);
         }
         printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         break;
 
     case 5:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("\t\t\t[%d] %s, \n", i + 1, TalaimannarLine[i]);
+            printf("\t\t\t\t[%d] %s, \n", i + 1, TalaimannarLine[i]);
         }
         printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         break;
 
     case 6:
         for (int i = 0; i < NUM_STRINGS; ++i)
         {
-            printf("\t\t\t[%d] %s, \n", i + 1, CoastLine[i]);
+            printf("\t\t\t\t[%d] %s, \n", i + 1, CoastLine[i]);
         }
         printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         break;
 
     default:
@@ -175,17 +197,27 @@ void TrainReservation()
     int startingstation, endingstation, tickets, class;
     float ticketcost;
 
-    printf("\t\t\tEnter the starting point: ");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                     STARTING POINT: ");
     scanf("%d", &startingstation);
-
-    printf("\t\t\tEnter the starting point: ");
+    printf("\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                     ENDING POINT: ");
     scanf("%d", &endingstation);
-
-    printf("\t\t\tEnter the Tickets: ");
+    printf("\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                     TICKETS: ");
     scanf("%d", &tickets);
+    printf("\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t             [1] - FIRST/LUXURY                            \n");
+    printf("\t\t\t             [2] - SECOND/ECONOMY                          \n");
+    printf("\t\t\t             [3] - THIRD/BUDGET                            \n");
 
-    printf("\t\t\t[1] - First/Luxary\n\t\t\t[2] - Second/Economy\n\t\t\t[3] - Third/Budget\n\n");
+    printf("\t\t\t  ---------------------------------------------------------\n");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 SELECT CLASS :  ");
     scanf("%d", &class);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\n\n");
 
     // file pointer will be used to open/read the file
     FILE *file;
@@ -213,7 +245,9 @@ void TrainReservation()
     // if the file failed to open, exit with an error message and status
     if (file == NULL)
     {
-        printf("\t\t\tError opening file.\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                 ERROR: CLOUD NOT OPEN FILE                    ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         exit(0);
     }
 
@@ -240,7 +274,7 @@ void TrainReservation()
         else if (current_line == read_line)
         {
             keep_reading = false;
-            printf("\t\t\tLine:\n%s", buffer);
+            //printf("\t\t\tLine:\n%s", buffer);
         }
 
         // continue to keep track of the current line we are reading
@@ -273,20 +307,7 @@ void TrainReservation()
     // open file for reading
     inputf = fopen("TempSysFile.txt", "r");
 
-    // display detail
-    printf("\t\t\t Details:\n");
-    fscanf(inputf, "%d %s %s %s %s", &r_userID, starting_station, ending_station, TrainName, train_price);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tUserID: %d\n", r_userID);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tStart: %s\n", starting_station);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tEnd: %s\n", ending_station);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tPrice %s\n", train_price);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tTrain: %s\n", TrainName);
-    printf("\t\t\t---------------------------------------------------------------\n");
+    fscanf(inputf,"%d %s %s %s %s",&r_userID,starting_station,ending_station,TrainName,train_price);
 
     // close connection
     fclose(inputf);
@@ -314,53 +335,67 @@ void TrainReservation()
         break;
     }
 
-    printf("%.2lf\n\n\n", TotalCost);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 TOTAL COST: %.2lf                    ", TotalCost);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
 
-    // char PhoneNumber[255], FullName[255], EmailAddress[255], Address[255];
-
-    printf("\n\n\n\t\t\tTrain seat reservation.\n");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 TRAIN SEAT RESERVATION                    ");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
 
     char PhoneNumber[3000], c;
     int index = 0;
-    printf("\t\t\tEnter Phone Number( press ';' to end input)\n");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t        PHONE NUMBER: ( press ';' to end input):- ");
     while ((c = getchar()) != ';')
     {
         PhoneNumber[index++] = c;
     }
     PhoneNumber[index] = '\0';
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
 
     //
 
     char FullName[3000], c1;
     int index1 = 0;
-    printf("\n\n\t\t\tEnter Full Name( press ';' to end input)\n");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t    FULL NAME: ( press ';' to end input):- ");
     while ((c1 = getchar()) != ';')
     {
         FullName[index1++] = c1;
     }
     FullName[index1] = '\0';
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
 
     //
 
     char EmailAddress[3000], c2;
     int index2 = 0;
-    printf("\n\n\t\t\tEnter Mail Address( press ';' to end input)\n");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t    EMAIL ADDRESS: ( press ';' to end input):- ");
     while ((c2 = getchar()) != ';')
     {
         EmailAddress[index2++] = c2;
     }
     EmailAddress[index2] = '\0';
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
 
     //
 
     char Address[3000], c3;
     int index3 = 0;
-    printf("\n\n\t\t\tEnter Your Address( press ';' to end input)\n");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t    HOME ADDDRESS: ( press ';' to end input):- ");
     while ((c3 = getchar()) != ';')
     {
         Address[index3++] = c3;
     }
     Address[index3] = '\0';
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
 
     //
 
@@ -383,11 +418,53 @@ void TrainReservation()
 
     fclose(DP_TrainReservation);
 
+  
     if (remove("TempSysFile.txt") == 0)
-        printf("\n\n\t\t\tTemp file Deleted successfully");
-    else
-        printf("\n\n\t\t\tUnable to delete the file");
+        {
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                          TEMPRORARY FILE DELETED                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+        }
+        else
+        {
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                     UNABLE DELETE THE FILE                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+        }
 
+
+    // display detail
+    printf("\n\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                     RESERVATION DETAILS          ");
+    printf("\t\t\t---------------------------------------------------------------\n");
+
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Username: %s\n", T_username);
+    printf("\n\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Start: %s\n", starting_station);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 End: %s\n", ending_station);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Train: %s\n", TrainName);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Trickets %d\n", tickets);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 TOTAL COST: %.2lf   ", TotalCost);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Full Name: %s\n", FullName);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Phone Number:: %s\n", PhoneNumber);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Email Address:: %s\n", EmailAddress);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Address: %s\n", Address);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+    Write_Logs(T_username, "Price - Reservation");
     Features_Services();
 }
 
@@ -398,17 +475,21 @@ int TrainPriceCalculation()
     int startingstation, endingstation, tickets, class;
     float ticketcost;
 
-    printf("\n\t\t\tEnter the starting point: ");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                     STARTING POINT: ");
     scanf("%d", &startingstation);
-
-    printf("\n\t\t\tEnter the starting point: ");
+    printf("\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                     ENDING POINT: ");
     scanf("%d", &endingstation);
-
-    printf("\n\t\t\tEnter the Tickets: ");
+    printf("\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                     TICKETS: ");
     scanf("%d", &tickets);
-
-    printf("\t\t\t[1] - First/Luxary\n\t\t\t[2] - Second/Economy\n\t\t\t[3] - Third/Budget\n\n");
+    printf("\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t             [1] - FIRST/LUXURY                            \n");
+    printf("\t\t\t             [2] - SECOND/ECONOMY                          \n");
+    printf("\t\t\t             [3] - THIRD/BUDGET                            \n");
     scanf("%d", &class);
+    printf("\t\t\t  ---------------------------------------------------------\n");
 
     // file pointer will be used to open/read the file
     FILE *file;
@@ -436,8 +517,10 @@ int TrainPriceCalculation()
     // if the file failed to open, exit with an error message and status
     if (file == NULL)
     {
-        printf("\t\t\tError opening file.\n");
-        return 1;
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                 ERROR: CLOUD NOT OPEN FILE                    ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        exit(0);
     }
 
     // we'll keep reading the file so long as keep_reading is true, and we'll
@@ -488,32 +571,19 @@ int TrainPriceCalculation()
 
     char starting_station[255];
     char ending_station[255];
-    char r_Password[255];
+    char train_price[255];
     int r_userID;
-    char price[255];
+    char train_name[255];
 
     // open file for reading
     inputf = fopen("TempSysFile.txt", "r");
 
-    // display detail
-    printf("\t\t\t Details:\n");
-    fscanf(inputf, "%d %s %s %s %s", &r_userID, starting_station, ending_station, price, r_Password);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tUserID: %d\n", r_userID);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tStart: %s\n", starting_station);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tEnd: %s\n", ending_station);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tPrice %s\n", r_Password);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tTrain: %s\n", price);
-    printf("\t\t\t---------------------------------------------------------------\n");
+    fscanf(inputf, "%d %s %s %s %s", &r_userID, starting_station, ending_station, train_name, train_price);
 
     // close connection
     fclose(inputf);
 
-    float basic_price = atoi(r_Password);
+    float basic_price = atoi(train_price);
     // printf("%.2lf", basic_price);
 
     float TotalCost;
@@ -536,69 +606,54 @@ int TrainPriceCalculation()
         break;
     }
 
-    printf("%.2lf\n\n\n", TotalCost);
+    // display detail
+
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                           DETAILS          ");
+    printf("\t\t\t---------------------------------------------------------------\n");
+
+    fscanf(inputf, "%d %s %s %s %s", &r_userID, starting_station, ending_station, train_name, train_price);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Username: %s\n", T_username);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Start: %s\n", starting_station);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 End: %s\n", ending_station);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Train: %s\n", train_name);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\t\t\t                 Trickets %d\n", tickets);
+    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 TOTAL COST: %.2lf                    ", TotalCost);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
     Write_Logs(T_username, "Price - Calculation");
+
     Features_Services();
 }
 
 void TrainList()
 {
     char *filename = "TrainsDetails.txt";
-    FILE *ViewBugFile = fopen(filename, "r");
+    FILE *TrainsDetails = fopen(filename, "r");
 
-    if (ViewBugFile == NULL)
+    if (TrainsDetails == NULL)
     {
-        printf("\n\t\t\tError: could not open file %s", filename);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                 ERROR: CLOUD NOT OPEN FILE                    ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         exit(0);
     }
 
     // read one character at a time and
     // display it to the output
     char ch;
-    while ((ch = fgetc(ViewBugFile)) != EOF)
+    while ((ch = fgetc(TrainsDetails)) != EOF)
     {
         putchar(ch);
     }
 
     // close the file
-    fclose(ViewBugFile);
+    fclose(TrainsDetails);
     Write_Logs(T_username, "Train-List");
-}
-
-void ViewReservation()
-{
-
-    int ProfileOption;
-
-    printf("\n");
-    printf("\t\t\t----------------------[ # ] View Reservation  ---------------------------n");
-    printf("\t\t\t-------------------- Welcome Back [ USERNAME ] -----------------\n\n");
-    printf("\t\t\t-------------------[ 1 ] View history ---------------------------\n");
-    printf("\t\t\t-------------------[ 2 ] Logs -----------------------------------\n");
-    printf("\t\t\t-------------------[ 3 ] Main menu ------------------------------\n");
-    printf("\t\t\t-------------------[ 4 ] Exit -----------------------------------\n\n");
-
-    printf("\t\t\tFeature Option: ");
-    scanf("%d", &ProfileOption);
-
-    switch (ProfileOption)
-    {
-    case 1:
-        // TrainList();
-        break;
-    case 2:
-        /* TrainReservation();
-         */
-        break;
-    case 3:
-        /* code */
-        break;
-    case 4:
-        /* ReservationHistory();
-         */
-        break;
-
-    default:
-        break;
-    }
 }

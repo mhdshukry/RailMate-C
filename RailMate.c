@@ -60,7 +60,6 @@ char T_username[255];
 
 void welcomeMessage()
 {
-    printf("\n\n\n\n\n");
     printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
     printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
     printf("\n\t\t\t        =                 WELCOME                   =");
@@ -73,12 +72,15 @@ void welcomeMessage()
 int main()
 {
     printf("\n\n");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
     File_Availability("TrainsDetails.txt");
     File_Availability("dp_pricelist.txt");
     File_Availability("bugs.txt");
     File_Availability("supports.txt");
     File_Availability("dp_parcel.txt");
     File_Availability("dp_logs.txt");
+    printf("\t\t\t  ---------------------------------------------------------\n\n");
 
     welcomeMessage();
 
@@ -95,8 +97,10 @@ int main()
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
         printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 
-        printf("\n\n\t\t\t Please, Make a choice : ");
-        scanf("%d", &op); // accepts a numeric input to choose the operation
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                PLEASE, MAKE A CHOISE : ");
+        scanf("%d", &op);
+        printf("\t\t\t  ---------------------------------------------------------\n");
 
         // use switch statement to call an operation
         switch (op)
@@ -116,12 +120,17 @@ int main()
             }
             break;
         case 0:
-            printf("\n\n\t\t\tYou chose: Exit");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                         EXITING SERVICES                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
             exit(0);
             break;
 
         default:
-            printf("\n\n\t\t\tSomething is wrong!! ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                         WRONG INPUT                    ");
+            printf("\t\t\t                         TRY AGAIN                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
             break;
         }
     } while (op != 0);

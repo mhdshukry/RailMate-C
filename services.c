@@ -13,7 +13,6 @@
 #define NUM_STRINGS 20
 
 void Features_Services();
-void Write_Logs(char T_username[255], char action[20]);
 
 // Global variables
 char T_username[255];
@@ -39,9 +38,10 @@ void Features_Services()
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
         printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 
-        printf("\n\n\t\t\t Please, Make a choice : ");
-
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                PLEASE, MAKE A CHOISE : ");
         scanf("%d", &FeatureOption);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
 
         switch (FeatureOption)
         {
@@ -65,11 +65,17 @@ void Features_Services()
             break;
 
         case 0:
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                         EXITING SERVICES                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
             exit(0);
             break;
 
         default:
-            printf("\n\t\t\twrong input...\n\n");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                         WRONG INPUT                    ");
+            printf("\t\t\t                         TRY AGAIN                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
             break;
         }
     } while (FeatureOption != 0);

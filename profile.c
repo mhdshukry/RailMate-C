@@ -24,34 +24,26 @@ char T_username[255];
 
 void ViewUser(char T_username[])
 {
-    // creating a FILE variable
-    /// FILE *inputf;
-    FILE *inputf;
-    // reading section
-
-    char r_username[255];
-    char r_Name[255];
-    char r_Password[255];
-    char r_userID[255];
-
     // open file for reading
-    inputf = fopen(T_username, "r");
+    FILE *view_profile = fopen(T_username, "r");
+
+    char profile_username[255];
+    char profile_name[255];
+    char profile_password[255];
+    char profile_id[255];
 
     // display detail
     printf("\t\t\t Details:\n");
-    fscanf(inputf, "%s %s %s %[^\n]s", r_userID, r_username, r_Name, r_Password);
+    fscanf(view_profile, "%s %s %s %[^\n]s", profile_id, profile_username, profile_name, profile_password);
     printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tUserID: %s\n", r_userID);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tUsername: %s\n", r_username);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tName: %s\n", r_Name);
-    printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\tPassword: %s\n", r_Password);
+    printf("\t\t\t USER ID :-----------------: %s\n", profile_id);
+    printf("\t\t\t USERNAME :----------------: %s\n", profile_username);
+    printf("\t\t\t NAME :--------------------: %s\n", profile_name);
+    printf("\t\t\t PASSWORD :----------------: %s\n", profile_password);
     printf("\t\t\t---------------------------------------------------------------\n");
     Write_Logs(T_username, "View - User");
     // close connection
-    fclose(inputf);
+    fclose(view_profile);
     Features_Services();
 }
 
@@ -72,9 +64,10 @@ void Profile(char T_username[])
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
         printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 
-        printf("\n\n\t\t\t Please, Make a choice : ");
-
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                PLEASE, MAKE A CHOISE : ");
         scanf("%d", &ProfileOption);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
 
         switch (ProfileOption)
         {
@@ -91,11 +84,18 @@ void Profile(char T_username[])
             Features_Services();
             break;
         case 0:
+            
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                         EXITING SERVICES                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
             exit(0);
             break;
 
         default:
-            printf("wrong input...\n");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                         WRONG INPUT                    ");
+            printf("\t\t\t                         TRY AGAIN                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
             break;
         }
     } while (ProfileOption != 5);
@@ -103,10 +103,8 @@ void Profile(char T_username[])
 
 char EditPersonalDetails(char T_username[])
 {
-
-    // creating a FILE variable
-    /// FILE *inputf;
-    FILE *file;
+    // open the file in read mode
+    FILE *edit_profile = fopen(T_username, "r");
 
     // integer variable
     int value;
@@ -117,63 +115,82 @@ char EditPersonalDetails(char T_username[])
     char EP_password_r[255];
     char EP_name[255];
 
-    // Get username from user and create a new file name as user's username
-    printf("Welcome to TRS-Application...!!");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                         EDIT PERSONAL                       ");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
 
-    // open the file in read mode
-    file = fopen(T_username, "r");
-
-    if (file != NULL)
+    if (edit_profile != NULL)
     {
-        file = fopen(T_username, "w");
-        char id[255] = "TRS_UR_001";
+        edit_profile = fopen(T_username, "w");
+        char id[255] = "1";
 
         // get customer detail
-        printf("\tEnter name: ");
-        scanf("%s", EP_name);
 
-        printf("\tEnter your password: ");
-        scanf("%s", EP_password);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     NAME: ");
+        scanf("%S", EP_name);
+        printf("\t\t\t  ---------------------------------------------------------\n");
 
-        printf("\tAgain Password: ");
-        scanf("%s", EP_password_r);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     PASSWORD: ");
+        scanf("%S", EP_password);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     AGAIN PASSWORD: ");
+        scanf("%S", EP_password_r);
+        printf("\t\t\t  ---------------------------------------------------------\n");
 
         value = strcmp(EP_password, EP_password_r);
         if (value == 0)
         {
-            fprintf(file, "%s %s %s %s\n", id, T_username, EP_name, EP_password);
+            fprintf(edit_profile, "%s %s %s %s\n", id, T_username, EP_name, EP_password);
             Write_Logs(T_username, "Edit - Profile");
         }
 
         else
         {
-            printf("\tPasswords doesn't match...\n");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                         PASSWORD DOESN'T MATCH                       ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
 
-            printf("\tEnter your password: ");
-            scanf("%s", EP_password);
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                     PASSWORD: ");
+            scanf("%S", EP_password);
+            printf("\t\t\t  ---------------------------------------------------------\n");
 
-            printf("\tAgain Password: ");
-            scanf("%s", EP_password_r);
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                     AGAIN PASSWORD: ");
+            scanf("%S", EP_password_r);
+            printf("\t\t\t  ---------------------------------------------------------\n");
+
             value = strcmp(EP_password, EP_password_r);
             if (value == 0)
             {
-                fprintf(file, "%s %s %s %s\n", id, T_username, EP_name, EP_password);
+                fprintf(edit_profile, "%s %s %s %s\n", id, T_username, EP_name, EP_password);
+                Write_Logs(T_username, "Edit - Profile");
             }
             else
             {
-                printf("Passwords doesn't match...\n");
-                printf("Try again later...\n");
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                printf("\t\t\t                         PASSWORD DOESN'T MATCH                ");
+                printf("\t\t\t                                TRY AGAIN                      ");
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
                 Features_Services();
             }
         }
 
         // close connection
-        fclose(file);
+        fclose(edit_profile);
     }
     else
     {
-        printf("issue on system.\n");
-        // exit status for OS that an error occured
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                         FILE MISSING                       ");
+        printf("\t\t\t                            EXITING...                      ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        Features_Services();
         exit(0);
     }
 }
