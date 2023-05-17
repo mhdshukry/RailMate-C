@@ -63,6 +63,8 @@ void viewmyhistory();
 
 void Parcel();
 void view_details_parcel(char start[], char finish[], float parcelcost, float parcel_weight, float unit_price);
+void view_parcel_history();
+void calculate_price_parcel_reservation();
 
 // Global variables
 char T_username[255];
