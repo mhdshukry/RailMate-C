@@ -93,7 +93,7 @@ void NewBugs()
     timeinfo = localtime(&rawtime);
     // printf("Current local time and date: %s", asctime(timeinfo));
 
-    char *filename = "bugs.txt";
+    char *filename = "dp_bugs.txt";
     FILE *BugsFile = fopen(filename, "a");
 
     if (BugsFile == NULL)
@@ -174,7 +174,7 @@ void NewBugs()
 
 void BugsView()
 {
-    char *filename = "bugs.txt";
+    char *filename = "dp_bugs.txt";
     FILE *ViewBugFile = fopen(filename, "r");
 
     if (ViewBugFile == NULL)
@@ -191,18 +191,7 @@ void BugsView()
     while ((ch = fgetc(ViewBugFile)) != EOF)
         putchar(ch);
 
-    char *x[] = {"ab", "bc", "cd"};
-    char *s = "kirupan";
-    int len = sizeof(x) / sizeof(x[0]);
-    int i;
-
-    for (i = 0; i < len; ++i)
-    {
-        if (!strcmp(x[i], s))
-        {
-            // Do your stuff
-        }
-    }
+    
     // close the file
     Write_Logs(T_username, "Bugs - View");
     fclose(ViewBugFile);

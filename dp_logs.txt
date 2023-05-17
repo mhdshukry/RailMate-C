@@ -56,3 +56,27 @@ username: kirupan10 | action: Parcel reserved | time: Wed May 17 17:11:51 2023
 
 username: kirupan10 | action: Parcel - View | time: Wed May 17 17:12:06 2023
 
+username: dp_user_kirupan | action: user - register | time: Wed May 17 17:26:37 2023
+
+username: dp_user_kirupan | action: user - login | time: Wed May 17 17:28:50 2023
+
+username: dp_user_kirupan | action: Train Reservation - View | time: Wed May 17 17:32:36 2023
+
+username: dp_user_kirupan | action: Price - Calculation | time: Wed May 17 17:32:36 2023
+
+username: dp_user_kirupan | action: Price - Calculation | time: Wed May 17 17:32:36 2023
+
+username: dp_user_kirupan | action: user - login | time: Wed May 17 17:32:49 2023
+
+username: dp_user_kirupan | action: user - register | time: Wed May 17 17:37:26 2023
+
+username: dp_user_kirupandp_user_kirupan10 | action: user - register | time: Wed May 17 17:39:35 2023
+
+username: dp_user_kiru | action: user - register | time: Wed May 17 17:43:06 2023
+
+username: dp_user_kiru | action: user - register | time: Wed May 17 17:43:26 2023
+
+username: dp_user_kiru | action: user - login | time: Wed May 17 17:45:25 2023
+
+username: dp_user_kiru | action: user - login | time: Wed May 17 17:45:42 2023
+

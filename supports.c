@@ -108,7 +108,7 @@ void NewMail()
     timeinfo = localtime(&rawtime);
     // printf("Current local time and date: %s", asctime(timeinfo));
 
-    MailFile = fopen("supports.txt", "a");
+    MailFile = fopen("dp_supports.txt", "a");
 
     if (MailFile == NULL)
     {
@@ -190,7 +190,7 @@ void NewMail()
 
 void ViewSupport()
 {
-    char *filename = "supports.txt";
+    char *filename = "dp_supports.txt";
     FILE *ViewFile = fopen(filename, "r");
 
     if (ViewFile == NULL)

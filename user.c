@@ -32,6 +32,12 @@ int CreateUser(void)
     char create_password[255];
     char create_password_verify[255];
     char nameofuser[255];
+    char username[255];
+    char user[255];
+
+    //char T_username[255] = "";
+
+    strcpy(T_username,"");
 
     const char returnValue[255];
 
@@ -40,12 +46,14 @@ int CreateUser(void)
 
     printf("\n\t\t\t  ---------------------------------------------------------\n");
     printf("\t\t\t              UNIQUE USERNAME PLEASE : ");
-    scanf("%s", T_username);
+    scanf("%s", username);
+    strcat(T_username, "dp_user_");
+    strcat(T_username, username);
+    // printf("%s",T_username);
     printf("\t\t\t  -----------------------------------------------------------\n");
 
     // open file for reading
     FILE *read_file = fopen(T_username, "r");
-    FILE *create_user = fopen(T_username, "w");
 
     if (read_file != NULL)
     {
@@ -58,6 +66,7 @@ int CreateUser(void)
     }
     if (read_file == NULL)
     {
+        FILE *create_user = fopen(T_username, "w");
 
         if (create_user != NULL)
         {
@@ -154,10 +163,18 @@ int LoginUser()
 
     int value;
 
+    char username[255];
+    char user[255];
+
+    strcpy(T_username, "");
+
     printf("\n\t\t\t  ---------------------------------------------------------\n");
     printf("\t\t\t                    ENTER YOUR USERNAME : ");
-    scanf("%s", T_username);
+    scanf("%s", username);
     printf("\t\t\t  -----------------------------------------------------------\n");
+
+    strcat(T_username, "dp_user_");
+    strcat(T_username, username);
 
     FILE *login_file = fopen(T_username, "r");
 

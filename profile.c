@@ -61,8 +61,9 @@ void Profile(char T_username[])
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         printf("\n\t\t\t        =         [ 1 ]   VIEW DETAILS              =");
         printf("\n\t\t\t        =         [ 2 ]   EDIT PROFILE              =");
-        printf("\n\t\t\t        =         [ 3 ]   VIEW RESERVATION HISTORY  =");
-        printf("\n\t\t\t        =         [ 4 ]   MAIN MENU                 =");
+        printf("\n\t\t\t        =         [ 3 ]   DELETE PROFILE            =");
+        printf("\n\t\t\t        =         [ 4 ]   VIEW RESERVATION HISTORY  =");
+        printf("\n\t\t\t        =         [ 5 ]   MAIN MENU                 =");
         printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
         printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
@@ -81,9 +82,27 @@ void Profile(char T_username[])
             EditPersonalDetails(T_username);
             break;
         case 3:
-            viewmyhistory();
+            if (remove(T_username) == 0)
+            {
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                printf("\t\t\t                        PROFILE DELETED                    ");
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                l_r_status = 0;
+                Features_Services();
+            }
+            else
+            {
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                printf("\t\t\t                     UNABLE DELETE                             ");
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                l_r_status = 1;
+                Features_Services();
+            }
             break;
         case 4:
+            viewmyhistory();
+            break;
+        case 5:
             Features_Services();
             break;
         case 0:
