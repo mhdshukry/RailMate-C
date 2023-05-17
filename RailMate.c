@@ -66,7 +66,7 @@ void calculate_price_parcel_reservation();
 // Global variables
 char T_username[255];
 int l_r_status;
-int file_availability_;
+int i;
 
 void welcomeMessage()
 {

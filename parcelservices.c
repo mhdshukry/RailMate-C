@@ -203,7 +203,7 @@ void calculate_price_parcel_reservation()
     switch (selectlane)
     {
     case 1:
-        for (int i = 0; i < 11; ++i)
+        for (i = 0; i < 11; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, NothernLine[i]);
         }
@@ -221,7 +221,7 @@ void calculate_price_parcel_reservation()
 
         break;
     case 2:
-        for (int i = 0; i < 12; ++i)
+        for (i = 0; i < 12; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, MainLine[i]);
         }
@@ -240,7 +240,7 @@ void calculate_price_parcel_reservation()
         break;
 
     case 3:
-        for (int i = 0; i < 10; ++i)
+        for (i = 0; i < 10; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, BatticoloaLine[i]);
         }
@@ -259,7 +259,7 @@ void calculate_price_parcel_reservation()
         break;
 
     case 4:
-        for (int i = 0; i < 4; ++i)
+        for (i = 0; i < 4; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, TrincomaleeLine[i]);
         }
@@ -278,7 +278,7 @@ void calculate_price_parcel_reservation()
         break;
 
     case 5:
-        for (int i = 0; i < 6; ++i)
+        for (i = 0; i < 6; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, TalaimannarLine[i]);
         }
@@ -297,7 +297,7 @@ void calculate_price_parcel_reservation()
         break;
 
     case 6:
-        for (int i = 0; i < 20; ++i)
+        for (i = 0; i < 20; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, CoastLine[i]);
         }

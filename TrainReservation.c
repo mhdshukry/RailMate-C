@@ -23,6 +23,7 @@ int main();
 
 // Global variables
 char T_username[255];
+i = 0;
 
 void TrainReservation()
 {
@@ -135,7 +136,7 @@ void TrainReservation()
     switch (selectlane)
     {
     case 1:
-        for (int i = 0; i < 11; ++i)
+        for (i = 0; i < 11; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, NothernLine[i]);
         }
@@ -144,7 +145,7 @@ void TrainReservation()
 
         break;
     case 2:
-        for (int i = 0; i < 12; ++i)
+        for (i = 0; i < 12; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, MainLine[i]);
         }
@@ -153,7 +154,7 @@ void TrainReservation()
         break;
 
     case 3:
-        for (int i = 0; i < 10; ++i)
+        for (i = 0; i < 10; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, BatticoloaLine[i]);
         }
@@ -162,7 +163,7 @@ void TrainReservation()
         break;
 
     case 4:
-        for (int i = 0; i < 4; ++i)
+        for (i = 0; i < 4; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, TrincomaleeLine[i]);
         }
@@ -171,7 +172,7 @@ void TrainReservation()
         break;
 
     case 5:
-        for (int i = 0; i < 6; ++i)
+        for (i = 0; i < 6; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, TalaimannarLine[i]);
         }
@@ -180,7 +181,7 @@ void TrainReservation()
         break;
 
     case 6:
-        for (int i = 0; i < 20; ++i)
+        for (i = 0; i < 20; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, CoastLine[i]);
         }
@@ -272,7 +273,7 @@ void TrainReservation()
             printf("F\t\t\tile %d lines.\n", current_line - 1);
             printf("\t\t\tCouldn't find line %d.\n", read_line);
         }
-        // if we've found the line the user is looking for, print it out
+        // if we've found the line the user is looking for, prit out
         else if (current_line == read_line)
         {
             keep_reading = false;
@@ -291,7 +292,7 @@ void TrainReservation()
 
     fclose(TempFile);
 
-    // notably at this point in the code, buffer will contain the line of the
+    // notably at this poin the code, buffer will contain the line of the
     // file we were looking for if it was found successfully, so it could be
     // used for other purposes at this point as well...
 
@@ -609,7 +610,7 @@ int TrainPriceCalculation()
     switch (selectlane)
     {
     case 1:
-        for (int i = 0; i < 11; ++i)
+        for (i = 0; i < 11; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, NothernLine[i]);
         }
@@ -618,7 +619,7 @@ int TrainPriceCalculation()
 
         break;
     case 2:
-        for (int i = 0; i < 12; ++i)
+        for (i = 0; i < 12; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, MainLine[i]);
         }
@@ -627,7 +628,7 @@ int TrainPriceCalculation()
         break;
 
     case 3:
-        for (int i = 0; i < 10; ++i)
+        for (i = 0; i < 10; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, BatticoloaLine[i]);
         }
@@ -636,7 +637,7 @@ int TrainPriceCalculation()
         break;
 
     case 4:
-        for (int i = 0; i < 4; ++i)
+        for (i = 0; i < 4; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, TrincomaleeLine[i]);
         }
@@ -645,7 +646,7 @@ int TrainPriceCalculation()
         break;
 
     case 5:
-        for (int i = 0; i < 6; ++i)
+        for (i = 0; i < 6; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, TalaimannarLine[i]);
         }
@@ -654,7 +655,7 @@ int TrainPriceCalculation()
         break;
 
     case 6:
-        for (int i = 0; i < 20; ++i)
+        for (i = 0; i < 20; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, CoastLine[i]);
         }
