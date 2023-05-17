@@ -21,9 +21,6 @@
 #define FILENAME_SIZE 1024
 #define MAX_LINE 2048
 
-#define MAX_LENGTH 255
-#define NUM_STRINGS 20
-
 /* Functions */
 int LoginUser();
 int CreateUser(void);

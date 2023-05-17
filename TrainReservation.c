@@ -13,9 +13,6 @@
 #define FILENAME_SIZE 1024
 #define MAX_LINE 2048
 
-#define MAX_LENGTH 255
-#define NUM_STRINGS 20
-
 // 08.05.2023.2.16.35
 void TrainList();
 int TrainPriceCalculation();
@@ -31,7 +28,7 @@ void TrainReservation()
 {
     // TrainList();
 
-    char *BatticoloaLine[NUM_STRINGS] = {
+    char *BatticoloaLine[] = {
         "Moragollagama",
         "kekirawa",
         "Higurakgoda",
@@ -43,13 +40,13 @@ void TrainReservation()
         "Eravur",
         "Batticaloa"};
 
-    char *TrincomaleeLine[NUM_STRINGS] = {
+    char *TrincomaleeLine[] = {
         "Kantale",
         "Tambalagamuwa",
         "ChinaBay",
         "Trincomalee"};
 
-    char *TalaimannarLine[NUM_STRINGS] = {
+    char *TalaimannarLine[] = {
         "Cheddikulam",
         "MaduRoad",
         "Murunkan",
@@ -58,7 +55,7 @@ void TrainReservation()
         "Talaimannar",
         "TalaimannarPier"};
 
-    char *CoastLine[NUM_STRINGS] = {
+    char *CoastLine[] = {
         "Fort",
         "Kompnnavidiya",
         "Kollupitiya",
@@ -80,7 +77,7 @@ void TrainReservation()
         "Kumbalgama",
         "Matara"};
 
-    char *MainLine[NUM_STRINGS] = {
+    char *MainLine[] = {
         "Maradana",
         "Kelaniya",
         "Ragama",
@@ -95,7 +92,7 @@ void TrainReservation()
         "Demodara",
         "Badulla"};
 
-    char *NothernLine[NUM_STRINGS] = {
+    char *NothernLine[] = {
         "Kurunegala",
         "Anuradhapura",
         "Medawachchiya",
@@ -505,7 +502,7 @@ int TrainPriceCalculation()
 {
     // TrainList();
 
-    char *BatticoloaLine[NUM_STRINGS] = {
+    char *BatticoloaLine[] = {
         "Moragollagama",
         "kekirawa",
         "Higurakgoda",
@@ -517,13 +514,13 @@ int TrainPriceCalculation()
         "Eravur",
         "Batticaloa"};
 
-    char *TrincomaleeLine[NUM_STRINGS] = {
+    char *TrincomaleeLine[] = {
         "Kantale",
         "Tambalagamuwa",
         "ChinaBay",
         "Trincomalee"};
 
-    char *TalaimannarLine[NUM_STRINGS] = {
+    char *TalaimannarLine[] = {
         "Cheddikulam",
         "MaduRoad",
         "Murunkan",
@@ -532,7 +529,7 @@ int TrainPriceCalculation()
         "Talaimannar",
         "TalaimannarPier"};
 
-    char *CoastLine[NUM_STRINGS] = {
+    char *CoastLine[] = {
         "Fort",
         "Kompnnavidiya",
         "Kollupitiya",
@@ -554,7 +551,7 @@ int TrainPriceCalculation()
         "Kumbalgama",
         "Matara"};
 
-    char *MainLine[NUM_STRINGS] = {
+    char *MainLine[] = {
         "Maradana",
         "Kelaniya",
         "Ragama",
@@ -569,7 +566,7 @@ int TrainPriceCalculation()
         "Demodara",
         "Badulla"};
 
-    char *NothernLine[NUM_STRINGS] = {
+    char *NothernLine[] = {
         "Kurunegala",
         "Anuradhapura",
         "Medawachchiya",

@@ -6,8 +6,8 @@ void view_details_parcel(char start[], char finish[], float parcelcost, float pa
 void Parcel();
 void view_parcel_history();
 void calculate_price_parcel_reservation();
-    // Global variables
-    char T_username[255];
+// Global variables
+char T_username[255];
 
 void Parcel()
 {
@@ -93,7 +93,7 @@ void calculate_price_parcel_reservation()
 
     // TrainList();
 
-    char *BatticoloaLine[NUM_STRINGS] = {
+    char *BatticoloaLine[] = {
         "Moragollagama",
         "kekirawa",
         "Higurakgoda",
@@ -105,13 +105,13 @@ void calculate_price_parcel_reservation()
         "Eravur",
         "Batticaloa"};
 
-    char *TrincomaleeLine[NUM_STRINGS] = {
+    char *TrincomaleeLine[] = {
         "Kantale",
         "Tambalagamuwa",
         "ChinaBay",
         "Trincomalee"};
 
-    char *TalaimannarLine[NUM_STRINGS] = {
+    char *TalaimannarLine[] = {
         "Cheddikulam",
         "MaduRoad",
         "Murunkan",
@@ -120,7 +120,7 @@ void calculate_price_parcel_reservation()
         "Talaimannar",
         "TalaimannarPier"};
 
-    char *CoastLine[NUM_STRINGS] = {
+    char *CoastLine[] = {
         "Fort",
         "Kompnnavidiya",
         "Kollupitiya",
@@ -142,7 +142,7 @@ void calculate_price_parcel_reservation()
         "Kumbalgama",
         "Matara"};
 
-    char *MainLine[NUM_STRINGS] = {
+    char *MainLine[] = {
         "Maradana",
         "Kelaniya",
         "Ragama",
@@ -157,7 +157,7 @@ void calculate_price_parcel_reservation()
         "Demodara",
         "Badulla"};
 
-    char *NothernLine[NUM_STRINGS] = {
+    char *NothernLine[] = {
         "Kurunegala",
         "Anuradhapura",
         "Medawachchiya",
@@ -348,12 +348,11 @@ void view_details_parcel(char start[], char finish[], float parcelcost, float pa
     time(&rawtime);
     timeinfo = localtime(&rawtime);
     // printf("Current local time and date: %s", asctime(timeinfo));
-    fprintf(parcel_, "username: %s \nFrom: %s\nTo: %s\n Parcel weight: %.2lf\nUnit Price: %.2lf\n\nTotal Cost: %.2lf\n time: %s\n", T_username, start,finish,parcel_weight,unit_price,parcelcost, asctime(timeinfo));
+    fprintf(parcel_, "username: %s \nFrom: %s\nTo: %s\n Parcel weight: %.2lf\nUnit Price: %.2lf\n\nTotal Cost: %.2lf\n time: %s\n", T_username, start, finish, parcel_weight, unit_price, parcelcost, asctime(timeinfo));
     fclose(parcel_);
 
     Write_Logs(T_username, "Parcel reserved");
 }
-
 
 void view_parcel_history()
 {
