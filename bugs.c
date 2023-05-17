@@ -106,7 +106,7 @@ void NewBugs()
     else
     {
         printf("\n\t\t\t  ---------------------------------------------------------\n");
-        printf("\t\t\t          MAIL ADDRESS: ( press ';' to end input)                   ");
+        printf("\t\t\t          MAIL ADDRESS: ( press ';' to end input): ");
         while ((c2 = getchar()) != ';')
         {
             mailaddress[index2++] = c2;
@@ -115,7 +115,7 @@ void NewBugs()
         printf("\n\t\t\t  ---------------------------------------------------------\n");
 
         printf("\n\t\t\t  ---------------------------------------------------------\n");
-        printf("\t\t\t          HEADING: ( press ';' to end input)                   ");
+        printf("\t\t\t          HEADING: ( press ';' to end input): ");
         while ((c1 = getchar()) != ';')
         {
             heading[index1++] = c1;
@@ -125,7 +125,7 @@ void NewBugs()
 
 
         printf("\n\t\t\t  ---------------------------------------------------------\n");
-        printf("\t\t\t          CONTENT: ( press ';' to end input)                   ");
+        printf("\t\t\t          CONTENT: ( press ';' to end input): ");
         while ((c = getchar()) != ';')
         {
             content[index++] = c;
@@ -140,18 +140,21 @@ void NewBugs()
 
         char yesorno[2];
         printf("\n\t\t\t  ---------------------------------------------------------\n");
-        printf("\t\t\t          DO YOU WANT TOO CONTINUE [TYPE 'Y' OR 'N']        ");
+        printf("\t\t\t          DO YOU WANT TOO CONTINUE [TYPE 'Y' OR 'N']: ");
         scanf("%s", yesorno);
         printf("\t\t\t  ---------------------------------------------------------\n");
 
-        int value, value1;
-        value = strcmp(yesorno, "Y");
-        value1 = strcmp(yesorno, "N");
-        if (value == 0)
+        int value_y, value_Y;
+        int value_n, value_N;
+        value_y = strcmp(yesorno, "y");
+        value_Y = strcmp(yesorno, "Y");
+        value_N = strcmp(yesorno, "N");
+        value_n = strcmp(yesorno, "n");
+        if (value_y == 0 || value_Y == 0)
         {
             Features_Services();
         }
-        else if (value1 == 0)
+        else if (value_N == 0 || value_n == 0)
         {
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             printf("\t\t\t                                SYSTEM EXIT                    ");
@@ -162,7 +165,7 @@ void NewBugs()
         {
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             printf("\t\t\t                         WRONG INPUT                           ");
-            printf("\t\t\t                      REDIRECT MAIN MENU                       ");
+            printf("\n\t\t\t                      REDIRECT MAIN MENU                       ");
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             Features_Services();
         }
@@ -207,21 +210,24 @@ void BugsView()
     char yesorno[2];
 
     printf("\n\t\t\t  ---------------------------------------------------------\n");
-    printf("\t\t\t          DO YOU WANT TOO CONTINUE [TYPE 'Y' OR 'N'] ");
+    printf("\t\t\t          DO YOU WANT TOO CONTINUE [TYPE 'Y' OR 'N'] : ");
     scanf("%s", yesorno);
     printf("\t\t\t  ---------------------------------------------------------\n");
 
-    int value, value1;
-    value = strcmp(yesorno, "Y");
-    value1 = strcmp(yesorno, "N");
-    if (value == 0)
+    int value_y, value_Y;
+    int value_n, value_N;
+    value_y = strcmp(yesorno, "y");
+    value_Y = strcmp(yesorno, "Y");
+    value_N = strcmp(yesorno, "N");
+    value_n = strcmp(yesorno, "n");
+    if (value_y == 0 || value_Y == 0)
     {
         Features_Services();
     }
-    else if (value1 == 0)
+    else if (value_N == 0 || value_n == 0)
     {
         printf("\n\t\t\t  ---------------------------------------------------------\n");
-        printf("\t\t\t                         EXITING SERVICES                    ");
+        printf("\t\t\t                                SYSTEM EXIT                    ");
         printf("\n\t\t\t  ---------------------------------------------------------\n");
         exit(0);
     }
@@ -229,7 +235,7 @@ void BugsView()
     {
         printf("\n\t\t\t  ---------------------------------------------------------\n");
         printf("\t\t\t                         WRONG INPUT                           ");
-        printf("\t\t\t                      REDIRECT MAIN MENU                       ");
+        printf("\n\t\t\t                      REDIRECT MAIN MENU                       ");
         printf("\n\t\t\t  ---------------------------------------------------------\n");
         Features_Services();
     }

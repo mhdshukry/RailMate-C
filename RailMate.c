@@ -15,6 +15,7 @@
 #include "services.c"
 #include "parcelservices.c"
 #include "write_logs.c"
+#include "viewmyhistory.c"
 
 // constants for size of char arrays to store filename, the line from the file
 #define FILENAME_SIZE 1024
@@ -55,9 +56,15 @@ void TrainReservation();
 void Parcel();
 void Write_Logs(char T_username[255], char action[20]);
 
+// 17.05.2023.2.12.20
+void view_trainreservation();
+void view_logs_history();
+void viewmyhistory();
+
 // Global variables
 char T_username[255];
 int l_r_status;
+int file_availability_;
 
 void welcomeMessage()
 {
@@ -110,8 +117,9 @@ int main()
             if (LoginUser() == 0)
             {
                 LoginUser();
-                
-            }else{
+            }
+            else
+            {
                 Features_Services();
             }
 
@@ -137,7 +145,7 @@ int main()
         default:
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             printf("\t\t\t                         WRONG INPUT                    ");
-            printf("\t\t\t                         TRY AGAIN                    ");
+            printf("\n\t\t\t                         TRY AGAIN                    ");
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             break;
         }

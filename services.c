@@ -13,6 +13,8 @@
 #define NUM_STRINGS 20
 
 void Features_Services();
+int main();
+void viewmyhistory();
 
 // Global variables
 char T_username[255];
@@ -22,6 +24,11 @@ void Features_Services()
     // integer decleearage
     int FeatureOption;
     // printf("\n%s", T_username);
+
+    if (l_r_status == 0)
+    {
+        main();
+    }
 
     do
     {
@@ -34,6 +41,7 @@ void Features_Services()
         printf("\n\t\t\t        =         [ 4 ]   PROFILE                   =");
         printf("\n\t\t\t        =         [ 5 ]   SUPPORTS & NEWS           =");
         printf("\n\t\t\t        =         [ 6 ]   REPORT A BUG              =");
+        printf("\n\t\t\t        =         [ 7 ]   LOGOUT                    =");
         printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
         printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
@@ -52,7 +60,7 @@ void Features_Services()
             TrainReservation();
             break;
         case 3:
-            /* code */
+            viewmyhistory();
             break;
         case 4:
             Profile(T_username);
@@ -62,6 +70,10 @@ void Features_Services()
             break;
         case 6:
             Bugs();
+            break;
+        case 7:
+            l_r_status = 0;
+            Features_Services();
             break;
 
         case 0:
@@ -74,7 +86,7 @@ void Features_Services()
         default:
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             printf("\t\t\t                         WRONG INPUT                    ");
-            printf("\t\t\t                         TRY AGAIN                    ");
+            printf("\n\t\t\t                         TRY AGAIN                    ");
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             break;
         }

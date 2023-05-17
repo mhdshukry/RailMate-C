@@ -37,8 +37,11 @@ int CreateUser(void)
 
     // Get username from user and create a new file name as user's username
     // printf("Welcome to TRS-Application...!!");
-    printf("\n\n\t\\ttUnique username, please: ");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t              UNIQUE USERNAME PLEASE : ");
     scanf("%s", T_username);
+    printf("\t\t\t  -----------------------------------------------------------\n");
 
     // open file for reading
     FILE *read_file = fopen(T_username, "r");
@@ -46,7 +49,11 @@ int CreateUser(void)
 
     if (read_file != NULL)
     {
-        printf("\n\t\t\tUsername already exicts...\n\t\tPlease,Choose another one.");
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                USERNAME ALREADY EXICTS               ");
+        printf("\n\t\t\t             PLEASE CHOOSE ANOTHER ONE               ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
         CreateUser();
     }
     if (read_file == NULL)
@@ -58,22 +65,29 @@ int CreateUser(void)
         }
         else
         {
-            printf("\t\t\tFailed to create the file.\n");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                FAILED TO CREATE FILE               ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
             // exit status for OS that an error occured
             exit(0);
         }
 
         char id[255] = "1";
 
-        // get customer detail
-        printf("\t\t\tEnter name: ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                    ENTER YOUR NAME(Don't use space) : ");
         scanf("%s", nameofuser);
+        printf("\t\t\t  -----------------------------------------------------------\n");
 
-        printf("\t\t\tEnter your password: ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                    ENTER YOUR PASSWORD : ");
         scanf("%s", create_password);
+        printf("\t\t\t  -----------------------------------------------------------\n");
 
-        printf("\t\t\tAgain Password: ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                    RE-ENTER YOUR PASSWORD : ");
         scanf("%s", create_password_verify);
+        printf("\t\t\t  -----------------------------------------------------------\n");
 
         value = strcmp(create_password, create_password_verify);
         if (value == 0)
@@ -87,13 +101,21 @@ int CreateUser(void)
 
         else
         {
-            printf("\t\t\tPasswords doesn't match...\n");
 
-            printf("\t\t\tEnter your password: ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t              PASSWORD DOESN'T MATCH              ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                    ENTER YOUR PASSWORD : ");
             scanf("%s", create_password);
+            printf("\t\t\t  -----------------------------------------------------------\n");
 
-            printf("\t\t\tAgain Password: ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                    RE-ENTER YOUR PASSWORD : ");
             scanf("%s", create_password_verify);
+            printf("\t\t\t  -----------------------------------------------------------\n");
+
             value = strcmp(create_password, create_password_verify);
             if (value == 0)
             {
@@ -104,8 +126,10 @@ int CreateUser(void)
             }
             else
             {
-                printf("\t\t\tPasswords doesn't match...\n");
-                printf("\t\t\tTry again later...\n");
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                printf("\t\t\t              PASSWORD DOESN'T MATCH              ");
+                printf("\n\t\t\t                TRY AGAIN LATER              ");
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
                 l_r_status = 0;
             }
         }
@@ -164,7 +188,7 @@ int LoginUser()
 
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             printf("\t\t\t                         PASSWORD WRONG                      ");
-            printf("\t\t\t                            TRY AGAIN                        ");
+            printf("\n\t\t\t                            TRY AGAIN                        ");
             printf("\n\t\t\t  ---------------------------------------------------------\n");
 
             printf("\n\t\t\t  ---------------------------------------------------------\n");
@@ -189,22 +213,20 @@ int LoginUser()
     }
     else
     {
-        printf("\n\n\t\t\tThere are no exicting user...\n");
-        printf("\n\t\t\tdo you want to create an account..? [ Y / N ] : ");
-        scanf("%c", AccountCreateOption);
 
         printf("\n\t\t\t  ---------------------------------------------------------\n");
         printf("\t\t\t                   THERE'RE NO EXITING USERS                  ");
         printf("\n\t\t\t  ---------------------------------------------------------\n");
 
         printf("\n\t\t\t  ---------------------------------------------------------\n");
-        printf("\t\t\t                DO YOU WANT TO CREATE AN ACCOUNT:            ");
-        scanf("%c", AccountCreateOption);
-        printf("\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t              DO YOU WANT TO CREATE AN ACCOUNT: [Y]");
+        scanf("%s", AccountCreateOption);
+        printf("\t\t\t  -----------------------------------------------------------\n");
 
         int vallue;
         value = strcmp(AccountCreateOption, "Y");
-        if (value == 0)
+        vallue = strcmp(AccountCreateOption, "y");
+        if (value == 0 || vallue == 0)
         {
             CreateUser();
         }

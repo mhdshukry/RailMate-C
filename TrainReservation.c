@@ -22,6 +22,7 @@ int TrainPriceCalculation();
 void TrainReservation();
 void Features_Services();
 void Write_Logs(char T_username[255], char action[20]);
+int main();
 
 // Global variables
 char T_username[255];
@@ -137,7 +138,7 @@ void TrainReservation()
     switch (selectlane)
     {
     case 1:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 11; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, NothernLine[i]);
         }
@@ -146,7 +147,7 @@ void TrainReservation()
 
         break;
     case 2:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 12; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, MainLine[i]);
         }
@@ -155,7 +156,7 @@ void TrainReservation()
         break;
 
     case 3:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 10; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, BatticoloaLine[i]);
         }
@@ -164,7 +165,7 @@ void TrainReservation()
         break;
 
     case 4:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 4; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, TrincomaleeLine[i]);
         }
@@ -173,7 +174,7 @@ void TrainReservation()
         break;
 
     case 5:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 6; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, TalaimannarLine[i]);
         }
@@ -182,7 +183,7 @@ void TrainReservation()
         break;
 
     case 6:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 20; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, CoastLine[i]);
         }
@@ -191,6 +192,10 @@ void TrainReservation()
         break;
 
     default:
+        printf("\t\t\t---------------------------------------------------------------\n");
+        printf("\t\t\t                           WRONG INPUT          ");
+        printf("\n\t\t\t---------------------------------------------------------------\n");
+        TrainReservation();
         break;
     }
 
@@ -332,7 +337,37 @@ void TrainReservation()
         break;
 
     default:
-        break;
+        printf("\t\t\t---------------------------------------------------------------\n");
+        printf("\t\t\t                           WRONG INPUT          ");
+        printf("\n\t\t\t---------------------------------------------------------------\n");
+
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t             [1] - FIRST/LUXURY                            \n");
+        printf("\t\t\t             [2] - SECOND/ECONOMY                          \n");
+        printf("\t\t\t             [3] - THIRD/BUDGET                            \n");
+
+        printf("\t\t\t  ---------------------------------------------------------\n");
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                 SELECT CLASS :  ");
+        scanf("%d", &class);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\n\n");
+
+        switch (class)
+        {
+        case 1:
+            TotalCost = tickets * (basic_price + 2000);
+            break;
+
+        case 2:
+            TotalCost = tickets * (basic_price + 1000);
+            break;
+
+        case 3:
+            TotalCost = basic_price * tickets;
+            break;
+        }
     }
 
     printf("\n\t\t\t  ---------------------------------------------------------\n");
@@ -434,7 +469,7 @@ void TrainReservation()
     // display detail
     printf("\n\t\t\t---------------------------------------------------------------\n");
     printf("\t\t\t                     RESERVATION DETAILS          ");
-    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\n\t\t\t---------------------------------------------------------------\n");
 
     printf("\t\t\t---------------------------------------------------------------\n");
     printf("\t\t\t                 Username: %s\n", T_username);
@@ -577,7 +612,7 @@ int TrainPriceCalculation()
     switch (selectlane)
     {
     case 1:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 11; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, NothernLine[i]);
         }
@@ -586,7 +621,7 @@ int TrainPriceCalculation()
 
         break;
     case 2:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 12; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, MainLine[i]);
         }
@@ -595,7 +630,7 @@ int TrainPriceCalculation()
         break;
 
     case 3:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 10; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, BatticoloaLine[i]);
         }
@@ -604,7 +639,7 @@ int TrainPriceCalculation()
         break;
 
     case 4:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 4; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, TrincomaleeLine[i]);
         }
@@ -613,7 +648,7 @@ int TrainPriceCalculation()
         break;
 
     case 5:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 6; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, TalaimannarLine[i]);
         }
@@ -622,7 +657,7 @@ int TrainPriceCalculation()
         break;
 
     case 6:
-        for (int i = 0; i < NUM_STRINGS; ++i)
+        for (int i = 0; i < 20; ++i)
         {
             printf("\t\t\t\t[%d] %s, \n", i + 1, CoastLine[i]);
         }
@@ -631,6 +666,10 @@ int TrainPriceCalculation()
         break;
 
     default:
+        printf("\t\t\t---------------------------------------------------------------\n");
+        printf("\t\t\t                           WRONG INPUT          ");
+        printf("\n\t\t\t---------------------------------------------------------------\n");
+        TrainPriceCalculation();
         break;
     }
 
@@ -650,8 +689,14 @@ int TrainPriceCalculation()
     printf("\t\t\t             [1] - FIRST/LUXURY                            \n");
     printf("\t\t\t             [2] - SECOND/ECONOMY                          \n");
     printf("\t\t\t             [3] - THIRD/BUDGET                            \n");
-    scanf("%d", &class);
+
     printf("\t\t\t  ---------------------------------------------------------\n");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 SELECT CLASS :  ");
+    scanf("%d", &class);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\n\n");
 
     // file pointer will be used to open/read the file
     FILE *file;
@@ -765,14 +810,44 @@ int TrainPriceCalculation()
         break;
 
     default:
-        break;
+        printf("\t\t\t---------------------------------------------------------------\n");
+        printf("\t\t\t                           WRONG INPUT          ");
+        printf("\n\t\t\t---------------------------------------------------------------\n");
+
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t             [1] - FIRST/LUXURY                            \n");
+        printf("\t\t\t             [2] - SECOND/ECONOMY                          \n");
+        printf("\t\t\t             [3] - THIRD/BUDGET                            \n");
+
+        printf("\t\t\t  ---------------------------------------------------------\n");
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                 SELECT CLASS :  ");
+        scanf("%d", &class);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\n\n");
+
+        switch (class)
+        {
+        case 1:
+            TotalCost = tickets * (basic_price + 2000);
+            break;
+
+        case 2:
+            TotalCost = tickets * (basic_price + 1000);
+            break;
+
+        case 3:
+            TotalCost = basic_price * tickets;
+            break;
+        }
     }
 
     // display detail
 
     printf("\t\t\t---------------------------------------------------------------\n");
     printf("\t\t\t                           DETAILS          ");
-    printf("\t\t\t---------------------------------------------------------------\n");
+    printf("\n\t\t\t---------------------------------------------------------------\n");
 
     fscanf(inputf, "%d %s %s %s %s", &r_userID, starting_station, ending_station, train_name, train_price);
     printf("\t\t\t---------------------------------------------------------------\n");

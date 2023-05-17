@@ -18,6 +18,9 @@ void Profile(char T_username[]);
 char EditPersonalDetails(char T_username[]);
 void ViewUser(char T_username[]);
 void Write_Logs(char T_username[255], char action[20]);
+void view_trainreservation();
+void view_logs_history();
+void viewmyhistory();
 
 // Global variables
 char T_username[255];
@@ -78,13 +81,13 @@ void Profile(char T_username[])
             EditPersonalDetails(T_username);
             break;
         case 3:
-            /* code */
+            viewmyhistory();
             break;
         case 4:
             Features_Services();
             break;
         case 0:
-            
+
             printf("\n\t\t\t  ---------------------------------------------------------\n");
             printf("\t\t\t                         EXITING SERVICES                    ");
             printf("\n\t\t\t  ---------------------------------------------------------\n");
