@@ -6,7 +6,7 @@ char action[255];
 
 void Write_Logs(char T_username[255], char action[255])
 {
-    FILE *write_logs = fopen("dp_logs.txt", "a");
+    FILE *write_logs = fopen("db_logs.txt", "a");
     // Time
     time_t rawtime;
     struct tm *timeinfo;

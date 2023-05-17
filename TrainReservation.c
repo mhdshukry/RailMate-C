@@ -227,7 +227,7 @@ void TrainReservation()
     FILE *TempFile;
 
     // used to store the filename and each line from the file
-    char filename[FILENAME_SIZE] = "dp_pricelist.txt";
+    char filename[FILENAME_SIZE] = "db_pricelist.txt";
     char buffer[MAX_LINE];
 
     // stores the line number of the line the user wants to read from the file
@@ -432,24 +432,24 @@ void TrainReservation()
 
     //
 
-    FILE *DP_TrainReservation;
+    FILE *db_TrainReservation;
 
-    DP_TrainReservation = fopen("dp_trainreservation.txt", "a+");
+    db_TrainReservation = fopen("db_trainreservation.txt", "a+");
 
-    if (DP_TrainReservation == NULL)
+    if (db_TrainReservation == NULL)
     {
         printf("file missing...\n");
         exit(0);
     }
 
-    fprintf(DP_TrainReservation, "username: %s\n", T_username);
-    fprintf(DP_TrainReservation, "Train details:\nstarting_station: %s\nending_station: %s\ntrain_price: %s\nTrainName: %s\n", starting_station, ending_station, train_price, TrainName);
-    fprintf(DP_TrainReservation, "User details:\nName: %s\nPhone Number: %s\nEmail Address: %s\nAddress %s\n", FullName, PhoneNumber, EmailAddress, Address);
-    fprintf(DP_TrainReservation, "\t\t\t---------------------------------------------------------------\n");
+    fprintf(db_TrainReservation, "username: %s\n", T_username);
+    fprintf(db_TrainReservation, "Train details:\nstarting_station: %s\nending_station: %s\ntrain_price: %s\nTrainName: %s\n", starting_station, ending_station, train_price, TrainName);
+    fprintf(db_TrainReservation, "User details:\nName: %s\nPhone Number: %s\nEmail Address: %s\nAddress %s\n", FullName, PhoneNumber, EmailAddress, Address);
+    fprintf(db_TrainReservation, "\t\t\t---------------------------------------------------------------\n");
 
     Write_Logs(T_username, "Train - Seat - Reservation");
 
-    fclose(DP_TrainReservation);
+    fclose(db_TrainReservation);
 
     if (remove("TempSysFile.txt") == 0)
     {
@@ -701,7 +701,7 @@ int TrainPriceCalculation()
     FILE *TempFile;
 
     // used to store the filename and each line from the file
-    char filename[FILENAME_SIZE] = "dp_pricelist.txt";
+    char filename[FILENAME_SIZE] = "db_pricelist.txt";
     char buffer[MAX_LINE];
 
     // stores the line number of the line the user wants to read from the file

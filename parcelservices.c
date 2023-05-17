@@ -334,7 +334,7 @@ void view_details_parcel(char start[], char finish[], float parcelcost, float pa
     printf("\n\t\t\t                 TOTAL COST       : %.2lf", parcelcost);
     printf("\n\t\t\t  ---------------------------------------------------------\n");
 
-    FILE *parcel_ = fopen("dp_parcel.txt", "a");
+    FILE *parcel_ = fopen("db_parcel.txt", "a");
     // Time
     time_t rawtime;
     struct tm *timeinfo;
@@ -356,7 +356,7 @@ void view_details_parcel(char start[], char finish[], float parcelcost, float pa
 
 void view_parcel_history()
 {
-    char *filename = "dp_parcel.txt";
+    char *filename = "db_parcel.txt";
     FILE *parcel_view = fopen(filename, "r");
 
     if (parcel_view == NULL)

@@ -59,7 +59,7 @@ void viewmyhistory()
 
 void view_trainreservation()
 {
-    char *filename = "dp_trainreservation.txt";
+    char *filename = "db_trainreservation.txt";
     FILE *_trainreservation = fopen(filename, "r");
 
     if (_trainreservation == NULL)
@@ -117,7 +117,7 @@ void view_trainreservation()
 
 void view_logs_history()
 {
-    char *filename = "dp_logs.txt";
+    char *filename = "db_logs.txt";
     FILE *_logs = fopen(filename, "r");
 
     if (_logs == NULL)

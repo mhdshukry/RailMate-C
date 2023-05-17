@@ -47,7 +47,7 @@ int CreateUser(void)
     printf("\n\t\t\t  ---------------------------------------------------------\n");
     printf("\t\t\t              UNIQUE USERNAME PLEASE : ");
     scanf("%s", username);
-    strcat(T_username, "dp_user_");
+    strcat(T_username, "db_user_");
     strcat(T_username, username);
     // printf("%s",T_username);
     printf("\t\t\t  -----------------------------------------------------------\n");
@@ -173,7 +173,7 @@ int LoginUser()
     scanf("%s", username);
     printf("\t\t\t  -----------------------------------------------------------\n");
 
-    strcat(T_username, "dp_user_");
+    strcat(T_username, "db_user_");
     strcat(T_username, username);
 
     FILE *login_file = fopen(T_username, "r");

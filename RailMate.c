@@ -84,12 +84,12 @@ int main()
     printf("\n\n");
 
     printf("\n\t\t\t  ---------------------------------------------------------\n");
-    File_Availability("TrainsDetails.txt");
-    File_Availability("dp_pricelist.txt");
-    File_Availability("bugs.txt");
-    File_Availability("supports.txt");
-    File_Availability("dp_parcel.txt");
-    File_Availability("dp_logs.txt");
+    File_Availability("db_train_details.txt");
+    File_Availability("db_pricelist.txt");
+    File_Availability("db_bugs.txt");
+    File_Availability("db_supports.txt");
+    File_Availability("db_parcel.txt");
+    File_Availability("db_logs.txt");
     printf("\t\t\t  ---------------------------------------------------------\n\n");
 
     welcomeMessage();

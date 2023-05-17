@@ -93,7 +93,7 @@ void NewBugs()
     timeinfo = localtime(&rawtime);
     // printf("Current local time and date: %s", asctime(timeinfo));
 
-    char *filename = "dp_bugs.txt";
+    char *filename = "db_bugs.txt";
     FILE *BugsFile = fopen(filename, "a");
 
     if (BugsFile == NULL)
@@ -174,7 +174,7 @@ void NewBugs()
 
 void BugsView()
 {
-    char *filename = "dp_bugs.txt";
+    char *filename = "db_bugs.txt";
     FILE *ViewBugFile = fopen(filename, "r");
 
     if (ViewBugFile == NULL)
