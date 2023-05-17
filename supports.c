@@ -213,7 +213,7 @@ void ViewSupport()
 
     char yesorno[20];
     printf("\n\t\t\t  ---------------------------------------------------------\n");
-    printf("\t\t\t          DO YOU WANT TOO CONTINUE [TYPE 'YES' OR 'NO'] ");
+    printf("\t\t\t          DO YOU WANT TOO CONTINUE [TYPE 'Y' OR 'N'] ");
     scanf("%s", yesorno);
     printf("\t\t\t  ---------------------------------------------------------\n");
     int value_y, value_Y;

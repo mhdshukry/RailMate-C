@@ -75,7 +75,7 @@ int CreateUser(void)
         char id[255] = "1";
 
         printf("\n\t\t\t  ---------------------------------------------------------\n");
-        printf("\t\t\t                    ENTER YOUR NAME(Don't use space) : ");
+        printf("\t\t\t          ENTER YOUR NAME(Don't use space) : ");
         scanf("%s", nameofuser);
         printf("\t\t\t  -----------------------------------------------------------\n");
 

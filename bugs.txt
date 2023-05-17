@@ -72,3 +72,15 @@ Hate somethig
 ---------------------------------------------------------------
 
 
+Mail support no. 1 
+	Requesting person name: kirupan10 
+Mail address: 
+ikirupan@gmail.com 
+Heading: 
+Bug found 
+Content: 
+Bug direct in main section 
+	Time: Wed May 17 15:30:14 2023
+---------------------------------------------------------------
+
+

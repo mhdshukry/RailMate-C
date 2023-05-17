@@ -15,9 +15,10 @@
 void Features_Services();
 int main();
 void viewmyhistory();
+void Parcel();
 
-// Global variables
-char T_username[255];
+    // Global variables
+    char T_username[255];
 
 void Features_Services()
 {
@@ -37,11 +38,12 @@ void Features_Services()
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         printf("\n\t\t\t        =         [ 1 ]   TRAIN LIST & PRICE        =");
         printf("\n\t\t\t        =         [ 2 ]   TRAIN SEAT RESERVATION    =");
-        printf("\n\t\t\t        =         [ 3 ]   VIEW MY HISTORY           =");
-        printf("\n\t\t\t        =         [ 4 ]   PROFILE                   =");
-        printf("\n\t\t\t        =         [ 5 ]   SUPPORTS & NEWS           =");
-        printf("\n\t\t\t        =         [ 6 ]   REPORT A BUG              =");
-        printf("\n\t\t\t        =         [ 7 ]   LOGOUT                    =");
+        printf("\n\t\t\t        =         [ 3 ]   PARCEL SERVICES           =");
+        printf("\n\t\t\t        =         [ 4 ]   VIEW MY HISTORY           =");
+        printf("\n\t\t\t        =         [ 5 ]   PROFILE                   =");
+        printf("\n\t\t\t        =         [ 6 ]   SUPPORTS & NEWS           =");
+        printf("\n\t\t\t        =         [ 7 ]   REPORT A BUG              =");
+        printf("\n\t\t\t        =         [ 8 ]   LOGOUT                    =");
         printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
         printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
@@ -60,18 +62,21 @@ void Features_Services()
             TrainReservation();
             break;
         case 3:
-            viewmyhistory();
+            Parcel();
             break;
         case 4:
-            Profile(T_username);
+            viewmyhistory();
             break;
         case 5:
-            support();
+            Profile(T_username);
             break;
         case 6:
-            Bugs();
+            support();
             break;
         case 7:
+            Bugs();
+            break;
+        case 8:
             l_r_status = 0;
             Features_Services();
             break;

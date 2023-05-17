@@ -61,6 +61,9 @@ void view_trainreservation();
 void view_logs_history();
 void viewmyhistory();
 
+void Parcel();
+void view_details_parcel(char start[], char finish[], float parcelcost, float parcel_weight, float unit_price);
+
 // Global variables
 char T_username[255];
 int l_r_status;

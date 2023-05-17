@@ -2,6 +2,8 @@
 
 void Features_Services();
 void Write_Logs(char T_username[255], char action[20]);
+void view_details_parcel(char start[], char finish[], float parcelcost, float parcel_weight, float unit_price);
+void Parcel();
 
 // Global variables
 char T_username[255];
@@ -15,7 +17,7 @@ void Parcel()
         printf("\n\n\n");
         printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-        printf("\n\t\t\t        =         [ 1 ]   PARCEL SERVICE            =");
+        printf("\n\t\t\t        =         [ 1 ]   PARCEL                    =");
         printf("\n\t\t\t        =         [ 2 ]   PARCEL HISTORY            =");
         printf("\n\t\t\t        =         [ 3 ]   MAIN MENU                 =");
         printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
@@ -53,4 +55,280 @@ void Parcel()
             break;
         }
     } while (parceloption != 5);
+}
+
+void calculate_price_parcel_reservation()
+{
+    float parcel_weight, unit_price;
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                ENTER THE WEIGHT OF THE PARCEL : ");
+    scanf("%f", &parcel_weight);
+    printf("\t\t\t  ---------------------------------------------------------\n");
+
+    if (parcel_weight < 1.0)
+    {
+        unit_price = parcel_weight * 125.00;
+    }
+    else if (parcel_weight < 5.0 || parcel_weight >= 1.00)
+    {
+        unit_price = parcel_weight * 100.00;
+    }
+    else if (parcel_weight < 10.0 || parcel_weight >= 5.00)
+    {
+        unit_price = parcel_weight * 75.00;
+    }
+    else if (parcel_weight > 10.0)
+    {
+        unit_price = parcel_weight * 65.00;
+    }
+    else
+    {
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                         WRONG INPUT                    ");
+        printf("\t\t\t                         TRY AGAIN                    ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+    }
+
+    // TrainList();
+
+    char *BatticoloaLine[NUM_STRINGS] = {
+        "Moragollagama",
+        "kekirawa",
+        "Higurakgoda",
+        "Polonnaruwa",
+        "Manampitiya",
+        "Welikanda",
+        "Punani",
+        "Valachchenai",
+        "Eravur",
+        "Batticaloa"};
+
+    char *TrincomaleeLine[NUM_STRINGS] = {
+        "Kantale",
+        "Tambalagamuwa",
+        "ChinaBay",
+        "Trincomalee"};
+
+    char *TalaimannarLine[NUM_STRINGS] = {
+        "Cheddikulam",
+        "MaduRoad",
+        "Murunkan",
+        "Mannar",
+        "Pesalai",
+        "Talaimannar",
+        "TalaimannarPier"};
+
+    char *CoastLine[NUM_STRINGS] = {
+        "Fort",
+        "Kompnnavidiya",
+        "Kollupitiya",
+        "Bambalapitiya",
+        "Dehiwala",
+        "MountLaviniya",
+        "Beruwala",
+        "Aluthgama",
+        "Bentota",
+        "Induruwa",
+        "MhaInduruwa",
+        "kosgoda",
+        "Balapitiya",
+        "Ambalangoda",
+        "Hikkaduwa",
+        "Boossa",
+        "Katugoda",
+        "Habaraduwa",
+        "Kumbalgama",
+        "Matara"};
+
+    char *MainLine[NUM_STRINGS] = {
+        "Maradana",
+        "Kelaniya",
+        "Ragama",
+        "Gampaha",
+        "Nawalapitiya",
+        "Hatton",
+        "Talawakele",
+        "Ohiya",
+        "Haputale",
+        "Idalgasinna",
+        "Elle",
+        "Demodara",
+        "Badulla"};
+
+    char *NothernLine[NUM_STRINGS] = {
+        "Kurunegala",
+        "Anuradhapura",
+        "Medawachchiya",
+        "Vavuniya",
+        "Medawachchiya",
+        "Vavuniya",
+        "Omantai",
+        "Kilinochchi",
+        "Kodikamam",
+        "Paranthan",
+        "Jaffna",
+        "Kankesanthurei"};
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\n\t\t\tTrain Lane: \n");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+    printf("\t\t\t [1] Nothern Lane\n");
+
+    //[2] Matale Lane\n [3] BatticoloaLine\n [4] TrincomaleeLine\n [5] TalaimannarLine\n [6] CoastLine\n\n\n\n ");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 [1]: NOTHERN LANE                             \n");
+    printf("\t\t\t                 [2]: MATALE LANE                              \n");
+    printf("\t\t\t                 [3]: BACTICALO LANE                           \n");
+    printf("\t\t\t                 [4]: TRINCOMALEE LANE                         \n");
+    printf("\t\t\t                 [5]: TALAIMANNAR LANE                         \n");
+    printf("\t\t\t                 [6]: COAST LANE                               ");
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+    int selectlane;
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                 SELECT LANE :  ");
+    scanf("%d", &selectlane);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\n\n");
+
+    int startingstation, endingstation;
+    float parcelcost;
+    float fixed_parcel_cost = 100.00;
+    parcelcost = fixed_parcel_cost * unit_price;
+
+    switch (selectlane)
+    {
+    case 1:
+        for (int i = 0; i < 11; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, NothernLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     STARTING POINT: ");
+        scanf("%d", &startingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     ENDING POINT: ");
+        scanf("%d", &endingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        view_details_parcel(NothernLine[startingstation], NothernLine[endingstation], parcelcost, parcel_weight, unit_price);
+
+        break;
+    case 2:
+        for (int i = 0; i < 12; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, MainLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     STARTING POINT: ");
+        scanf("%d", &startingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     ENDING POINT: ");
+        scanf("%d", &endingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        view_details_parcel(MainLine[startingstation], MainLine[endingstation], parcelcost, parcel_weight, unit_price);
+
+        break;
+
+    case 3:
+        for (int i = 0; i < 10; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, BatticoloaLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     STARTING POINT: ");
+        scanf("%d", &startingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     ENDING POINT: ");
+        scanf("%d", &endingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        view_details_parcel(BatticoloaLine[startingstation], BatticoloaLine[endingstation], parcelcost, parcel_weight, unit_price);
+
+        break;
+
+    case 4:
+        for (int i = 0; i < 4; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, TrincomaleeLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     STARTING POINT: ");
+        scanf("%d", &startingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     ENDING POINT: ");
+        scanf("%d", &endingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        view_details_parcel(TrincomaleeLine[startingstation], TrincomaleeLine[endingstation], parcelcost, parcel_weight, unit_price);
+
+        break;
+
+    case 5:
+        for (int i = 0; i < 6; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, TalaimannarLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     STARTING POINT: ");
+        scanf("%d", &startingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     ENDING POINT: ");
+        scanf("%d", &endingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+
+        view_details_parcel(TalaimannarLine[startingstation], TalaimannarLine[endingstation], parcelcost, parcel_weight, unit_price);
+        break;
+
+    case 6:
+        for (int i = 0; i < 20; ++i)
+        {
+            printf("\t\t\t\t[%d] %s, \n", i + 1, CoastLine[i]);
+        }
+        printf("\n");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     STARTING POINT: ");
+        scanf("%d", &startingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     ENDING POINT: ");
+        scanf("%d", &endingstation);
+        printf("\t\t\t  ---------------------------------------------------------\n");
+        view_details_parcel(CoastLine[startingstation], CoastLine[endingstation], parcelcost, parcel_weight, unit_price);
+        break;
+
+    default:
+        printf("\t\t\t---------------------------------------------------------------\n");
+        printf("\t\t\t                           WRONG INPUT          ");
+        printf("\n\t\t\t---------------------------------------------------------------\n");
+        break;
+    }
+}
+
+void view_details_parcel(char start[], char finish[], float parcelcost, float parcel_weight, float unit_price)
+{
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\n\t\t\t                 STARTING AREA    : %s", start);
+    printf("\n\t\t\t                 ENDING AREA      : %s", finish);
+    printf("\n\t\t\t                 PARCEL WEIGHT    : %.2lf", parcel_weight);
+    printf("\n\t\t\t                 UNIT PRICE       : %.2lf", unit_price);
+    printf("\n\t\t\t                 TOTAL COST       : %.2lf", parcelcost);
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    Write_Logs(T_username, "View - Parcel Details");
 }
