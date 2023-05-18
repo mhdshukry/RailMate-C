@@ -3,7 +3,6 @@
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 // constants for size of char arrays to store filename, the line from the file
 #define FILENAME_SIZE 1024

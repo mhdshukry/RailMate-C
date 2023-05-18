@@ -8,6 +8,7 @@ void File_Availability(char filename[30])
         printf("\n\t\t\t  ---------------------------------------------------------\n");
         printf("\t\t\t              SELF TEST : %s : FILE MISSING                   ", filename);
         printf("\n\t\t\t  ---------------------------------------------------------\n");
+        exit(0);
     }
     else
     {

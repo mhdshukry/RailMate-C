@@ -63,7 +63,7 @@ void calculate_price_parcel_reservation()
     float parcel_weight, unit_price;
 
     printf("\n\t\t\t  ---------------------------------------------------------\n");
-    printf("\t\t\t                ENTER THE WEIGHT OF THE PARCEL : ");
+    printf("\t\t\t                ENTER THE WEIGHT OF THE PARCEL(KG) : ");
     scanf("%f", &parcel_weight);
     printf("\t\t\t  ---------------------------------------------------------\n");
 
