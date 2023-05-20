@@ -259,3 +259,92 @@ int LoginUser()
 
     // Features_Services(T_username);
 }
+
+int admin_login()
+{
+    char l_name[255];
+    char l_userID[255];
+    char l_Password[255];
+
+    char PassWordFromUser[255];
+
+    char AccountCreateOption[2];
+
+    int value;
+    char user[255];
+
+    strcpy(T_username, "");
+
+    printf("\n\t\t\t  ---------------------------------------------------------\n");
+    printf("\t\t\t                    ENTER YOUR USERNAME : ");
+    scanf("%s", username);
+    printf("\t\t\t  -----------------------------------------------------------\n");
+
+    strcat(T_username, "db_admin_");
+    strcat(T_username, username);
+
+    FILE *login_file = fopen(T_username, "r");
+
+    if (login_file != NULL)
+    {
+        // display detail
+        fscanf(login_file, "%s %s %s %[^\n]s", l_userID, T_username, l_name, l_Password);
+
+        printf("\n\n\n");
+        printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+        printf("\n\t\t\t                     HELLO %s      ", l_name);
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                     PASSWORD: ");
+        scanf("%s", PassWordFromUser);
+        printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+
+        value = strcmp(l_Password, PassWordFromUser);
+        if (value == 0)
+        {
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                YOU HAVE SUCCESSFULLY LOGGED-IN               ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            Write_Logs(T_username, "admin-user - login");
+            l_r_status = 1;
+        }
+        else
+        {
+
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                         PASSWORD WRONG                      ");
+            printf("\n\t\t\t                            TRY AGAIN                        ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                     PASSWORD: ");
+            scanf("%s", PassWordFromUser);
+            printf("\t\t\t  ---------------------------------------------------------\n");
+
+            value = strcmp(l_Password, PassWordFromUser);
+            if (value == 0)
+            {
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                printf("\t\t\t                YOU HAVE SUCCESSFULLY LOGGED-IN               ");
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                Write_Logs(T_username, "admin-user - login");
+                l_r_status = 1;
+            }
+            else
+            {
+                l_r_status = 0;
+            }
+        }
+    }
+    else
+    {
+
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t                   THERE'RE NO EXITING USERS                  ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+    }
+    fclose(login_file);
+
+    return l_r_status;
+
+    // Features_Services(T_username);
+}

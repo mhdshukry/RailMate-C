@@ -1,6 +1,4 @@
-// Global variables
-char T_username[255];
-int l_r_status;
-int i;
-char username[255];
-char reservation[255];
+void view_admin_trainreservation();
+void view_admin_logs_history();
+void view_admin_supports();
+void view_admin_bugs();

@@ -17,6 +17,7 @@
 #include "write_logs.c"
 #include "viewmyhistory.c"
 #include "continue_function.c"
+#include "admin.c"
 
 // constants for size of char arrays to store filename, the line from the file
 #define FILENAME_SIZE 1024
@@ -68,6 +69,11 @@ void calculate_price_parcel_reservation();
 void continue_function();
 void ticket_cancel();
 
+void view_admin_trainreservation();
+void view_admin_logs_history();
+void view_admin_supports();
+void view_admin_bugs();
+
 // Global variables
 char T_username[255];
 int l_r_status;
@@ -110,6 +116,7 @@ int main()
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         printf("\n\t\t\t        =         [ 1 ]   LOGIN                     =");
         printf("\n\t\t\t        =         [ 2 ]   REGISTER                  =");
+        printf("\n\t\t\t        =         [ 3 ]   ADMIN                     =");
         printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
         printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
@@ -142,6 +149,17 @@ int main()
             else
             {
                 Features_Services();
+            }
+            break;
+
+        case 3:
+            if (admin_login() == 0)
+            {
+                admin_login();
+            }
+            else
+            {
+                admin();
             }
             break;
         case 0:
