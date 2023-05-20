@@ -67,6 +67,7 @@ void calculate_price_parcel_reservation();
 
 // 20.05.2023.1.08.49
 void continue_function();
+void continue_admin_function();
 void ticket_cancel();
 
 void view_admin_trainreservation();
