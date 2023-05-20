@@ -16,6 +16,7 @@
 #include "parcelservices.c"
 #include "write_logs.c"
 #include "viewmyhistory.c"
+#include "continue_function.c"
 
 // constants for size of char arrays to store filename, the line from the file
 #define FILENAME_SIZE 1024
@@ -63,10 +64,16 @@ void view_details_parcel(char start[], char finish[], float parcelcost, float pa
 void view_parcel_history();
 void calculate_price_parcel_reservation();
 
+// 20.05.2023.1.08.49
+void continue_function();
+void ticket_cancel();
+
 // Global variables
 char T_username[255];
 int l_r_status;
 int i;
+char username[255];
+char reservation[255];
 
 void welcomeMessage()
 {

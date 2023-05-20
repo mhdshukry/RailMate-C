@@ -7,3 +7,12 @@ Unit Price: 140.00
 Total Cost: 14000.00
  time: Wed May 17 17:11:51 2023
 
+username: dp_user_kirupan 
+From: Higurakgoda
+To: Polonnaruwa
+ Parcel weight: 1.40
+Unit Price: 140.00
+
+Total Cost: 14000.00
+ time: Sat May 20 08:53:59 2023
+

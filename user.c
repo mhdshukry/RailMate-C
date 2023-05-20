@@ -19,6 +19,8 @@ void Write_Logs(char T_username[255], char action[20]);
 // Global variables
 char T_username[255];
 int l_r_status;
+char username[255];
+char reservation[255];
 
 int CreateUser(void)
 {
@@ -29,7 +31,6 @@ int CreateUser(void)
     char create_password[255];
     char create_password_verify[255];
     char nameofuser[255];
-    char username[255];
     char user[255];
 
     //char T_username[255] = "";
@@ -99,7 +100,7 @@ int CreateUser(void)
         if (value == 0)
         {
 
-            fprintf(create_user, "%s %s %s %s\n", id, T_username, nameofuser, create_password);
+            fprintf(create_user, "%s %s %s %s\n", id, username, nameofuser, create_password);
             fclose(create_user);
             l_r_status = 1;
             Write_Logs(T_username, "user - register");
@@ -125,7 +126,7 @@ int CreateUser(void)
             value = strcmp(create_password, create_password_verify);
             if (value == 0)
             {
-                fprintf(create_user, "%s %s %s %s\n", id, T_username, nameofuser, create_password);
+                fprintf(create_user, "%s %s %s %s\n", id, username, nameofuser, create_password);
                 fclose(create_user);
                 l_r_status = 1;
                 Write_Logs(T_username, "user - register");
@@ -159,8 +160,6 @@ int LoginUser()
     char AccountCreateOption[2];
 
     int value;
-
-    char username[255];
     char user[255];
 
     strcpy(T_username, "");
@@ -172,6 +171,7 @@ int LoginUser()
 
     strcat(T_username, "db_user_");
     strcat(T_username, username);
+    
 
     FILE *login_file = fopen(T_username, "r");
 

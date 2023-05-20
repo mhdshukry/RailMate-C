@@ -21,6 +21,7 @@ void viewmyhistory();
 
 // Global variables
 char T_username[255];
+int l_r_status;
 
 void ViewUser(char T_username[])
 {

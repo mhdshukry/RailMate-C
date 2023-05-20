@@ -17,8 +17,12 @@ int main();
 void viewmyhistory();
 void Parcel();
 
-    // Global variables
-    char T_username[255];
+// Global variables
+char T_username[255];
+int l_r_status;
+int i;
+char username[255];
+char reservation[255];
 
 void Features_Services()
 {
@@ -43,7 +47,8 @@ void Features_Services()
         printf("\n\t\t\t        =         [ 5 ]   PROFILE                   =");
         printf("\n\t\t\t        =         [ 6 ]   SUPPORTS & NEWS           =");
         printf("\n\t\t\t        =         [ 7 ]   REPORT A BUG              =");
-        printf("\n\t\t\t        =         [ 8 ]   LOGOUT                    =");
+        printf("\n\t\t\t        =         [ 8 ]   CANCEL RESERVATION        =");
+        printf("\n\t\t\t        =         [ 9 ]   LOGOUT                    =");
         printf("\n\t\t\t        =         [ 0 ]   EXIT                      =");
         printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
         printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
@@ -77,6 +82,9 @@ void Features_Services()
             Bugs();
             break;
         case 8:
+             ticket_cancel();
+            break;
+        case 9:
             l_r_status = 0;
             Features_Services();
             break;

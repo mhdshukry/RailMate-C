@@ -20,15 +20,23 @@ void TrainReservation();
 void Features_Services();
 void Write_Logs(char T_username[255], char action[20]);
 int main();
+void continue_function();
+void ticket_cancel();
+void support();
 
 // Global variables
 char T_username[255];
-i = 0;
+int l_r_status;
+int i;
+char username[255];
+char reservation[255];
 
 void TrainReservation()
 {
     // TrainList();
-
+    printf(" Hello: %s", T_username);
+    printf(" Hello: %s", username);
+    printf(" Hello: %s", reservation);
     char *BatticoloaLine[] = {
         "Moragollagama",
         "kekirawa",
@@ -441,15 +449,33 @@ void TrainReservation()
         printf("file missing...\n");
         exit(0);
     }
+    else
+    {
+        fprintf(db_TrainReservation, "username: %s\n", username);
+        fprintf(db_TrainReservation, "Train details:\nstarting_station: %s\nending_station: %s\ntrain_price: %s\nTrainName: %s\n", starting_station, ending_station, train_price, TrainName);
+        fprintf(db_TrainReservation, "User details:\nName: %s\nPhone Number: %s\nEmail Address: %s\nAddress %s\n", FullName, PhoneNumber, EmailAddress, Address);
+        fprintf(db_TrainReservation, "\t\t\t---------------------------------------------------------------\n");
+    }
 
-    fprintf(db_TrainReservation, "username: %s\n", T_username);
-    fprintf(db_TrainReservation, "Train details:\nstarting_station: %s\nending_station: %s\ntrain_price: %s\nTrainName: %s\n", starting_station, ending_station, train_price, TrainName);
-    fprintf(db_TrainReservation, "User details:\nName: %s\nPhone Number: %s\nEmail Address: %s\nAddress %s\n", FullName, PhoneNumber, EmailAddress, Address);
-    fprintf(db_TrainReservation, "\t\t\t---------------------------------------------------------------\n");
+    strcpy(reservation, "");
+    strcat(reservation, "db_reservation_");
+    strcat(reservation, username);
+    printf("%s", reservation);
+
+    FILE *seperate_file_ = fopen(reservation, "w");
+    if (seperate_file_ != NULL)
+    {
+
+        fprintf(seperate_file_, "username: %s\n", username);
+        fprintf(seperate_file_, "Train details:\nstarting_station: %s\nending_station: %s\ntrain_price: %s\nTrainName: %s\n", starting_station, ending_station, train_price, TrainName);
+        fprintf(seperate_file_, "User details:\nName: %s\nPhone Number: %s\nEmail Address: %s\nAddress %s\n", FullName, PhoneNumber, EmailAddress, Address);
+        fprintf(seperate_file_, "\t\t\t---------------------------------------------------------------\n");
+    }
 
     Write_Logs(T_username, "Train - Seat - Reservation");
 
     fclose(db_TrainReservation);
+    fclose(seperate_file_);
 
     if (remove("TempSysFile.txt") == 0)
     {
@@ -891,4 +917,98 @@ void TrainList()
     // close the file
     fclose(TrainsDetails);
     Write_Logs(T_username, "Train-List");
+}
+
+void ticket_cancel()
+{
+
+    char reservation[255];
+    strcpy(reservation, "");
+    strcat(reservation, "db_reservation_");
+    strcat(reservation, username);
+
+    FILE *Ticket_reservation_remove = fopen(reservation, "r");
+    if (Ticket_reservation_remove == NULL)
+    {
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        printf("\t\t\t               YOU DON'T HAVE RECENT RESERVATIONS              ");
+        printf("\n\t\t\t  ---------------------------------------------------------\n");
+        Features_Services();
+    }
+    else
+    {
+        FILE *Ticket_reservation_ = fopen(reservation, "r");
+        if (Ticket_reservation_ == NULL)
+        {
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t                 ERROR: CLOUD NOT OPEN FILE                    ");
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            exit(0);
+        }
+        else
+        {
+            // read one character at a time and
+            // display it to the output
+            char ch;
+            while ((ch = fgetc(Ticket_reservation_)) != EOF)
+                putchar(ch);
+
+            // close the file
+            Write_Logs(T_username, "Bugs - View");
+            fclose(Ticket_reservation_);
+
+            char yesorno[2];
+
+            printf("\n\t\t\t  ---------------------------------------------------------\n");
+            printf("\t\t\t          DO YOU WANT TO CANCEL [TYPE 'Y' OR 'N'] : ");
+            scanf("%s", yesorno);
+            printf("\t\t\t  ---------------------------------------------------------\n");
+
+            int value_y, value_Y;
+            int value_n, value_N;
+            value_y = strcmp(yesorno, "y");
+            value_Y = strcmp(yesorno, "Y");
+            value_N = strcmp(yesorno, "N");
+            value_n = strcmp(yesorno, "n");
+            if (value_y == 0 || value_Y == 0)
+            {
+                if (remove(reservation) == 0)
+                {
+                    printf("\n\t\t\t  ---------------------------------------------------------\n");
+                    printf("\t\t\t                        RESERVATION CANCELED                    ");
+                    printf("\n\t\t\t  ---------------------------------------------------------\n");
+                    l_r_status = 1;
+                    Features_Services();
+                }
+                else
+                {
+                    printf("\n\t\t\t  ---------------------------------------------------------\n");
+                    printf("\t\t\t                  UNABLE TO CANCEL                             ");
+                    printf("\n\t\t\t  ---------------------------------------------------------\n");
+                    printf("\t\t\t                  SEND A SUPPORT MAIL                             ");
+                    printf("\n\t\t\t  ---------------------------------------------------------\n");
+                    support();
+                }
+            }
+            else if (value_N == 0 || value_n == 0)
+            {
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                printf("\t\t\t                         REDIRECT MAIN MENU                    ");
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                l_r_status = 1;
+                Features_Services();
+            }
+            else
+            {
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                printf("\t\t\t                         WRONG INPUT                           ");
+                printf("\n\t\t\t                      REDIRECT MAIN MENU                       ");
+                printf("\n\t\t\t  ---------------------------------------------------------\n");
+                l_r_status = 1;
+                Features_Services();
+            }
+        }
+    }
+
+    continue_function();
 }
