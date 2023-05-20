@@ -154,6 +154,16 @@ void NewMail()
         Write_Logs(T_username, "New - Support - Mail");
 
         fclose(MailFile);
+
+        char user_supports[255];
+        strcpy(user_supports, "");
+        strcat(user_supports, "db_supports_");
+        strcat(user_supports, username);
+
+        FILE *seperate_file_ = fopen(user_supports, "a");
+        fprintf(seperate_file_, "Mail support no. %d \n\tRequesting person name: %s \nMail address: %s \nHeading: %s \nContent: %s \n\tTime: %s", no, T_username, mailaddress, heading, content, asctime(timeinfo));
+        fprintf(seperate_file_, "---------------------------------------------------------------\n\n\n");
+        fclose(seperate_file_);
     }
     continue_function();
 }

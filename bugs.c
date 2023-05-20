@@ -136,6 +136,16 @@ void NewBugs()
         fprintf(BugsFile, "---------------------------------------------------------------\n\n\n");
         Write_Logs(T_username, "New Bug");
         fclose(BugsFile);
+
+        char user_bugs[255];
+        strcpy(user_bugs, "");
+        strcat(user_bugs, "db_bugs_");
+        strcat(user_bugs, username);
+
+        FILE *seperate_file_ = fopen(user_bugs, "a");
+        fprintf(seperate_file_, "Mail support no. %d \n\tRequesting person name: %s \nMail address: %s \nHeading: %s \nContent: %s \n\tTime: %s", no, T_username, mailaddress, heading, content, asctime(timeinfo));
+        fprintf(seperate_file_, "---------------------------------------------------------------\n\n\n");
+        fclose(seperate_file_);
     }
 
     continue_function();

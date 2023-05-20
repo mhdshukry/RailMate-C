@@ -460,7 +460,6 @@ void TrainReservation()
     strcpy(reservation, "");
     strcat(reservation, "db_reservation_");
     strcat(reservation, username);
-    printf("%s", reservation);
 
     FILE *seperate_file_ = fopen(reservation, "w");
     if (seperate_file_ != NULL)

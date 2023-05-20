@@ -16,4 +16,13 @@ void Write_Logs(char T_username[255], char action[255])
     // printf("Current local time and date: %s", asctime(timeinfo));
     fprintf(write_logs, "username: %s | action: %s | time: %s\n", T_username, action, asctime(timeinfo));
     fclose(write_logs);
+
+    char user_writelogs[255];
+    strcpy(user_writelogs, "");
+    strcat(user_writelogs, "db_logs_");
+    strcat(user_writelogs, username);
+
+    FILE *seperate_file_ = fopen(user_writelogs, "a");
+    fprintf(seperate_file_, "username: %s | action: %s | time: %s\n", T_username, action, asctime(timeinfo));
+    fclose(seperate_file_);
 }
