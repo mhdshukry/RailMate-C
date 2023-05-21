@@ -374,7 +374,7 @@ void view_parcel_history()
     }
 
     // read one character at a time and
-    // display it to the output
+    /* display it to the output*/
     char ch;
     while ((ch = fgetc(parcel_view)) != EOF)
         putchar(ch);
