@@ -219,4 +219,5 @@ char EditPersonalDetails(char T_username[])
         Features_Services();
         exit(0);
     }
+    return 0;
 }

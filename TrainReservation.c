@@ -894,6 +894,7 @@ int TrainPriceCalculation()
     Write_Logs(T_username, "Price - Calculation");
 
     Features_Services();
+    return 0;
 }
 
 void TrainList()
