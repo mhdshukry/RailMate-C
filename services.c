@@ -12,6 +12,7 @@
 #define MAX_LENGTH 255
 #define NUM_STRINGS 20
 
+// functions
 void Features_Services();
 int main();
 void viewmyhistory();
