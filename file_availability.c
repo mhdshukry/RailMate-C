@@ -1,3 +1,9 @@
+/*
+This function write check the file availability
+simple file read "r" can check the file 
+File is missing then program exicts
+
+*/
 #include <stdio.h>
 #include <time.h>
 void File_Availability(char filename[30])
