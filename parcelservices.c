@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
+// functions and files  
 void Features_Services();
 void Write_Logs(char T_username[255], char action[20]);
 void view_details_parcel(char start[], char finish[], float parcelcost, float parcel_weight, float unit_price);
@@ -62,6 +63,7 @@ void Parcel()
     } while (parceloption != 5);
 }
 
+// functions for calculate the price and reserve.
 void calculate_price_parcel_reservation()
 {
     float parcel_weight, unit_price;
