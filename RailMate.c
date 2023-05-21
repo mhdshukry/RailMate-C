@@ -81,6 +81,7 @@ int l_r_status;
 int i;
 char username[255];
 
+// welcome message function...
 void welcomeMessage()
 {
     printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
