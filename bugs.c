@@ -25,6 +25,7 @@ void Write_Logs(char T_username[255], char action[20]);
 // Global variables
 char T_username[255];
 
+
 void Bugs()
 {
     int BugsOption;

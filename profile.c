@@ -23,24 +23,30 @@ void viewmyhistory();
 char T_username[255];
 int l_r_status;
 
+// Create a structure called myStructure
+struct profileStructure
+{
+    char profile_username[255];
+    char profile_name[255];
+    char profile_password[255];
+    char profile_id[255];
+};
+
 void ViewUser(char T_username[])
 {
     // open file for reading
     FILE *view_profile = fopen(T_username, "r");
 
-    char profile_username[255];
-    char profile_name[255];
-    char profile_password[255];
-    char profile_id[255];
+    struct profileStructure profile;
 
     // display detail
     printf("\t\t\t Details:\n");
-    fscanf(view_profile, "%s %s %s %[^\n]s", profile_id, profile_username, profile_name, profile_password);
+    fscanf(view_profile, "%s %s %s %[^\n]s", profile.profile_id, profile.profile_username, profile.profile_name, profile.profile_password);
     printf("\t\t\t---------------------------------------------------------------\n");
-    printf("\t\t\t USER ID :-----------------: %s\n", profile_id);
-    printf("\t\t\t USERNAME :----------------: %s\n", profile_username);
-    printf("\t\t\t NAME :--------------------: %s\n", profile_name);
-    printf("\t\t\t PASSWORD :----------------: %s\n", profile_password);
+    printf("\t\t\t USER ID :-----------------: %s\n", profile.profile_id);
+    printf("\t\t\t USERNAME :----------------: %s\n", profile.profile_username);
+    printf("\t\t\t NAME :--------------------: %s\n", profile.profile_name);
+    printf("\t\t\t PASSWORD :----------------: %s\n", profile.profile_password);
     printf("\t\t\t---------------------------------------------------------------\n");
     Write_Logs(T_username, "View - User");
     // close connection
