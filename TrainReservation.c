@@ -7,12 +7,13 @@
 #include <stdbool.h>
 // #include <dos.h>
 
-// files and functions
+
 
 // constants for size of char arrays to store filename, the line from the file
 #define FILENAME_SIZE 1024
 #define MAX_LINE 2048
 
+// files and functions
 // 08.05.2023.2.16.35
 void TrainList();
 int TrainPriceCalculation();
