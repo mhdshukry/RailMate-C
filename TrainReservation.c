@@ -33,6 +33,9 @@ char reservation[255];
 
 void TrainReservation()
 {
+    // static variables
+    static char reservation[255];
+
     // TrainList();
     printf(" Hello: %s", T_username);
     printf(" Hello: %s", username);
