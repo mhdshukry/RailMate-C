@@ -43,7 +43,6 @@ void ViewSupport(void);
 // Global variables
 char T_username[255];
 
-
 void support()
 {
     int support_option;
@@ -193,3 +192,6 @@ void ViewSupport()
 
     continue_function();
 }
+
+// done.
+// supports and bugs

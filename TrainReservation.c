@@ -7,8 +7,6 @@
 #include <stdbool.h>
 // #include <dos.h>
 
-
-
 // constants for size of char arrays to store filename, the line from the file
 #define FILENAME_SIZE 1024
 #define MAX_LINE 2048
@@ -1016,3 +1014,6 @@ void ticket_cancel()
 
     continue_function();
 }
+
+// main file
+// train rsrv
