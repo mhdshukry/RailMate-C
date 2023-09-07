@@ -47,3 +47,28 @@ okey bye
 ---------------------------------------------------------------
 
 
+Mail support no. 1 
+	Requesting person name: Shukry 
+Mail address: 
+mhdshukry111@gmail.com 
+Heading: 
+new 
+Content: 
+new 
+	Time: Wed Jun 14 22:01:42 2023
+---------------------------------------------------------------
+
+
+Mail support no. 1 
+	Requesting person name: Shukry 
+Mail address: 
+mhdshukry111@gmail.com
+ 
+Heading: 
+new 
+Content: 
+we want more feature and news page 
+	Time: Thu Jun 15 01:33:54 2023
+---------------------------------------------------------------
+
+
