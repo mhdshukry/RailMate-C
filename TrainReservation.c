@@ -25,11 +25,15 @@ void support();
 
 // Global variables
 char T_username[255];
+<<<<<<< Updated upstream
 int l_r_status;
 int i;
 char username[255];
 char reservation[255];
 
+=======
+int i;
+>>>>>>> Stashed changes
 void TrainReservation()
 {
     // static variables

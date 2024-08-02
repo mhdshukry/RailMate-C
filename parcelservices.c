@@ -8,11 +8,16 @@ void view_details_parcel(char start[], char finish[], float parcelcost, float pa
 void Parcel();
 void view_parcel_history();
 void calculate_price_parcel_reservation();
+<<<<<<< Updated upstream
 void continue_function();
 
 // Global variables
 char T_username[255];
 int i;
+=======
+// Global variables
+char T_username[255];
+>>>>>>> Stashed changes
 
 void Parcel()
 {
@@ -205,6 +210,7 @@ void calculate_price_parcel_reservation()
     float parcelcost;
     float fixed_parcel_cost = 100.00;
     parcelcost = fixed_parcel_cost * unit_price;
+    int i;
 
     switch (selectlane)
     {

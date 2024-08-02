@@ -85,6 +85,7 @@ Bug direct in main section
 
 
 Mail support no. 1 
+<<<<<<< Updated upstream:db_bugs.txt
 	Requesting person name: db_user_Shukry 
 Mail address: 
 fghvh
@@ -107,6 +108,19 @@ HDGSHDGSH'
 Content: 
 DGHDGSDHSD 
 	Time: Thu Jun 15 12:02:10 2023
+=======
+	Requesting person name: dp_user_shukry 
+Mail address: 
+mhd@gmail.com
+:
+ 
+Heading: 
+train 
+Content: 
+sdsdsadsds
+ 
+	Time: Sat May 20 11:18:54 2023
+>>>>>>> Stashed changes:dp_bugs.txt
 ---------------------------------------------------------------
 
 

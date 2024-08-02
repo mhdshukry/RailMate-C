@@ -264,7 +264,11 @@ ikirupan@gmail.com
 Address 
 Nelliady,SriLanka
 			---------------------------------------------------------------
+<<<<<<< Updated upstream:db_trainreservation.txt
 username: dp_user_kirupan
+=======
+username: dp_user_shukry
+>>>>>>> Stashed changes:dp_trainreservation.txt
 Train details:
 starting_station: Jaffna
 ending_station: Vavuniya
@@ -272,6 +276,7 @@ train_price: 300.00
 TrainName: YalDevi
 User details:
 Name: 
+<<<<<<< Updated upstream:db_trainreservation.txt
 KIRUPAN INPATHAS
 Phone Number: 
 0770221046
@@ -343,4 +348,14 @@ Email Address:
 ikirupan@gmail.com
 Address 
 SriLanka
+=======
+shukry
+Phone Number: 
+0786543033
+
+Email Address: 
+mhd
+Address 
+mhmhm
+>>>>>>> Stashed changes:dp_trainreservation.txt
 			---------------------------------------------------------------
